@@ -1,0 +1,690 @@
+{
+  "dataset": "Calcite_All",
+  "n_samples": 19752,
+  "n_features": 167,
+  "n_defective": 1577,
+  "defect_ratio": 0.07984001620089105,
+  "cluster_sizes": {
+    "cluster_0": 19751,
+    "cluster_1": 1
+  },
+  "internal_metrics": {
+    "silhouette_score": 0.9993423470000735,
+    "davies_bouldin_index": 0.0003474029016100096
+  },
+  "external_metrics": {
+    "homogeneity": 1.5133118170718305e-05,
+    "completeness": 0.007640257265380131,
+    "v_measure": 3.02064062729241e-05
+  },
+  "feature_relevance": [
+    {
+      "feature": "MOSER_age",
+      "relevance": 140.54371074486554
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "relevance": 140.54096428771945
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "relevance": 140.54090853163376
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "relevance": 140.54070066770493
+    },
+    {
+      "feature": "MOSER_authors",
+      "relevance": 140.53888228331076
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "relevance": 140.53829011610947
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "relevance": 140.53673136584942
+    },
+    {
+      "feature": "MOSER_revisions",
+      "relevance": 140.53507703510712
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "relevance": 140.53399671202044
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "relevance": 140.5328755650025
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "relevance": 140.53176007515341
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "relevance": 140.5311357159555
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "relevance": 140.5298180313815
+    },
+    {
+      "feature": "MOSER_max_changeset",
+      "relevance": 140.52846442447324
+    },
+    {
+      "feature": "PMD_severity_major",
+      "relevance": 140.52765593922643
+    },
+    {
+      "feature": "MOSER_avg_changeset",
+      "relevance": 140.52739979578752
+    },
+    {
+      "feature": "ISSUE_trivial_improvement",
+      "relevance": 140.52577910162205
+    },
+    {
+      "feature": "PMD_rule_type_naming rules",
+      "relevance": 140.52350277311197
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "relevance": 140.5077609310286
+    },
+    {
+      "feature": "PMD_cwopcsbf",
+      "relevance": 140.5059548129083
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "relevance": 140.5011384989606
+    },
+    {
+      "feature": "PMD_rule_type_strict exception rules",
+      "relevance": 140.49959406037502
+    },
+    {
+      "feature": "PMD_arp",
+      "relevance": 140.49194745231856
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "relevance": 140.49142227432554
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "relevance": 140.49141510404823
+    },
+    {
+      "feature": "MOSER_avg_lines_added",
+      "relevance": 140.48778943004166
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "relevance": 140.48650984079376
+    },
+    {
+      "feature": "PMD_dp",
+      "relevance": 140.48223384873882
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "relevance": 140.4739440973361
+    },
+    {
+      "feature": "MOSER_avg_code_churn",
+      "relevance": 140.47259584849104
+    },
+    {
+      "feature": "PMD_rule_type_optimization rules",
+      "relevance": 140.46420794275699
+    },
+    {
+      "feature": "ISSUE_major_task",
+      "relevance": 140.45403608756013
+    },
+    {
+      "feature": "MOSER_avg_lines_deleted",
+      "relevance": 140.4479518817893
+    },
+    {
+      "feature": "MOSER_max_lines_added",
+      "relevance": 140.44512265615813
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "relevance": 140.43832714599156
+    },
+    {
+      "feature": "PMD_uv",
+      "relevance": 140.4315053821527
+    },
+    {
+      "feature": "CHANGE_TYPE_interface",
+      "relevance": 140.43108879727066
+    },
+    {
+      "feature": "PMD_tfbfass",
+      "relevance": 140.42716736637422
+    },
+    {
+      "feature": "MOSER_max_code_churn",
+      "relevance": 140.42502913142846
+    },
+    {
+      "feature": "PMD_cis",
+      "relevance": 140.4197213130318
+    },
+    {
+      "feature": "PMD_rule_type_type resolution rules",
+      "relevance": 140.41698952484944
+    },
+    {
+      "feature": "PMD_rule_type_java logging rules",
+      "relevance": 140.4162648767111
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "relevance": 140.41169549466196
+    },
+    {
+      "feature": "MOSER_sum_lines_added",
+      "relevance": 140.4111585945659
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "relevance": 140.40857542894454
+    },
+    {
+      "feature": "PMD_ssshd",
+      "relevance": 140.39934634794454
+    },
+    {
+      "feature": "PMD_smn",
+      "relevance": 140.39731608367407
+    },
+    {
+      "feature": "PMD_uec",
+      "relevance": 140.39681859900648
+    },
+    {
+      "feature": "PMD_scn",
+      "relevance": 140.39209127403956
+    },
+    {
+      "feature": "PMD_aio",
+      "relevance": 140.38957037071702
+    },
+    {
+      "feature": "PMD_atret",
+      "relevance": 140.38838972068615
+    },
+    {
+      "feature": "PMD_upm",
+      "relevance": 140.38680606265552
+    },
+    {
+      "feature": "PMD_mbis",
+      "relevance": 140.38005808453946
+    },
+    {
+      "feature": "MOSER_max_lines_deleted",
+      "relevance": 140.37467351312557
+    },
+    {
+      "feature": "MOSER_sum_code_churn",
+      "relevance": 140.3559111831164
+    },
+    {
+      "feature": "CHANGE_TYPE_logic/control",
+      "relevance": 140.3434758937291
+    },
+    {
+      "feature": "PMD_afnmmn",
+      "relevance": 140.33418576282543
+    },
+    {
+      "feature": "ISSUE_minor_improvement",
+      "relevance": 140.32968327819606
+    },
+    {
+      "feature": "MOSER_refactorings",
+      "relevance": 140.32200435845985
+    },
+    {
+      "feature": "PMD_acwam",
+      "relevance": 140.3159882268888
+    },
+    {
+      "feature": "ISSUE_minor_bug",
+      "relevance": 140.29342330912309
+    },
+    {
+      "feature": "PMD_gn",
+      "relevance": 140.28073287260645
+    },
+    {
+      "feature": "PMD_sp",
+      "relevance": 140.27247314792024
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "relevance": 140.26441214008858
+    },
+    {
+      "feature": "PMD_uc",
+      "relevance": 140.2504430255556
+    },
+    {
+      "feature": "PMD_ucie",
+      "relevance": 140.24847506400405
+    },
+    {
+      "feature": "PMD_aisd",
+      "relevance": 140.24826728412245
+    },
+    {
+      "feature": "PMD_if",
+      "relevance": 140.21924336376554
+    },
+    {
+      "feature": "PMD_rfi",
+      "relevance": 140.18662301260414
+    },
+    {
+      "feature": "PMD_uis",
+      "relevance": 140.17899374869256
+    },
+    {
+      "feature": "PMD_rule_type_import statement rules",
+      "relevance": 140.17871625923976
+    },
+    {
+      "feature": "PMD_acge",
+      "relevance": 140.17290806435517
+    },
+    {
+      "feature": "PMD_adl",
+      "relevance": 140.1672301797453
+    },
+    {
+      "feature": "PMD_asaml",
+      "relevance": 140.13742889460474
+    },
+    {
+      "feature": "PMD_ctcnse",
+      "relevance": 140.12486001368953
+    },
+    {
+      "feature": "PMD_emiacsba",
+      "relevance": 140.1239968654453
+    },
+    {
+      "feature": "PMD_ulwcc",
+      "relevance": 140.11798367691028
+    },
+    {
+      "feature": "PMD_apmp",
+      "relevance": 140.10699478684765
+    },
+    {
+      "feature": "PMD_rule_type_javabean rules",
+      "relevance": 140.10335424939262
+    },
+    {
+      "feature": "PMD_odpl",
+      "relevance": 140.09700890917168
+    },
+    {
+      "feature": "PMD_ulv",
+      "relevance": 140.09546757928618
+    },
+    {
+      "feature": "PMD_usbfsa",
+      "relevance": 140.0827793585876
+    },
+    {
+      "feature": "PMD_rule_type_clone implementation rules",
+      "relevance": 140.07279684638027
+    },
+    {
+      "feature": "PMD_sf",
+      "relevance": 140.0463552235961
+    },
+    {
+      "feature": "PMD_loc",
+      "relevance": 140.01176309799303
+    },
+    {
+      "feature": "ISSUE_other_other",
+      "relevance": 139.9759084704236
+    },
+    {
+      "feature": "ISSUE_minor_task",
+      "relevance": 139.93638536053925
+    },
+    {
+      "feature": "PMD_act",
+      "relevance": 139.89948927141066
+    },
+    {
+      "feature": "PMD_casr",
+      "relevance": 139.89136766676535
+    },
+    {
+      "feature": "PMD_plfic",
+      "relevance": 139.8906790341248
+    },
+    {
+      "feature": "PMD_semn",
+      "relevance": 139.84427317187334
+    },
+    {
+      "feature": "PMD_mria",
+      "relevance": 139.8406694581469
+    },
+    {
+      "feature": "PMD_ccom",
+      "relevance": 139.83768578955866
+    },
+    {
+      "feature": "PMD_uni",
+      "relevance": 139.83713737545162
+    },
+    {
+      "feature": "PMD_eis",
+      "relevance": 139.8015252913433
+    },
+    {
+      "feature": "PMD_ecb",
+      "relevance": 139.78642093411648
+    },
+    {
+      "feature": "PMD_absalil",
+      "relevance": 139.7839922350114
+    },
+    {
+      "feature": "PMD_nsi",
+      "relevance": 139.77409901992877
+    },
+    {
+      "feature": "PMD_apst",
+      "relevance": 139.70676329729136
+    },
+    {
+      "feature": "PMD_plficic",
+      "relevance": 139.67353029714366
+    },
+    {
+      "feature": "PMD_tmsi",
+      "relevance": 139.6675551449158
+    },
+    {
+      "feature": "PMD_glsju",
+      "relevance": 139.64601977887057
+    },
+    {
+      "feature": "PMD_pst",
+      "relevance": 139.63958046918032
+    },
+    {
+      "feature": "PMD_afnmtn",
+      "relevance": 139.58274803750933
+    },
+    {
+      "feature": "PMD_asbf",
+      "relevance": 139.539429092808
+    },
+    {
+      "feature": "PMD_uem",
+      "relevance": 139.50747945574116
+    },
+    {
+      "feature": "PMD_ufqn",
+      "relevance": 139.41734777724284
+    },
+    {
+      "feature": "PMD_ulbr",
+      "relevance": 139.3874111196396
+    },
+    {
+      "feature": "PMD_clr",
+      "relevance": 139.3554986568983
+    },
+    {
+      "feature": "PMD_menc",
+      "relevance": 139.1630940953313
+    },
+    {
+      "feature": "PMD_fdsbasoc",
+      "relevance": 139.15212004860587
+    },
+    {
+      "feature": "PMD_rule_type_jakarta commons logging rules",
+      "relevance": 139.14929525505238
+    },
+    {
+      "feature": "PMD_uom",
+      "relevance": 139.12127165792012
+    },
+    {
+      "feature": "PMD_li",
+      "relevance": 139.11296186162494
+    },
+    {
+      "feature": "PMD_aci",
+      "relevance": 139.1070720683961
+    },
+    {
+      "feature": "PMD_pci",
+      "relevance": 139.076874636814
+    },
+    {
+      "feature": "ISSUE_blocker_bug",
+      "relevance": 139.0367063134021
+    },
+    {
+      "feature": "PMD_aes",
+      "relevance": 139.00667565729614
+    },
+    {
+      "feature": "ISSUE_critical_improvement",
+      "relevance": 138.82399021020177
+    },
+    {
+      "feature": "PMD_gls",
+      "relevance": 138.81391753131987
+    },
+    {
+      "feature": "PMD_sdfnl",
+      "relevance": 138.7472904330902
+    },
+    {
+      "feature": "PMD_upf",
+      "relevance": 138.65210300503034
+    },
+    {
+      "feature": "PMD_cla",
+      "relevance": 138.57964863349633
+    },
+    {
+      "feature": "PMD_aal",
+      "relevance": 138.4690915585769
+    },
+    {
+      "feature": "PMD_are",
+      "relevance": 138.4229685954125
+    },
+    {
+      "feature": "PMD_linsf",
+      "relevance": 138.40258924275972
+    },
+    {
+      "feature": "PMD_obeah",
+      "relevance": 138.40258924275972
+    },
+    {
+      "feature": "PMD_abcwam",
+      "relevance": 138.40258924275972
+    },
+    {
+      "feature": "PMD_vnc",
+      "relevance": 138.26681662662668
+    },
+    {
+      "feature": "PMD_adlibdc",
+      "relevance": 138.17012945680676
+    },
+    {
+      "feature": "PMD_clmmic",
+      "relevance": 138.02196845651278
+    },
+    {
+      "feature": "PMD_ntss",
+      "relevance": 138.0158054204125
+    },
+    {
+      "feature": "PMD_dlnliss",
+      "relevance": 137.94761932475137
+    },
+    {
+      "feature": "PMD_rule_type_j2ee rules",
+      "relevance": 137.92109341305294
+    },
+    {
+      "feature": "ISSUE_trivial_bug",
+      "relevance": 137.81902313278363
+    },
+    {
+      "feature": "PMD_atnpe",
+      "relevance": 137.76433629756946
+    },
+    {
+      "feature": "PMD_rule_type_brace rules",
+      "relevance": 137.7087023207382
+    },
+    {
+      "feature": "PMD_ismub",
+      "relevance": 137.63928929165706
+    },
+    {
+      "feature": "PMD_bgmn",
+      "relevance": 137.57825859491143
+    },
+    {
+      "feature": "PMD_soe",
+      "relevance": 137.1502843055249
+    },
+    {
+      "feature": "PMD_aicicc",
+      "relevance": 136.660532136755
+    },
+    {
+      "feature": "PMD_reartn",
+      "relevance": 136.58823504379237
+    },
+    {
+      "feature": "ISSUE_critical_bug",
+      "relevance": 136.5409554609911
+    },
+    {
+      "feature": "PMD_auhcip",
+      "relevance": 136.4719604389386
+    },
+    {
+      "feature": "PMD_ncliss",
+      "relevance": 136.35167331455722
+    },
+    {
+      "feature": "PMD_ccewta",
+      "relevance": 136.3516733145572
+    },
+    {
+      "feature": "PMD_crs",
+      "relevance": 136.35167331455716
+    },
+    {
+      "feature": "ISSUE_major_test",
+      "relevance": 136.08505020415032
+    },
+    {
+      "feature": "PMD_ffcbs",
+      "relevance": 136.05523075304552
+    },
+    {
+      "feature": "PMD_uwoc",
+      "relevance": 135.9966899877551
+    },
+    {
+      "feature": "PMD_sbe",
+      "relevance": 135.96880475178546
+    },
+    {
+      "feature": "PMD_dncse",
+      "relevance": 135.7967334192139
+    },
+    {
+      "feature": "ISSUE_blocker_task",
+      "relevance": 135.0339874258316
+    },
+    {
+      "feature": "PMD_sts",
+      "relevance": 134.56421520977395
+    },
+    {
+      "feature": "PMD_flsbwl",
+      "relevance": 134.00690828295168
+    },
+    {
+      "feature": "PMD_eafc",
+      "relevance": 133.9409048720303
+    },
+    {
+      "feature": "PMD_isb",
+      "relevance": 133.3350674688732
+    },
+    {
+      "feature": "PMD_esnil",
+      "relevance": 132.50930628948115
+    },
+    {
+      "feature": "ISSUE_critical_task",
+      "relevance": 132.50930628948115
+    },
+    {
+      "feature": "PMD_acnpe",
+      "relevance": 132.50930628948115
+    },
+    {
+      "feature": "PMD_ews",
+      "relevance": 131.60586753674974
+    },
+    {
+      "feature": "PMD_msminic",
+      "relevance": 131.46981664361383
+    },
+    {
+      "feature": "ISSUE_minor_test",
+      "relevance": 130.12113730391343
+    },
+    {
+      "feature": "PMD_sc",
+      "relevance": 129.1828158804687
+    },
+    {
+      "feature": "PMD_otac",
+      "relevance": 128.97447680209945
+    },
+    {
+      "feature": "PMD_gdl",
+      "relevance": 128.30086225920746
+    },
+    {
+      "feature": "PMD_pl",
+      "relevance": 114.75384294523404
+    }
+  ]
+}

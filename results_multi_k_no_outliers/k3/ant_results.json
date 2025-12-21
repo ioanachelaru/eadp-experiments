@@ -1,0 +1,42 @@
+{
+  "k": 3,
+  "dataset": "Ant_All",
+  "n_samples": 2008,
+  "n_defective": 114,
+  "defect_rate": 5.68,
+  "cluster_sizes": {
+    "cluster_0": 1975,
+    "cluster_1": 15,
+    "cluster_2": 18
+  },
+  "cluster_defects": {
+    "cluster_0": {
+      "total": 1975,
+      "defective": 104,
+      "defect_rate": 5.27,
+      "risk": "LOW"
+    },
+    "cluster_1": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_2": {
+      "total": 18,
+      "defective": 10,
+      "defect_rate": 55.56,
+      "risk": "HIGH"
+    }
+  },
+  "inertia": 1671.0924530417049,
+  "internal_metrics": {
+    "silhouette_score": 0.7317813361037747,
+    "davies_bouldin_index": 0.8728269719959317
+  },
+  "external_metrics": {
+    "homogeneity": 0.04108797707809717,
+    "completeness": 0.09414468164012964,
+    "v_measure": 0.057208289150245624
+  }
+}

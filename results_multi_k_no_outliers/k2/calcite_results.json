@@ -1,0 +1,35 @@
+{
+  "k": 2,
+  "dataset": "Calcite_All",
+  "n_samples": 19091,
+  "n_defective": 1445,
+  "defect_rate": 7.57,
+  "cluster_sizes": {
+    "cluster_0": 19044,
+    "cluster_1": 47
+  },
+  "cluster_defects": {
+    "cluster_0": {
+      "total": 19044,
+      "defective": 1445,
+      "defect_rate": 7.59,
+      "risk": "HIGH"
+    },
+    "cluster_1": {
+      "total": 47,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    }
+  },
+  "inertia": 7308.40263949735,
+  "internal_metrics": {
+    "silhouette_score": 0.853394825132414,
+    "davies_bouldin_index": 0.4083830036666215
+  },
+  "external_metrics": {
+    "homogeneity": 0.0007236414278781659,
+    "completeness": 0.011249421218789744,
+    "v_measure": 0.0013598103465755193
+  }
+}
