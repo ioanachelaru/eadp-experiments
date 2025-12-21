@@ -239,6 +239,9 @@ def compute_feature_relevance(
     Features with larger differences between cluster centroids are considered
     more relevant for distinguishing clusters.
 
+    For k=2: Uses absolute difference between centroids.
+    For k>2: Uses standard deviation of centroids across clusters.
+
     Args:
         kmeans: Fitted KMeans model
         feature_names: List of feature names
@@ -247,11 +250,18 @@ def compute_feature_relevance(
         DataFrame with features ranked by relevance
     """
     centroids = kmeans.cluster_centers_
-    # Compute absolute difference between centroids for each feature
-    centroid_diff = np.abs(centroids[0] - centroids[1])
+    n_clusters = centroids.shape[0]
+
+    if n_clusters == 2:
+        # For k=2: absolute difference between centroids
+        relevance = np.abs(centroids[0] - centroids[1])
+    else:
+        # For k>2: standard deviation of each feature across cluster centroids
+        # Higher std means the feature varies more across clusters
+        relevance = np.std(centroids, axis=0)
 
     relevance_df = pd.DataFrame(
-        {"feature": feature_names, "relevance": centroid_diff}
+        {"feature": feature_names, "relevance": relevance}
     )
     relevance_df = relevance_df.sort_values("relevance", ascending=False)
     relevance_df = relevance_df.reset_index(drop=True)
@@ -680,6 +690,9 @@ def analyze_dataset_for_k(
     # Get inertia (for elbow method)
     inertia = float(kmeans.inertia_)
 
+    # Compute feature relevance
+    relevance_df = compute_feature_relevance(kmeans, feature_names)
+
     # Compute cluster sizes and defect rates
     cluster_sizes = {}
     cluster_defects = {}
@@ -718,6 +731,7 @@ def analyze_dataset_for_k(
         "k": k,
         "dataset": dataset_name,
         "n_samples": int(len(X_scaled)),
+        "n_features": len(feature_names),
         "n_defective": int(labels.sum()),
         "defect_rate": round(dataset_defect_rate, 2),
         "cluster_sizes": cluster_sizes,
@@ -725,6 +739,7 @@ def analyze_dataset_for_k(
         "inertia": inertia,
         "internal_metrics": internal_metrics,
         "external_metrics": external_metrics,
+        "feature_relevance": relevance_df.to_dict("records"),
     }
 
 
@@ -759,7 +774,39 @@ def run_multi_k_analysis(
         json_path = os.path.join(k_output_dir, f"{dataset_name}_results.json")
         save_results_json(result, json_path)
 
+        # Save feature rankings to text file
+        feature_path = os.path.join(k_output_dir, f"{dataset_name}_top_features.txt")
+        save_feature_rankings(result, feature_path)
+
     return results
+
+
+def save_feature_rankings(result: dict, file_path: str) -> None:
+    """
+    Save feature rankings to a text file.
+
+    Args:
+        result: Result dictionary containing feature_relevance
+        file_path: Path to save the rankings
+    """
+    lines = []
+    lines.append("=" * 70)
+    lines.append(f"TOP FEATURES BY CLUSTER RELEVANCE")
+    lines.append(f"Dataset: {result['dataset']}, K={result['k']}")
+    lines.append(f"Samples: {result['n_samples']}, Features: {result['n_features']}")
+    lines.append("=" * 70)
+    lines.append("")
+    lines.append(f"{'Rank':<6} {'Feature':<50} {'Relevance':>12}")
+    lines.append("-" * 70)
+
+    for i, feat in enumerate(result["feature_relevance"]):
+        lines.append(f"{i+1:<6} {feat['feature']:<50} {feat['relevance']:>12.6f}")
+
+    lines.append("")
+    lines.append("=" * 70)
+
+    with open(file_path, "w") as f:
+        f.write("\n".join(lines))
 
 
 def plot_k_comparison(
