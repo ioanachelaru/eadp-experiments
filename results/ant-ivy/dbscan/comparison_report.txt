@@ -1,0 +1,108 @@
+======================================================================
+FEATURE COMPARISON REPORT: Clustering vs Effort-Data
+======================================================================
+Dataset: ant-ivy
+Algorithm: DBSCAN
+Total clustering features: 4189
+
+----------------------------------------------------------------------
+FEATURE GROUP: 26_common
+Description: 26 metrics common to Ant & Calcite (corr>=0.1)
+Total features: 26
+----------------------------------------------------------------------
+
+OVERLAP SUMMARY
+  Features found in clustering: 26/26 (100.0%)
+
+RANK DISTRIBUTION
+  Best rank: 445
+  Worst rank: 1876
+  Median rank: 1372
+  Average rank: 1154.9
+
+TOP N COVERAGE
+  In top   50:   0 (  0.0%)
+  In top  100:   0 (  0.0%)
+  In top  500:   2 (  7.7%)
+  In top 1000:   8 ( 30.8%)
+
+CATEGORY BREAKDOWN
+  CHANGE_TYPE    :  3 features, avg rank 1532.7, best 1481, 0 in top 100
+  HASSAN         :  5 features, avg rank 1446.6, best 1379, 0 in top 100
+  ISSUE          :  2 features, avg rank 1242.5, best 1027, 0 in top 100
+  MOSER          :  5 features, avg rank 1290.6, best 1070, 0 in top 100
+  PMD            : 11 features, avg rank  841.6, best  445, 0 in top 100
+
+TOP EFFORT-DATA FEATURES BY CLUSTERING RANK
+   1. PMD_rule_type_unnecessary and unused code rules    rank  445 [PMD]
+   2. PMD_rule_type_string and stringbuffer rules        rank  468 [PMD]
+   3. PMD_rule_type_design rules                         rank  519 [PMD]
+   4. PMD_severity_minor                                 rank  598 [PMD]
+   5. PMD_arp                                            rank  630 [PMD]
+   6. PMD_cis                                            rank  821 [PMD]
+   7. PMD_severity_major                                 rank  852 [PMD]
+   8. PMD_rule_type_basic rules                          rank  921 [PMD]
+   9. ISSUE_major_improvement                            rank 1027 [ISSUE]
+  10. PMD_severity_critical                              rank 1059 [PMD]
+  11. PMD_rule_type_controversial rules                  rank 1069 [PMD]
+  12. MOSER_revisions                                    rank 1070 [MOSER]
+  13. MOSER_sum_lines_deleted                            rank 1116 [MOSER]
+  14. MOSER_weighted_age                                 rank 1372 [MOSER]
+  15. HASSAN_lgdhcm                                      rank 1379 [HASSAN]
+  16. HASSAN_edhcm                                       rank 1394 [HASSAN]
+  17. MOSER_bugfix                                       rank 1401 [MOSER]
+  18. HASSAN_ldhcm                                       rank 1420 [HASSAN]
+  19. ISSUE_major_bug                                    rank 1458 [ISSUE]
+  20. HASSAN_hcm                                         rank 1461 [HASSAN]
+
+----------------------------------------------------------------------
+FEATURE GROUP: ant_all
+Description: 149 Ant effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)
+Total features: 149
+----------------------------------------------------------------------
+
+OVERLAP SUMMARY
+  Features found in clustering: 149/149 (100.0%)
+
+RANK DISTRIBUTION
+  Best rank: 31
+  Worst rank: 2214
+  Median rank: 1738
+  Average rank: 1519.9
+
+TOP N COVERAGE
+  In top   50:   3 (  2.0%)
+  In top  100:   3 (  2.0%)
+  In top  500:   9 (  6.0%)
+  In top 1000:  21 ( 14.1%)
+
+CATEGORY BREAKDOWN
+  CHANGE_TYPE    :  5 features, avg rank 1503.8, best 1457, 0 in top 100
+  HASSAN         :  5 features, avg rank 1446.6, best 1379, 0 in top 100
+  ISSUE          : 10 features, avg rank 1723.9, best 1027, 0 in top 100
+  MOSER          : 17 features, avg rank 1526.5, best 1070, 0 in top 100
+  PMD            : 112 features, avg rank 1504.7, best   31, 3 in top 100
+
+TOP EFFORT-DATA FEATURES BY CLUSTERING RANK
+   1. PMD_isb                                            rank   31 [PMD]
+   2. PMD_sdfnl                                          rank   38 [PMD]
+   3. PMD_scn                                            rank   39 [PMD]
+   4. PMD_sf                                             rank  165 [PMD]
+   5. PMD_gls                                            rank  209 [PMD]
+   6. PMD_upf                                            rank  216 [PMD]
+   7. PMD_fdsbasoc                                       rank  338 [PMD]
+   8. PMD_rule_type_unnecessary and unused code rules    rank  445 [PMD]
+   9. PMD_rule_type_string and stringbuffer rules        rank  468 [PMD]
+  10. PMD_uc                                             rank  515 [PMD]
+  11. PMD_rule_type_design rules                         rank  519 [PMD]
+  12. PMD_gdl                                            rank  581 [PMD]
+  13. PMD_severity_minor                                 rank  598 [PMD]
+  14. PMD_arp                                            rank  630 [PMD]
+  15. PMD_rule_type_java logging rules                   rank  706 [PMD]
+  16. PMD_uec                                            rank  759 [PMD]
+  17. PMD_cis                                            rank  821 [PMD]
+  18. PMD_severity_major                                 rank  852 [PMD]
+  19. PMD_rule_type_jakarta commons logging rules        rank  891 [PMD]
+  20. PMD_rule_type_basic rules                          rank  921 [PMD]
+
+======================================================================
