@@ -1,0 +1,108 @@
+======================================================================
+FEATURE COMPARISON REPORT: Clustering vs Effort-Data
+======================================================================
+Dataset: calcite
+Algorithm: DBSCAN
+Total clustering features: 5234
+
+----------------------------------------------------------------------
+FEATURE GROUP: 26_common
+Description: 26 metrics common to Ant & Calcite (corr>=0.1)
+Total features: 26
+----------------------------------------------------------------------
+
+OVERLAP SUMMARY
+  Features found in clustering: 26/26 (100.0%)
+
+RANK DISTRIBUTION
+  Best rank: 1488
+  Worst rank: 2994
+  Median rank: 1981
+  Average rank: 2084.6
+
+TOP N COVERAGE
+  In top   50:   0 (  0.0%)
+  In top  100:   0 (  0.0%)
+  In top  500:   0 (  0.0%)
+  In top 1000:   0 (  0.0%)
+
+CATEGORY BREAKDOWN
+  CHANGE_TYPE    :  3 features, avg rank 1755.3, best 1488, 0 in top 100
+  HASSAN         :  5 features, avg rank 2554.8, best 1806, 0 in top 100
+  ISSUE          :  2 features, avg rank 2350.5, best 2147, 0 in top 100
+  MOSER          :  5 features, avg rank 2276.4, best 1948, 0 in top 100
+  PMD            : 11 features, avg rank 1825.1, best 1501, 0 in top 100
+
+TOP EFFORT-DATA FEATURES BY CLUSTERING RANK
+   1. CHANGE_TYPE_computation                            rank 1488 [CHANGE_TYPE]
+   2. PMD_odpl                                           rank 1501 [PMD]
+   3. PMD_rule_type_string and stringbuffer rules        rank 1624 [PMD]
+   4. PMD_rule_type_basic rules                          rank 1735 [PMD]
+   5. PMD_rule_type_design rules                         rank 1739 [PMD]
+   6. PMD_severity_critical                              rank 1790 [PMD]
+   7. CHANGE_TYPE_data                                   rank 1797 [CHANGE_TYPE]
+   8. PMD_severity_minor                                 rank 1805 [PMD]
+   9. HASSAN_whcm                                        rank 1806 [HASSAN]
+  10. PMD_arp                                            rank 1868 [PMD]
+  11. PMD_severity_major                                 rank 1906 [PMD]
+  12. MOSER_revisions                                    rank 1948 [MOSER]
+  13. PMD_rule_type_unnecessary and unused code rules    rank 1978 [PMD]
+  14. CHANGE_TYPE_other                                  rank 1981 [CHANGE_TYPE]
+  15. PMD_rule_type_controversial rules                  rank 1984 [PMD]
+  16. PMD_cis                                            rank 2146 [PMD]
+  17. ISSUE_major_bug                                    rank 2147 [ISSUE]
+  18. MOSER_authors                                      rank 2191 [MOSER]
+  19. MOSER_sum_lines_deleted                            rank 2192 [MOSER]
+  20. HASSAN_hcm                                         rank 2270 [HASSAN]
+
+----------------------------------------------------------------------
+FEATURE GROUP: calcite_all
+Description: 170 Calcite effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)
+Total features: 170
+----------------------------------------------------------------------
+
+OVERLAP SUMMARY
+  Features found in clustering: 170/170 (100.0%)
+
+RANK DISTRIBUTION
+  Best rank: 13
+  Worst rank: 3265
+  Median rank: 2108
+  Average rank: 2112.8
+
+TOP N COVERAGE
+  In top   50:   2 (  1.2%)
+  In top  100:   4 (  2.4%)
+  In top  500:   8 (  4.7%)
+  In top 1000:  16 (  9.4%)
+
+CATEGORY BREAKDOWN
+  CHANGE_TYPE    :  5 features, avg rank 1764.4, best 1488, 0 in top 100
+  HASSAN         :  5 features, avg rank 2554.8, best 1806, 0 in top 100
+  ISSUE          : 16 features, avg rank 2499.2, best  717, 0 in top 100
+  MOSER          : 17 features, avg rank 2244.2, best 1579, 0 in top 100
+  PMD            : 127 features, avg rank 2042.8, best   13, 4 in top 100
+
+TOP EFFORT-DATA FEATURES BY CLUSTERING RANK
+   1. PMD_msminic                                        rank   13 [PMD]
+   2. PMD_eafc                                           rank   21 [PMD]
+   3. PMD_adl                                            rank   62 [PMD]
+   4. PMD_clr                                            rank   64 [PMD]
+   5. PMD_sts                                            rank  110 [PMD]
+   6. PMD_are                                            rank  224 [PMD]
+   7. PMD_soe                                            rank  400 [PMD]
+   8. PMD_rfi                                            rank  466 [PMD]
+   9. PMD_acge                                           rank  514 [PMD]
+  10. PMD_ecb                                            rank  645 [PMD]
+  11. PMD_ncliss                                         rank  663 [PMD]
+  12. PMD_mria                                           rank  696 [PMD]
+  13. ISSUE_blocker_bug                                  rank  717 [ISSUE]
+  14. PMD_aci                                            rank  719 [PMD]
+  15. PMD_ufqn                                           rank  723 [PMD]
+  16. PMD_adlibdc                                        rank  956 [PMD]
+  17. PMD_ffcbs                                          rank 1054 [PMD]
+  18. PMD_rule_type_brace rules                          rank 1091 [PMD]
+  19. PMD_atret                                          rank 1095 [PMD]
+  20. PMD_pst                                            rank 1097 [PMD]
+
+======================================================================

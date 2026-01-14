@@ -28,6 +28,12 @@ EFFORT_SHEETS = {
         "exclude_cols": ["Ant version", "ID", "file", "Bug"],
         "description": "149 Ant effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
     },
+    "calcite_all": {
+        "sheet": "Calcite_All",
+        "header_row": 9,
+        "exclude_cols": ["Calcite version", "ID", "file", "Bug", "Version-ID"],
+        "description": "170 Calcite effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
+    },
 }
 
 
@@ -52,9 +58,13 @@ def load_clustering_results(results_path: str) -> tuple[list[dict], dict]:
     return feature_relevance, metadata
 
 
-def load_effort_data_features(xlsx_path: str) -> dict[str, list[str]]:
+def load_effort_data_features(xlsx_path: str, dataset: str) -> dict[str, list[str]]:
     """
     Load feature lists from effort_data Excel sheets.
+
+    Args:
+        xlsx_path: Path to effort_data Excel file
+        dataset: Dataset name ("ant-ivy" or "calcite")
 
     Returns:
         Dictionary mapping group name to list of feature names
@@ -71,14 +81,25 @@ def load_effort_data_features(xlsx_path: str) -> dict[str, list[str]]:
                 common_features.append(str(val))
     features["26_common"] = common_features
 
-    # Load Ant all features
-    df_ant = pd.read_excel(xl, sheet_name="Ant_All", header=9)
-    exclude = {"Ant version", "ID", "file", "Bug"}
-    ant_features = [
-        str(c) for c in df_ant.columns
-        if "Unnamed" not in str(c) and str(c) not in exclude
-    ]
-    features["ant_all"] = ant_features
+    # Load dataset-specific features
+    if dataset == "ant-ivy":
+        config = EFFORT_SHEETS["ant_all"]
+        df = pd.read_excel(xl, sheet_name=config["sheet"], header=config["header_row"])
+        exclude = set(config["exclude_cols"])
+        dataset_features = [
+            str(c) for c in df.columns
+            if "Unnamed" not in str(c) and str(c) not in exclude
+        ]
+        features["ant_all"] = dataset_features
+    elif dataset == "calcite":
+        config = EFFORT_SHEETS["calcite_all"]
+        df = pd.read_excel(xl, sheet_name=config["sheet"], header=config["header_row"])
+        exclude = set(config["exclude_cols"])
+        dataset_features = [
+            str(c) for c in df.columns
+            if "Unnamed" not in str(c) and str(c) not in exclude
+        ]
+        features["calcite_all"] = dataset_features
 
     return features
 
@@ -291,7 +312,7 @@ def main():
     clustering_features, metadata = load_clustering_results(results_path)
 
     print(f"Loading effort_data features from {args.effort_data}...")
-    effort_features = load_effort_data_features(args.effort_data)
+    effort_features = load_effort_data_features(args.effort_data, args.dataset)
 
     # Compute comparisons for each group
     all_ranks = {}
