@@ -4,7 +4,18 @@ Effort-aware defect prediction experiments using clustering analysis on software
 
 ## Overview
 
-This project analyzes software metrics from Apache Ant and Apache Calcite projects to identify which metrics are most relevant for predicting software defects. Using K-Means clustering (k=2), we evaluate how well unsupervised clustering aligns with actual defect labels.
+This project analyzes software metrics from Apache Ant-Ivy and Apache Calcite projects to identify which metrics are most relevant for predicting software defects. Using DBSCAN clustering with automatic epsilon detection, we evaluate feature importance based on cluster separation and compare results with effort-related metrics.
+
+## Key Findings
+
+| Dataset | Samples | Features | Clusters | Top Feature Category |
+|---------|---------|----------|----------|---------------------|
+| Ant-Ivy | 2,237 | 4,189 | 4 | SM_interface (88%) |
+| Calcite | 19,751 | 5,234 | 65 | SM_enum (68%) |
+
+- **Only 1 feature** appears in both top 100 lists (`SM_interface_nop_sum`)
+- Software Metrics (SM_*) dominate top rankings in both datasets (96%)
+- Effort-data features (PMD, HASSAN, MOSER) show minimal overlap with clustering results (~2% in top 100)
 
 ## Prerequisites
 
@@ -17,87 +28,95 @@ This project analyzes software metrics from Apache Ant and Apache Calcite projec
 pip install -r requirements.txt
 ```
 
+## Project Structure
+
+```
+eadp-experiments/
+├── run_clustering.py          # Main clustering entry point
+├── compare_features.py        # Compare clustering vs effort-data features
+├── src/
+│   ├── config.py              # Dataset and algorithm configurations
+│   ├── data_utils.py          # Data loading and preprocessing
+│   ├── clustering.py          # K-Means and DBSCAN implementations
+│   ├── metrics.py             # Internal and external metrics
+│   ├── feature_analysis.py    # Feature relevance computation
+│   └── plotting.py            # Visualization functions
+├── data/
+│   ├── ant-ivy-all versions.xlsx
+│   └── All Calcite 1.0.0-1.15.0 software metrics.xlsx
+├── effort_data/
+│   └── All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx
+└── results/
+    ├── ant-ivy/dbscan/        # Ant-Ivy clustering results
+    ├── calcite/dbscan/        # Calcite clustering results
+    └── clustering_comparison_report.txt
+```
+
 ## Usage
 
-### Basic Analysis (k=2)
+### Run DBSCAN Clustering
 
 ```bash
-python clustering_analysis.py                    # With all samples
-python clustering_analysis.py --no-outliers      # Remove outliers (Z > 3.0)
+# Run on Ant-Ivy dataset
+python3 run_clustering.py --dataset ant-ivy --algorithm dbscan
+
+# Run on Calcite dataset
+python3 run_clustering.py --dataset calcite --algorithm dbscan
+
+# With outlier removal
+python3 run_clustering.py --dataset ant-ivy --algorithm dbscan --no-outliers
+
+# With custom parameters
+python3 run_clustering.py --dataset ant-ivy --algorithm dbscan --eps 50 --min-samples 10
 ```
 
-### Multi-K Analysis (k=2,3,4,5)
+### Run K-Means Clustering
 
 ```bash
-python clustering_analysis.py --multi-k                    # Compare different k values
-python clustering_analysis.py --multi-k --no-outliers      # Recommended for best results
+python3 run_clustering.py --dataset ant-ivy --algorithm kmeans --k 3
 ```
 
-Results will be saved to:
-- `results/` - basic analysis with all samples
-- `results_no_outliers/` - basic analysis with outlier removal
-- `results_multi_k/` - multi-k analysis with all samples
-- `results_multi_k_no_outliers/` - multi-k analysis with outlier removal (recommended)
+### Compare with Effort-Data Features
 
-## Data
+```bash
+# Compare Ant-Ivy clustering results with effort-data features
+python3 compare_features.py --dataset ant-ivy --algorithm dbscan
 
-The analysis uses data from:
-- **File**: `data/All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx`
-- **Sheets**: `Ant_All` and `Calcite_All`
-
-Each sheet contains software metrics for classes, with a `bug`/`bugs` column indicating defective instances.
+# Compare Calcite clustering results
+python3 compare_features.py --dataset calcite --algorithm dbscan
+```
 
 ## Output
 
-### Basic Analysis Output
+### Clustering Results
 
 ```
-results/
-├── ant_results.json           # Ant metrics (machine-readable)
-├── calcite_results.json       # Calcite metrics (machine-readable)
-├── analysis_report.txt        # Combined text report
+results/{dataset}/{algorithm}/
+├── results.json               # Full results with all feature rankings
+├── top_features.txt           # Human-readable feature rankings
+├── metrics_summary.txt        # Clustering metrics and cluster statistics
+├── comparison_report.txt      # Comparison with effort-data features
 └── visualizations/
-    ├── ant_clusters.png           # PCA cluster visualization
-    ├── calcite_clusters.png
-    ├── ant_metrics_comparison.png # Metrics bar chart
-    ├── calcite_metrics_comparison.png
-    ├── ant_feature_relevance.png  # Top features by relevance
-    └── calcite_feature_relevance.png
+    ├── clusters_pca.png       # PCA cluster visualization
+    ├── feature_relevance.png  # Top features chart
+    ├── metrics_comparison.png # Metrics bar chart
+    └── k_distance.png         # K-distance graph (DBSCAN only)
 ```
 
-### Multi-K Analysis Output
+### Comparison Report
 
 ```
-results_multi_k_no_outliers/
-├── findings_summary.txt       # Interpretation and recommendations
-├── multi_k_comparison.txt     # Full comparison report
-├── k_comparison_chart.png     # Visual comparison across k values
-├── k2/
-│   ├── ant_results.json       # Results for k=2
-│   ├── calcite_results.json
-│   └── visualizations/
-├── k3/
-│   └── ...                    # Results for k=3
-├── k4/
-│   └── ...
-└── k5/
-    └── ...
+results/clustering_comparison_report.txt   # Ant vs Calcite feature comparison
 ```
 
-The `findings_summary.txt` includes:
-- Recommended k value per dataset
-- Cluster risk assessment (defect rate per cluster)
-- Key differentiating metrics
-- Practical recommendations for testing and code review
+## Metrics Computed
 
-### Metrics Computed
+### Internal Clustering Metrics
 
-#### Internal Clustering Metrics
-
-- **Silhouette Score**: Measures how similar points are to their own cluster vs. other clusters. Range: -1 to 1, higher is better.
+- **Silhouette Score**: Measures cluster cohesion vs separation. Range: -1 to 1, higher is better.
 - **Davies-Bouldin Index**: Ratio of within-cluster to between-cluster distances. Lower is better.
 
-#### External Clustering Metrics
+### External Clustering Metrics
 
 Using defect labels as ground truth:
 
@@ -107,22 +126,52 @@ Using defect labels as ground truth:
 
 ### Feature Relevance
 
-Features are ranked by the absolute difference between cluster centroids (after standardization). Larger differences indicate features that better distinguish between clusters.
+Features are ranked by the standard deviation across cluster centers. Higher values indicate features that better distinguish between clusters.
 
 ## Configuration
 
-Edit the `CONFIG` dictionary in `clustering_analysis.py` to modify:
+Edit `src/config.py` to modify datasets and algorithm defaults:
 
 ```python
-CONFIG = {
-    "data_file": "data/...",      # Path to Excel file
-    "sheets": ["Ant_All", ...],   # Sheets to analyze
-    "n_clusters": 2,              # Number of clusters
-    "random_state": 42,           # Random seed for reproducibility
-    "output_dir": "results",      # Output directory
-    "top_features": 15,           # Number of top features to display
+DATASETS = {
+    "ant-ivy": {
+        "file": "data/ant-ivy-all versions.xlsx",
+        "sheet": "ant-ivy-all versions",
+        "header_row": 8,
+        "feature_name_row": 7,
+        "label_column": "Label",
+    },
+    "calcite": {
+        "file": "data/All Calcite 1.0.0-1.15.0 software metrics.xlsx",
+        "sheet": "All SM",
+        "header_row": 9,
+        "label_column": "Bug",
+    },
+}
+
+CLUSTERING_DEFAULTS = {
+    "kmeans": {"n_clusters": 2, "random_state": 42},
+    "dbscan": {"eps": None, "min_samples": 5},  # eps auto-detected
 }
 ```
+
+## Results Summary
+
+### Ant-Ivy DBSCAN Results
+- **Clusters**: 4 (+ 1.5% noise)
+- **Silhouette**: 0.507
+- **Top features**: SM_class_nii_stdev, SM_interface_nii_*, SM_class_pda_stdev
+- **Effort-data overlap**: 3/149 features in top 100 (2.0%)
+
+### Calcite DBSCAN Results
+- **Clusters**: 65 (+ 0.9% noise)
+- **Silhouette**: 0.423
+- **Top features**: SM_interface_nod_stdev, SM_enum_dloc_stdev, SM_enum_cloc_stdev
+- **Effort-data overlap**: 4/170 features in top 100 (2.4%)
+
+### Key Insight
+
+The clustering analysis identifies **Software Metrics (SM_*)** as most important for cluster separation, while the effort-data correlation analysis prioritizes **PMD, HASSAN, and MOSER** metrics. The two approaches capture fundamentally different aspects of defect prediction.
 
 ## License
 
