@@ -1,0 +1,91 @@
+================================================================================
+CLUSTERING FEATURE COMPARISON: Ant-Ivy vs Calcite
+================================================================================
+
+DATASET OVERVIEW
+--------------------------------------------------------------------------------
+Metric                                           Ant-Ivy              Calcite
+--------------------------------------------------------------------------------
+Samples                                            2,237               19,751
+Features                                           4,189                5,234
+Defective samples                                    177                1,577
+Defect rate                                         7.9%                 8.0%
+Clusters found                                         4                   65
+Noise ratio                                         1.5%                 0.9%
+Silhouette Score                                  0.5070               0.4233
+V-Measure                                         0.0084               0.0640
+
+TOP 30 FEATURES BY CLUSTERING RELEVANCE
+--------------------------------------------------------------------------------
+Rank  Ant-Ivy Feature                     Calcite Feature                    
+--------------------------------------------------------------------------------
+1     SM_class_nii_stdev                  SM_interface_nod_stdev             
+2     SM_interface_nii_sum                SM_enum_dloc_stdev                 
+3     SM_interface_nii_median             SM_enum_cloc_stdev                 
+4     SM_interface_nii_max                SM_enum_tcloc_stdev                
+5     SM_interface_nii_avg                SM_enum_npa_stdev                  
+6     SM_interface_nii_min                SM_enum_nlpa_stdev                 
+7     SM_class_pda_stdev                  SM_enum_nla_stdev                  
+8     SM_interface_nlg_avg                SM_enum_na_stdev                   
+9     SM_interface_nlg_median             SM_enum_tnlpa_stdev                
+10    SM_interface_nlg_max                SM_enum_tnpa_stdev                 
+11    SM_interface_nlg_min                SM_enum_tna_stdev                  
+12    SM_interface_nlg_sum                SM_enum_tnla_stdev                 
+13    SM_class_dloc_stdev                 PMD_msminic                        
+14    SM_interface_tnlg_median            SM_interface_cboi_stdev            
+15    SM_interface_tnlg_min               SM_enum_ad_generalized_entropy     
+16    SM_interface_tnlg_avg               SM_enum_ad_atkinson                
+17    SM_interface_tnlg_sum               SM_enum_ad_theil                   
+18    SM_interface_tnlg_max               SM_method_cco_min                  
+19    SM_class_nod_theil                  SM_method_ci_min                   
+20    AST_trystatement                    SM_method_cco_median               
+21    SM_interface_nls_atkinson           PMD_eafc                           
+22    SM_interface_tns_atkinson           SM_method_ccl_min                  
+23    SM_interface_ns_atkinson            SM_enum_cco_min                    
+24    SM_interface_tnls_atkinson          SM_method_ci_median                
+25    SM_class_nod_generalized_entropy    SM_method_cco_avg                  
+26    SM_interface_pda_median             SM_enum_cboi_stdev                 
+27    SM_interface_pda_avg                SM_enum_ci_min                     
+28    SM_interface_pda_min                SM_interface_noc_stdev             
+29    SM_interface_pda_max                SM_enum_pua_stdev                  
+30    SM_interface_pda_sum                SM_enum_nlg_stdev                  
+
+CATEGORY DISTRIBUTION IN TOP 100 FEATURES
+--------------------------------------------------------------------------------
+Category                                         Ant-Ivy              Calcite
+--------------------------------------------------------------------------------
+AST (Abstract Syntax Tree)                             1                    0
+PMD                                                    3                    4
+SM (Software Metrics)                                 96                   96
+
+SM SUBCATEGORY BREAKDOWN IN TOP 100
+--------------------------------------------------------------------------------
+SM Subcategory                                   Ant-Ivy              Calcite
+--------------------------------------------------------------------------------
+SM_class                                               8                    0
+SM_enum                                                0                   68
+SM_interface                                          88                   13
+SM_method                                              0                   10
+SM_other                                               0                    5
+
+COMMON FEATURES ANALYSIS
+--------------------------------------------------------------------------------
+Common features in top 50: 1 (2.0%)
+Common features in top 100: 1 (1.0%)
+Common features in top 200: 2 (1.0%)
+Common features in top 500: 13 (2.6%)
+
+COMMON FEATURES IN TOP 100 (1 features)
+--------------------------------------------------------------------------------
+  SM_interface_nop_sum                               Ant:  34, Calcite:  45
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+1. Both datasets are dominated by SM (Software Metrics) features in top rankings
+2. Ant-Ivy: SM_class_ and SM_interface_ metrics are most important
+3. Calcite: SM_enum_ and SM_interface_ metrics are most important
+4. Only 1 features appear in both top 100 lists
+5. AST features are more prominent in Ant-Ivy than Calcite
+6. PMD features rank higher in Calcite (rank 13) than Ant-Ivy (rank 31)
+
+================================================================================
