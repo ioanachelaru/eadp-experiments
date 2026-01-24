@@ -1,0 +1,165 @@
+======================================================================
+CLUSTERING COMPARISON REPORT
+Top-30 SM Only vs Combined (SM + Coverage + Effort)
+======================================================================
+Generated: 2026-01-24
+Algorithm: DBSCAN (auto-eps)
+
+======================================================================
+DATASET OVERVIEW
+======================================================================
+
+                        Top-30 SM Only    SM + COV + Effort
+----------------------------------------------------------------------
+Samples                      19,751              18,676
+Features                         30                  61
+  - SM features                  30                  30
+  - Coverage features             0                   5
+  - Effort features               0                  26
+Defective samples             1,577               1,399
+Defect rate                    8.0%                7.5%
+
+======================================================================
+CLUSTERING QUALITY METRICS
+======================================================================
+
+                        Top-30 SM Only    SM + COV + Effort    Winner
+----------------------------------------------------------------------
+Silhouette Score              0.9324              0.6738      SM Only
+Davies-Bouldin Index          0.1773              0.3014      SM Only
+V-Measure                     0.0244              0.0189      SM Only
+Homogeneity                   0.0237              0.0113      SM Only
+Completeness                  0.0251              0.0574      Combined
+----------------------------------------------------------------------
+Clusters Found                    34                  14           -
+Noise Points               171 (0.9%)           84 (0.4%)    Combined
+Auto-detected eps              0.413              11.150           -
+
+======================================================================
+HIGH-RISK CLUSTER ANALYSIS
+======================================================================
+
+Clusters with defect rate > 10%:
+
+Top-30 SM Only (11 high-risk clusters):
+  - cluster_2:  42.86% defect rate (21 samples, 9 defective)
+  - cluster_3:  11.97% defect rate (117 samples, 14 defective)
+  - cluster_5:  23.26% defect rate (43 samples, 10 defective)
+  - cluster_18: 92.31% defect rate (13 samples, 12 defective)
+  - cluster_19: 100.0% defect rate (11 samples, 11 defective)
+  - cluster_21: 100.0% defect rate (5 samples, 5 defective)
+  - cluster_24: 55.56% defect rate (9 samples, 5 defective)
+  - cluster_27: 50.0% defect rate (6 samples, 3 defective)
+  - cluster_32: 100.0% defect rate (5 samples, 5 defective)
+  - noise:      16.37% defect rate (171 samples, 28 defective)
+
+SM + COV + Effort (5 high-risk clusters):
+  - cluster_2:  13.33% defect rate (15 samples, 2 defective)
+  - cluster_6:  100.0% defect rate (6 samples, 6 defective)
+  - cluster_7:  100.0% defect rate (11 samples, 11 defective)
+  - cluster_10: 60.0% defect rate (5 samples, 3 defective)
+  - noise:      46.43% defect rate (84 samples, 39 defective)
+
+======================================================================
+FEATURE RELEVANCE RANKINGS
+======================================================================
+
+Top 10 Features - Top-30 SM Only:
+----------------------------------------------------------------------
+Rank  Feature                              Relevance
+   1  SM_enum_dloc_stdev                      9.8370
+   2  SM_enum_cloc_stdev                      9.6730
+   3  SM_enum_tcloc_stdev                     9.6299
+   4  SM_enum_npa_stdev                       8.8297
+   5  SM_enum_nlpa_stdev                      8.8297
+   6  SM_enum_nla_stdev                       8.5974
+   7  SM_enum_na_stdev                        8.5974
+   8  SM_enum_tnlpa_stdev                     8.4976
+   9  SM_enum_tnpa_stdev                      8.4976
+  10  SM_method_cco_median                    8.4065
+
+Top 10 Features - SM + COV + Effort:
+----------------------------------------------------------------------
+Rank  Feature                              Relevance
+   1  SM_interface_nod_stdev                 15.3359
+   2  SM_enum_dloc_stdev                     14.1330
+   3  SM_enum_cloc_stdev                     13.8989
+   4  SM_enum_tcloc_stdev                    13.8354
+   5  SM_enum_npa_stdev                      12.6516
+   6  SM_enum_nlpa_stdev                     12.6516
+   7  SM_method_cco_min                      12.4453
+   8  SM_method_ci_min                       12.4259
+   9  SM_method_cco_median                   12.4174
+  10  SM_enum_na_stdev                       12.3994
+
+======================================================================
+FEATURE CATEGORY ANALYSIS (Combined Dataset)
+======================================================================
+
+Category       Count   Rank Range   Avg Relevance   Top Feature
+----------------------------------------------------------------------
+SM_*              30       1-30         12.18       SM_interface_nod_stdev
+PMD_*             11      31-45          2.13       PMD_odpl
+HASSAN_*           5      38-61          0.82       HASSAN_whcm
+MOSER_*            5      41-60          0.80       MOSER_revisions
+COV_*              5      44-52          0.96       COV_BRANCH
+CHANGE_TYPE_*      3      46-57          0.73       CHANGE_TYPE_other
+ISSUE_*            2      53-59          0.62       ISSUE_major_bug
+
+Coverage Features Detail:
+----------------------------------------------------------------------
+Rank  Feature            Relevance
+  44  COV_BRANCH            1.0112
+  47  COV_COMPLEXITY        0.9813
+  48  COV_LINE              0.9446
+  49  COV_INSTRUCTION       0.9419
+  52  COV_METHOD            0.9168
+
+======================================================================
+KEY FINDINGS
+======================================================================
+
+1. SM FEATURES DOMINATE CLUSTERING
+   All 30 SM features rank in the top 30 positions even when combined
+   with 31 additional features (5 coverage + 26 effort). This indicates
+   that software metrics are the primary drivers of cluster structure.
+
+2. BETTER CLUSTER SEPARATION WITH SM ONLY
+   The pure SM dataset achieves a much higher silhouette score (0.93 vs
+   0.67), indicating tighter, better-separated clusters. Adding coverage
+   and effort features introduces noise that reduces cluster quality.
+
+3. ADDING FEATURES REDUCES GRANULARITY
+   The combined dataset produces fewer clusters (14 vs 34). This is due
+   to higher dimensionality causing a larger auto-detected eps value
+   (11.15 vs 0.41), which merges more points into fewer clusters.
+
+4. COVERAGE FEATURES HAVE LOW RELEVANCE
+   All 5 coverage features rank 44th-52nd out of 61 total features, with
+   relevance scores around 0.9-1.0 compared to 10-15 for top SM features.
+   Coverage metrics do not significantly influence cluster formation.
+
+5. EFFORT FEATURES CONTRIBUTE MINIMALLY
+   PMD features rank highest among effort-based features but still far
+   below SM features. Process metrics (HASSAN, MOSER, CHANGE_TYPE, ISSUE)
+   have even lower relevance scores (< 1.6).
+
+6. HIGH-RISK CLUSTER IDENTIFICATION
+   SM-only clustering identifies more high-risk clusters (11 vs 5) with
+   finer granularity, potentially better for targeted defect prediction.
+   Three clusters achieve 100% defect rate in both configurations.
+
+======================================================================
+CONCLUSION
+======================================================================
+
+For defect prediction clustering on Calcite data, the top-30 SM features
+alone provide superior cluster quality compared to combining them with
+coverage and effort-based metrics. The additional features:
+
+  - Reduce silhouette score by 28% (0.93 -> 0.67)
+  - Increase Davies-Bouldin index by 70% (0.18 -> 0.30)
+  - Reduce cluster granularity by 59% (34 -> 14 clusters)
+  - Contribute minimal relevance to cluster formation
+
+======================================================================

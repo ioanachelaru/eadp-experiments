@@ -1,0 +1,44 @@
+============================================================
+CLUSTERING METRICS SUMMARY
+============================================================
+Dataset: calcite-top30-sm-cov-effort
+Algorithm: DBSCAN
+Samples: 18676
+Features: 61
+Defective: 1399 (7.49%)
+
+Algorithm Parameters:
+  eps: 11.149906457526452
+  auto_eps: True
+  min_samples: 5
+  n_clusters: 14
+  n_noise: 84
+  noise_ratio: 0.004497751124437781
+
+Internal Metrics:
+  silhouette_score: 0.6738
+  davies_bouldin_index: 0.3014
+
+External Metrics:
+  homogeneity: 0.0113
+  completeness: 0.0574
+  v_measure: 0.0189
+
+Cluster Statistics:
+  !! noise: 84 samples, 39 defective (46.43%) - HIGH RISK
+     cluster_0: 18480 samples, 1338 defective (7.24%) - LOW RISK
+     cluster_1: 15 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_2: 15 samples, 2 defective (13.33%) - HIGH RISK
+     cluster_3: 12 samples, 0 defective (0.0%) - LOW RISK
+     cluster_4: 11 samples, 0 defective (0.0%) - LOW RISK
+     cluster_5: 5 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_6: 6 samples, 6 defective (100.0%) - HIGH RISK
+  !! cluster_7: 11 samples, 11 defective (100.0%) - HIGH RISK
+     cluster_8: 8 samples, 0 defective (0.0%) - LOW RISK
+     cluster_9: 5 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_10: 5 samples, 3 defective (60.0%) - HIGH RISK
+     cluster_11: 7 samples, 0 defective (0.0%) - LOW RISK
+     cluster_12: 7 samples, 0 defective (0.0%) - LOW RISK
+     cluster_13: 5 samples, 0 defective (0.0%) - LOW RISK
+
+============================================================

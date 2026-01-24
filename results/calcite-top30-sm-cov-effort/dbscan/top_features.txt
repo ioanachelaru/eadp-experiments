@@ -1,0 +1,72 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: calcite-top30-sm-cov-effort
+Algorithm: DBSCAN
+Samples: 18676, Features: 61
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      SM_interface_nod_stdev                                15.335891
+2      SM_enum_dloc_stdev                                    14.132994
+3      SM_enum_cloc_stdev                                    13.898880
+4      SM_enum_tcloc_stdev                                   13.835449
+5      SM_enum_npa_stdev                                     12.651609
+6      SM_enum_nlpa_stdev                                    12.651609
+7      SM_method_cco_min                                     12.445286
+8      SM_method_ci_min                                      12.425883
+9      SM_method_cco_median                                  12.417416
+10     SM_enum_na_stdev                                      12.399376
+11     SM_enum_nla_stdev                                     12.399376
+12     SM_method_ccl_min                                     12.309551
+13     SM_method_ci_median                                   12.214222
+14     SM_enum_cco_min                                       12.212613
+15     SM_method_cco_avg                                     12.151799
+16     SM_enum_ad_generalized_entropy                        12.127414
+17     SM_enum_ad_atkinson                                   12.074978
+18     SM_enum_ci_min                                        12.030925
+19     SM_enum_tnlpa_stdev                                   12.030502
+20     SM_enum_tnpa_stdev                                    12.030502
+21     SM_enum_ad_theil                                      11.995198
+22     SM_interface_cboi_stdev                               11.904994
+23     SM_enum_tna_stdev                                     11.802133
+24     SM_enum_tnla_stdev                                    11.802133
+25     SM_enum_cco_median                                    11.672809
+26     SM_enum_cboi_stdev                                    11.393602
+27     SM_interface_noc_stdev                                11.316491
+28     SM_enum_pua_stdev                                     10.761315
+29     SM_enum_nlg_stdev                                     10.759456
+30     SM_enum_ng_stdev                                      10.759456
+31     PMD_odpl                                               4.983005
+32     PMD_rule_type_string and stringbuffer rules            3.914344
+33     PMD_cis                                                2.352566
+34     PMD_rule_type_basic rules                              2.247947
+35     PMD_arp                                                1.881535
+36     PMD_rule_type_design rules                             1.786579
+37     PMD_severity_minor                                     1.766076
+38     HASSAN_whcm                                            1.547067
+39     PMD_severity_major                                     1.241346
+40     PMD_severity_critical                                  1.162698
+41     MOSER_revisions                                        1.161975
+42     PMD_rule_type_controversial rules                      1.134802
+43     HASSAN_hcm                                             1.063276
+44     COV_BRANCH                                             1.011203
+45     PMD_rule_type_unnecessary and unused code rules        1.009490
+46     CHANGE_TYPE_other                                      0.983105
+47     COV_COMPLEXITY                                         0.981306
+48     COV_LINE                                               0.944576
+49     COV_INSTRUCTION                                        0.941920
+50     MOSER_weighted_age                                     0.929835
+51     MOSER_authors                                          0.925598
+52     COV_METHOD                                             0.916777
+53     ISSUE_major_bug                                        0.801429
+54     CHANGE_TYPE_data                                       0.715444
+55     HASSAN_ldhcm                                           0.659016
+56     MOSER_bugfix                                           0.537041
+57     CHANGE_TYPE_computation                                0.500541
+58     HASSAN_edhcm                                           0.476419
+59     ISSUE_major_improvement                                0.431348
+60     MOSER_sum_lines_deleted                                0.428076
+61     HASSAN_lgdhcm                                          0.362877
+
+======================================================================

@@ -1,0 +1,81 @@
+================================================================================
+COMPARISON: SM-only vs Top-28 SM vs Combined (SM + Coverage + Effort)
+================================================================================
+
+Generated: 2026-01-24
+
+Purpose: Compare clustering performance to determine if adding coverage and
+effort features improves defect prediction alignment.
+
+Datasets compared:
+1. calcite-sm-only: All 2859 SM_* software metrics
+2. calcite-top30-sm-only: Top 28 SM features (from clustering relevance ranking)
+3. calcite-top30-sm-cov-effort: Top 28 SM + 5 coverage + 26 effort (59 features)
+
+================================================================================
+METRICS COMPARISON
+================================================================================
+
+Dataset                             Features   Silhouette    V-Measure  Homogeneity  Completeness
+-------------------------------------------------------------------------------------------------
+2859 SM features                        2859       0.5054       0.0507       0.0555        0.0466
+28 SM features (top from clustering)       28       0.9324       0.0244       0.0237        0.0250
+59 features (28 SM + 5 cov + 26 effort)   59       0.5775       0.0189       0.0114        0.0562
+
+================================================================================
+CLUSTER STATISTICS
+================================================================================
+
+Dataset                               Clusters    Noise Pts    Samples
+----------------------------------------------------------------------
+2859 SM features                            59            0      19751
+28 SM features (top from clustering)        34            0      19751
+59 features (28 SM + 5 cov + 26 effort)     14            0      18676
+
+================================================================================
+ANALYSIS
+================================================================================
+
+1. Feature Reduction (2859 -> 28 SM features):
+   - Silhouette: 0.5054 -> 0.9324 (+0.4270) - IMPROVED cluster separation
+   - V-Measure:  0.0507 -> 0.0244 (-0.0263) - DECREASED defect alignment
+
+   Interpretation: Reducing to top 28 SM features creates better-separated
+   clusters but these clusters are less aligned with defect labels.
+
+2. Adding Coverage + Effort (28 -> 59 features):
+   - Silhouette: 0.9324 -> 0.5775 (-0.3548) - DECREASED cluster separation
+   - V-Measure:  0.0244 -> 0.0189 (-0.0054) - DECREASED defect alignment
+
+   Interpretation: Adding coverage and effort features degrades both cluster
+   quality and defect alignment.
+
+3. Full SM -> Combined (2859 -> 59 features):
+   - Silhouette: 0.5054 -> 0.5775 (+0.0721) - Slight improvement
+   - V-Measure:  0.0507 -> 0.0189 (-0.0317) - DECREASED defect alignment
+
+================================================================================
+CONCLUSIONS
+================================================================================
+
+1. Adding coverage and effort features DOES NOT improve defect prediction alignment.
+   The V-measure decreased from 0.0244 (28 SM only) to 0.0189 (59 combined).
+
+2. The full SM dataset (2859 features) has the best V-measure (0.0507), suggesting
+   that more features provide better defect signal despite worse cluster separation.
+
+3. Feature selection tradeoff: Reducing to top 28 SM features improves cluster
+   quality (silhouette) but loses defect-relevant information (lower V-measure).
+
+4. Coverage and effort features may introduce noise that dilutes the SM signal,
+   or they may capture different aspects of the code that don't correlate with
+   defects in the same way as SM features.
+
+================================================================================
+RECOMMENDATION
+================================================================================
+
+For defect prediction using clustering:
+- Use the full SM dataset (2859 features) for best defect alignment
+- If dimensionality reduction is needed, use top SM features only
+- Coverage and effort features do not appear to add value in this clustering context

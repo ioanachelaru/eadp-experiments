@@ -28,21 +28,23 @@ def load_dataset(dataset_name: str) -> tuple[pd.DataFrame, str, dict]:
         raise ValueError(f"Unknown dataset: {dataset_name}. Available: {available}")
 
     config = DATASETS[dataset_name]
+    file_path = config["file"]
+    is_csv = file_path.endswith(".csv")
 
-    # Load feature name mapping if available
+    # Load feature name mapping if available (only for Excel files)
     feature_name_map = {}
     feature_name_row = config.get("feature_name_row")
-    if feature_name_row is not None:
+    if feature_name_row is not None and not is_csv:
         # Read just the feature name row
         df_names = pd.read_excel(
-            config["file"],
+            file_path,
             sheet_name=config["sheet"],
             header=None,
             nrows=feature_name_row + 1,
         )
         # Also read header row to get column indices
         df_header = pd.read_excel(
-            config["file"],
+            file_path,
             sheet_name=config["sheet"],
             header=None,
             skiprows=config["header_row"],
@@ -57,11 +59,14 @@ def load_dataset(dataset_name: str) -> tuple[pd.DataFrame, str, dict]:
                     feature_name_map[header_name] = str(feature_name)
 
     # Load main data
-    df = pd.read_excel(
-        config["file"],
-        sheet_name=config["sheet"],
-        header=config["header_row"],
-    )
+    if is_csv:
+        df = pd.read_csv(file_path)
+    else:
+        df = pd.read_excel(
+            file_path,
+            sheet_name=config["sheet"],
+            header=config["header_row"],
+        )
 
     # Remove completely empty rows
     df = df.dropna(how="all")

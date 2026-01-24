@@ -20,6 +20,62 @@ DATASETS = {
         "label_column": "Bug",
         "description": "Calcite software metrics",
     },
+    "calcite-with-coverage": {
+        "file": "data/Calcite-with-coverage.csv",
+        "sheet": None,  # CSV file, no sheet
+        "header_row": 0,  # pandas saves header at row 0
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite software metrics + test coverage (versions 1.1.0-1.15.0)",
+    },
+    "calcite-top30-coverage": {
+        "file": "data/Calcite-top30-with-coverage.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite top-30 features + 5 coverage features (35 total)",
+    },
+    "calcite-top30-effort-cov": {
+        "file": "data/Calcite-top30-effort-cov.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM + 26 effort + 5 coverage (61 features)",
+    },
+    "calcite-sm-only": {
+        "file": "data/Calcite-SM-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite SM_* software metrics only (2859 features)",
+    },
+    "ant-ivy-sm-only": {
+        "file": "data/Ant-Ivy-SM-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Label",
+        "description": "Ant-Ivy SM_* software metrics only (3624 features)",
+    },
+    "calcite-top30-sm-cov-effort": {
+        "file": "data/Calcite-top30-sm-cov-effort.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM + 5 coverage + 26 effort (61 features)",
+    },
+    "calcite-top30-sm-only": {
+        "file": "data/Calcite-top30-sm-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM features only",
+    },
 }
 
 # Clustering algorithm defaults
