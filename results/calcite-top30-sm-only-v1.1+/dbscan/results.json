@@ -1,0 +1,362 @@
+{
+  "dataset": "calcite-top30-sm-only-v1.1+",
+  "algorithm": "dbscan",
+  "algorithm_params": {
+    "eps": 0.7630573636245914,
+    "auto_eps": true,
+    "min_samples": 5,
+    "n_clusters": 32,
+    "n_noise": 121,
+    "noise_ratio": 0.0064789034054401375
+  },
+  "preprocessing": {
+    "remove_outliers": false,
+    "z_threshold": null
+  },
+  "n_samples": 18676,
+  "n_features": 30,
+  "n_defective": 1399,
+  "defect_rate": 7.49,
+  "internal_metrics": {
+    "silhouette_score": 0.9259061068187487,
+    "davies_bouldin_index": 0.16458474909226728
+  },
+  "external_metrics": {
+    "homogeneity": 0.022399240584939625,
+    "completeness": 0.023551602909222796,
+    "v_measure": 0.022960972187231494
+  },
+  "prediction_metrics": {
+    "precision": 0.2444,
+    "recall": 0.0479,
+    "f1_score": 0.0801,
+    "inspection_rate": 0.0146,
+    "high_risk_clusters": 9,
+    "total_clusters": 32,
+    "files_in_high_risk": 270,
+    "defects_captured": 66,
+    "total_defects": 1378
+  },
+  "cluster_stats": {
+    "noise": {
+      "total": 121,
+      "defective": 21,
+      "defect_rate": 17.36,
+      "risk": "HIGH"
+    },
+    "cluster_0": {
+      "total": 17865,
+      "defective": 1305,
+      "defect_rate": 7.3,
+      "risk": "LOW"
+    },
+    "cluster_1": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_2": {
+      "total": 230,
+      "defective": 6,
+      "defect_rate": 2.61,
+      "risk": "LOW"
+    },
+    "cluster_3": {
+      "total": 96,
+      "defective": 12,
+      "defect_rate": 12.5,
+      "risk": "HIGH"
+    },
+    "cluster_4": {
+      "total": 112,
+      "defective": 11,
+      "defect_rate": 9.82,
+      "risk": "HIGH"
+    },
+    "cluster_5": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_6": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_7": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_8": {
+      "total": 8,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_9": {
+      "total": 11,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_10": {
+      "total": 12,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_11": {
+      "total": 7,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_12": {
+      "total": 18,
+      "defective": 13,
+      "defect_rate": 72.22,
+      "risk": "HIGH"
+    },
+    "cluster_13": {
+      "total": 12,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_14": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_15": {
+      "total": 16,
+      "defective": 1,
+      "defect_rate": 6.25,
+      "risk": "LOW"
+    },
+    "cluster_16": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_17": {
+      "total": 11,
+      "defective": 11,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_18": {
+      "total": 8,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_19": {
+      "total": 8,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_20": {
+      "total": 8,
+      "defective": 1,
+      "defect_rate": 12.5,
+      "risk": "HIGH"
+    },
+    "cluster_21": {
+      "total": 5,
+      "defective": 5,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_22": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_23": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_24": {
+      "total": 9,
+      "defective": 5,
+      "defect_rate": 55.56,
+      "risk": "HIGH"
+    },
+    "cluster_25": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_26": {
+      "total": 6,
+      "defective": 3,
+      "defect_rate": 50.0,
+      "risk": "HIGH"
+    },
+    "cluster_27": {
+      "total": 9,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_28": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_29": {
+      "total": 7,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_30": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_31": {
+      "total": 5,
+      "defective": 5,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    }
+  },
+  "feature_relevance": [
+    {
+      "feature": "SM_enum_dloc_stdev",
+      "relevance": 9.856916316080921
+    },
+    {
+      "feature": "SM_enum_cloc_stdev",
+      "relevance": 9.702188922540278
+    },
+    {
+      "feature": "SM_enum_tcloc_stdev",
+      "relevance": 9.661450749493726
+    },
+    {
+      "feature": "SM_enum_npa_stdev",
+      "relevance": 8.86445671981559
+    },
+    {
+      "feature": "SM_enum_nlpa_stdev",
+      "relevance": 8.86445671981559
+    },
+    {
+      "feature": "SM_enum_nla_stdev",
+      "relevance": 8.641128376355644
+    },
+    {
+      "feature": "SM_enum_na_stdev",
+      "relevance": 8.641128376355644
+    },
+    {
+      "feature": "SM_enum_tnlpa_stdev",
+      "relevance": 8.526685595642329
+    },
+    {
+      "feature": "SM_enum_tnpa_stdev",
+      "relevance": 8.526685595642329
+    },
+    {
+      "feature": "SM_method_cco_median",
+      "relevance": 8.41749504245428
+    },
+    {
+      "feature": "SM_method_cco_min",
+      "relevance": 8.406909943865172
+    },
+    {
+      "feature": "SM_method_ci_min",
+      "relevance": 8.39069660095101
+    },
+    {
+      "feature": "SM_method_ccl_min",
+      "relevance": 8.331090697030096
+    },
+    {
+      "feature": "SM_enum_tna_stdev",
+      "relevance": 8.319960175725505
+    },
+    {
+      "feature": "SM_enum_tnla_stdev",
+      "relevance": 8.319960175725505
+    },
+    {
+      "feature": "SM_enum_cco_min",
+      "relevance": 8.306141939774173
+    },
+    {
+      "feature": "SM_method_ci_median",
+      "relevance": 8.255311397291527
+    },
+    {
+      "feature": "SM_method_cco_avg",
+      "relevance": 8.237440728850682
+    },
+    {
+      "feature": "SM_enum_ci_min",
+      "relevance": 8.20900734607814
+    },
+    {
+      "feature": "SM_enum_cco_median",
+      "relevance": 8.039919014817917
+    },
+    {
+      "feature": "SM_interface_noc_stdev",
+      "relevance": 4.147415514592584
+    },
+    {
+      "feature": "SM_enum_ad_theil",
+      "relevance": 2.5451353204468226
+    },
+    {
+      "feature": "SM_enum_pua_stdev",
+      "relevance": 2.506832785876425
+    },
+    {
+      "feature": "SM_enum_ad_atkinson",
+      "relevance": 2.467392311332902
+    },
+    {
+      "feature": "SM_enum_ad_generalized_entropy",
+      "relevance": 2.4000420366697313
+    },
+    {
+      "feature": "SM_enum_nlg_stdev",
+      "relevance": 2.2947769957346504
+    },
+    {
+      "feature": "SM_enum_ng_stdev",
+      "relevance": 2.2947769957346504
+    },
+    {
+      "feature": "SM_interface_cboi_stdev",
+      "relevance": 2.252115051837816
+    },
+    {
+      "feature": "SM_enum_cboi_stdev",
+      "relevance": 1.7711236736540625
+    },
+    {
+      "feature": "SM_interface_nod_stdev",
+      "relevance": 1.3730980437536369
+    }
+  ]
+}

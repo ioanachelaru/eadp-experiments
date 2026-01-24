@@ -1,0 +1,41 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: calcite-top30-sm-only-v1.1+
+Algorithm: DBSCAN
+Samples: 18676, Features: 30
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      SM_enum_dloc_stdev                                     9.856916
+2      SM_enum_cloc_stdev                                     9.702189
+3      SM_enum_tcloc_stdev                                    9.661451
+4      SM_enum_npa_stdev                                      8.864457
+5      SM_enum_nlpa_stdev                                     8.864457
+6      SM_enum_nla_stdev                                      8.641128
+7      SM_enum_na_stdev                                       8.641128
+8      SM_enum_tnlpa_stdev                                    8.526686
+9      SM_enum_tnpa_stdev                                     8.526686
+10     SM_method_cco_median                                   8.417495
+11     SM_method_cco_min                                      8.406910
+12     SM_method_ci_min                                       8.390697
+13     SM_method_ccl_min                                      8.331091
+14     SM_enum_tna_stdev                                      8.319960
+15     SM_enum_tnla_stdev                                     8.319960
+16     SM_enum_cco_min                                        8.306142
+17     SM_method_ci_median                                    8.255311
+18     SM_method_cco_avg                                      8.237441
+19     SM_enum_ci_min                                         8.209007
+20     SM_enum_cco_median                                     8.039919
+21     SM_interface_noc_stdev                                 4.147416
+22     SM_enum_ad_theil                                       2.545135
+23     SM_enum_pua_stdev                                      2.506833
+24     SM_enum_ad_atkinson                                    2.467392
+25     SM_enum_ad_generalized_entropy                         2.400042
+26     SM_enum_nlg_stdev                                      2.294777
+27     SM_enum_ng_stdev                                       2.294777
+28     SM_interface_cboi_stdev                                2.252115
+29     SM_enum_cboi_stdev                                     1.771124
+30     SM_interface_nod_stdev                                 1.373098
+
+======================================================================

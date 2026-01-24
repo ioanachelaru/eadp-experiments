@@ -24,6 +24,14 @@ External Metrics:
   completeness: 0.0251
   v_measure: 0.0244
 
+Cluster Prediction Metrics (high-risk cluster membership):
+  precision: 0.3217
+  recall: 0.0478
+  f1_score: 0.0832
+  inspection_rate: 1.17%
+  high_risk_clusters: 9/34
+  defects_captured: 74/1549
+
 Cluster Statistics:
   !! noise: 171 samples, 28 defective (16.37%) - HIGH RISK
      cluster_0: 18838 samples, 1464 defective (7.77%) - LOW RISK

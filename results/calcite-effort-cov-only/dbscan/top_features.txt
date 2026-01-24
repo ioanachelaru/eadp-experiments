@@ -1,0 +1,42 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: calcite-effort-cov-only
+Algorithm: DBSCAN
+Samples: 18676, Features: 31
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      PMD_cis                                                4.573083
+2      PMD_rule_type_string and stringbuffer rules            3.722497
+3      PMD_odpl                                               3.655398
+4      PMD_arp                                                3.208582
+5      PMD_rule_type_unnecessary and unused code rules        2.828887
+6      PMD_rule_type_basic rules                              2.790759
+7      PMD_severity_critical                                  2.751884
+8      PMD_severity_major                                     2.197039
+9      ISSUE_major_improvement                                2.034839
+10     PMD_rule_type_controversial rules                      1.914450
+11     PMD_rule_type_design rules                             1.773369
+12     PMD_severity_minor                                     1.643093
+13     MOSER_weighted_age                                     1.406074
+14     MOSER_revisions                                        1.358802
+15     MOSER_authors                                          1.198118
+16     HASSAN_hcm                                             1.040013
+17     COV_LINE                                               0.891481
+18     COV_METHOD                                             0.889249
+19     COV_BRANCH                                             0.884407
+20     COV_INSTRUCTION                                        0.881200
+21     ISSUE_major_bug                                        0.862572
+22     COV_COMPLEXITY                                         0.846627
+23     MOSER_bugfix                                           0.824618
+24     HASSAN_ldhcm                                           0.773107
+25     HASSAN_whcm                                            0.747168
+26     HASSAN_edhcm                                           0.644103
+27     HASSAN_lgdhcm                                          0.542960
+28     CHANGE_TYPE_other                                      0.510147
+29     CHANGE_TYPE_data                                       0.485938
+30     CHANGE_TYPE_computation                                0.360416
+31     MOSER_sum_lines_deleted                                0.296523
+
+======================================================================

@@ -76,6 +76,22 @@ DATASETS = {
         "label_column": "Bug",
         "description": "Calcite: top-30 SM features only",
     },
+    "calcite-effort-cov-only": {
+        "file": "data/Calcite-effort-cov-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: 26 effort + 5 coverage features (31 total)",
+    },
+    "calcite-top30-sm-only-v1.1+": {
+        "file": "data/Calcite-top30-sm-only-v1.1+.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM features (v1.1.0+ only, for fair comparison)",
+    },
 }
 
 # Clustering algorithm defaults

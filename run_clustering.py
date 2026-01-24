@@ -16,7 +16,12 @@ import sys
 from src.config import DATASETS, CLUSTERING_DEFAULTS, PREPROCESSING, OUTPUT
 from src.data_utils import load_dataset, preprocess_features
 from src.clustering import run_kmeans, run_dbscan, get_cluster_centers
-from src.metrics import compute_internal_metrics, compute_external_metrics, compute_cluster_stats
+from src.metrics import (
+    compute_internal_metrics,
+    compute_external_metrics,
+    compute_cluster_stats,
+    compute_cluster_prediction_metrics,
+)
 from src.feature_analysis import compute_feature_relevance, save_feature_rankings
 from src.plotting import (
     plot_clusters_pca,
@@ -97,6 +102,7 @@ def run_analysis(
     internal_metrics = compute_internal_metrics(X_scaled, cluster_labels)
     external_metrics = compute_external_metrics(cluster_labels, labels)
     cluster_stats = compute_cluster_stats(cluster_labels, labels)
+    prediction_metrics = compute_cluster_prediction_metrics(cluster_labels, labels)
 
     if internal_metrics["silhouette_score"] is not None:
         print(f"  Silhouette Score: {internal_metrics['silhouette_score']:.4f}")
@@ -104,6 +110,14 @@ def run_analysis(
         print(f"  V-Measure: {external_metrics['v_measure']:.4f}")
         print(f"  Homogeneity: {external_metrics['homogeneity']:.4f}")
         print(f"  Completeness: {external_metrics['completeness']:.4f}")
+
+    print("\nCluster Prediction Metrics (high-risk cluster membership):")
+    print(f"  Precision: {prediction_metrics['precision']:.4f}")
+    print(f"  Recall: {prediction_metrics['recall']:.4f}")
+    print(f"  F1-Score: {prediction_metrics['f1_score']:.4f}")
+    print(f"  Inspection Rate: {prediction_metrics['inspection_rate']:.2%}")
+    print(f"  High-risk clusters: {prediction_metrics['high_risk_clusters']}/{prediction_metrics['total_clusters']}")
+    print(f"  Defects captured: {prediction_metrics['defects_captured']}/{prediction_metrics['total_defects']}")
 
     # Compute feature relevance
     print("\nComputing feature relevance...")
@@ -169,6 +183,7 @@ def run_analysis(
         "defect_rate": round(labels.mean() * 100, 2),
         "internal_metrics": internal_metrics,
         "external_metrics": external_metrics,
+        "prediction_metrics": prediction_metrics,
         "cluster_stats": cluster_stats,
         "feature_relevance": relevance_df.to_dict("records"),
     }
@@ -225,6 +240,17 @@ def save_metrics_summary(results: dict, file_path: str) -> None:
         if v is not None:
             lines.append(f"  {k}: {v:.4f}")
     lines.append("")
+
+    if "prediction_metrics" in results:
+        pm = results["prediction_metrics"]
+        lines.append("Cluster Prediction Metrics (high-risk cluster membership):")
+        lines.append(f"  precision: {pm['precision']:.4f}")
+        lines.append(f"  recall: {pm['recall']:.4f}")
+        lines.append(f"  f1_score: {pm['f1_score']:.4f}")
+        lines.append(f"  inspection_rate: {pm['inspection_rate']:.2%}")
+        lines.append(f"  high_risk_clusters: {pm['high_risk_clusters']}/{pm['total_clusters']}")
+        lines.append(f"  defects_captured: {pm['defects_captured']}/{pm['total_defects']}")
+        lines.append("")
 
     lines.append("Cluster Statistics:")
     for cluster, stats in results["cluster_stats"].items():

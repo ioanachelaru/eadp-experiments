@@ -1,0 +1,175 @@
+================================================================================
+EFFORT vs SOFTWARE METRICS FEATURE COMPARISON
+================================================================================
+Comparison of clustering results across three feature configurations using DBSCAN
+
+Configurations:
+  1. calcite-top30-sm-only     : 30 SM features
+  2. calcite-effort-cov-only   : 31 features (26 effort + 5 coverage)
+  3. calcite-top30-sm-cov-effort: 61 features (30 SM + 26 effort + 5 coverage)
+
+================================================================================
+DATASET SUMMARY
+================================================================================
+
+Configuration                    | Samples | Features | Defects | Defect Rate
+---------------------------------|---------|----------|---------|------------
+calcite-top30-sm-only            |  19,751 |       30 |   1,577 |       8.0%
+calcite-effort-cov-only          |  18,676 |       31 |   1,399 |       7.5%
+calcite-top30-sm-cov-effort      |  18,676 |       61 |   1,399 |       7.5%
+
+Note: SM-only has 1,075 more samples (includes version 1.0.0 without coverage data)
+
+================================================================================
+TRADITIONAL CLUSTERING METRICS
+================================================================================
+
+Metric                    | SM-only  | Effort+Cov | Combined  | Winner
+--------------------------|----------|------------|-----------|--------
+Silhouette Score          |   0.9324 |     0.4776 |    0.6738 | SM-only
+Davies-Bouldin Index      |     -    |       -    |      -    | -
+V-Measure                 |   0.0244 |     0.0519 |    0.0189 | Effort+Cov
+Homogeneity               |   0.0237 |     0.0433 |    0.0113 | Effort+Cov
+Completeness              |   0.0251 |     0.0647 |    0.0574 | Effort+Cov
+
+Analysis:
+- SM features produce better-separated clusters (higher silhouette)
+- Effort features produce clusters more aligned with defect labels (higher V-measure)
+
+================================================================================
+CLUSTER PREDICTION METRICS (HIGH-RISK CLUSTER MEMBERSHIP)
+================================================================================
+
+Prediction rule: Files in clusters with defect rate > overall rate are "predicted defective"
+
+Metric                    | SM-only  | Effort+Cov | Combined  | Winner
+--------------------------|----------|------------|-----------|--------
+Precision                 |   0.3217 |     0.4737 |    0.5946 | Combined
+Recall                    |   0.0478 |     0.0843 |    0.0162 | Effort+Cov
+F1-Score                  |   0.0832 |     0.1431 |    0.0315 | Effort+Cov
+Inspection Rate           |   1.17%  |     1.15%  |    0.20%  | Combined*
+High-Risk Clusters        |    9/34  |     13/29  |     4/14  | -
+Defects Captured          |   74/1549|    99/1175 |   22/1360 | Effort+Cov
+
+*Combined has lowest inspection rate, but captures fewest defects
+
+================================================================================
+INTERPRETATION
+================================================================================
+
+KEY FINDING: Effort features show BETTER defect prediction despite WORSE cluster separation
+
+1. CLUSTER QUALITY (Silhouette)
+   - SM features: 0.9324 (excellent separation)
+   - Effort features: 0.4776 (moderate separation)
+   - Combined: 0.6738 (good separation)
+
+   SM features create cleaner, more distinct clusters. This is expected because
+   SM features (e.g., enum_dloc_stdev, interface_nod_stdev) have extreme values
+   that create natural groupings.
+
+2. DEFECT ALIGNMENT (V-Measure, Recall)
+   - Effort features capture 2x more defects than SM features (8.4% vs 4.8%)
+   - Effort features have higher V-measure (0.0519 vs 0.0244)
+   - This suggests effort/process metrics are more correlated with defectiveness
+
+3. PRECISION vs RECALL TRADEOFF
+   - Combined features have highest precision (59.5%) but worst recall (1.6%)
+   - Effort features have best balance (F1 = 0.1431)
+   - SM features fall in between on both metrics
+
+4. PRACTICAL IMPLICATION
+   If the goal is to identify defective files for code review:
+   - Effort+Coverage: Inspect 1.15% of files to find 8.4% of defects
+   - SM-only: Inspect 1.17% of files to find 4.8% of defects
+
+   Effort features are ~1.75x more effective at defect prediction.
+
+================================================================================
+CONCLUSION
+================================================================================
+
+Software metrics (SM) create cleaner clusters but are less effective at
+identifying defective files. Effort/process metrics create messier clusters
+but are better aligned with actual defect patterns.
+
+This supports the hypothesis that:
+- SM features capture CODE STRUCTURE differences
+- Effort features capture DEVELOPMENT PROCESS patterns more correlated with defects
+
+For defect prediction, effort features may be more valuable despite producing
+lower-quality clusters by traditional metrics.
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+1. For clustering analysis: Use SM features for interpretable clusters
+2. For defect prediction: Use effort + coverage features
+3. Consider alternative algorithms (e.g., supervised learning) for defect prediction
+   that can leverage effort features more effectively
+
+================================================================================
+FAIR COMPARISON (SAME SAMPLE POPULATION)
+================================================================================
+
+The initial comparison had a confound: SM-only included version 1.0.0 (1,077 extra
+samples) that Effort+Cov didn't have due to missing coverage data.
+
+Below is a fair comparison on identical samples:
+  - Samples: 18,676 (versions 1.1.0 - 1.15.0)
+  - Defects: 1,399 (7.5% defect rate)
+
+Metric                    | SM-only (v1.1+) | Effort+Cov | Difference
+--------------------------|-----------------|------------|------------------
+Silhouette Score          |          0.9259 |     0.4776 | SM wins by 0.45
+V-Measure                 |          0.0230 |     0.0519 | Effort wins by 0.03
+Precision                 |          0.2444 |     0.4737 | Effort 1.9x better
+Recall                    |          0.0479 |     0.0843 | Effort 1.8x better
+F1-Score                  |          0.0801 |     0.1431 | Effort 1.8x better
+Inspection Rate           |          1.46%  |     1.15%  | Similar
+Noise Points              |      121 (0.6%) | 431 (2.3%) | SM has less noise
+Defects Captured          |        66/1378  |    99/1175 | Different denominators*
+
+*Denominators differ because metrics exclude noise points from calculation
+
+================================================================================
+ASSESSMENT
+================================================================================
+
+1. THE FINDING HOLDS
+   Effort features do show better prediction metrics on the same samples.
+   The comparison is now apples-to-apples.
+
+2. BUT THE MAGNITUDE IS MODEST
+   - Both have recall under 10%
+   - Neither is "good" at defect prediction
+   - "1.8x better" = 8% vs 5% recall - both poor
+
+3. NOISE HANDLING CONFOUNDS THE COMPARISON
+   - Effort produces 3.5x more noise points (431 vs 121)
+   - These are excluded from metrics
+   - We're comparing on somewhat different subsets within the same population
+
+4. V-MEASURE DIFFERENCES ARE SMALL
+   - 0.0519 vs 0.0230 - both are low
+   - Neither approach aligns clusters well with defect labels
+
+5. THE SILHOUETTE GAP IS REAL
+   - SM produces dramatically cleaner clusters (0.93 vs 0.48)
+   - This is the one unambiguous finding
+
+================================================================================
+CONCLUSION (REVISED)
+================================================================================
+
+The hypothesis has support: effort features show better defect prediction metrics
+despite worse cluster separation. However:
+
+- The effect is modest (both approaches miss >90% of defects)
+- Both approaches have limited practical utility for defect prediction via clustering
+- SM features excel at creating interpretable, well-separated clusters
+- Effort features show marginally better alignment with defect labels
+
+For actual defect prediction, supervised learning approaches would likely be
+more effective than unsupervised clustering with either feature set.
