@@ -1,45 +1,25 @@
-#!/usr/bin/env python3
 """
-Compare clustering feature rankings with effort_data feature groups.
+Feature comparison functionality.
 
-Usage:
-    python compare_features.py --dataset ant-ivy --algorithm dbscan
+Compare clustering feature rankings with effort-data feature groups.
 """
 
-import argparse
 import json
 import os
 from collections import defaultdict
+from typing import Optional
 
 import pandas as pd
 
-
-EFFORT_DATA_FILE = "effort_data/All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx"
-
-# Sheets and their configurations
-EFFORT_SHEETS = {
-    "26_common": {
-        "sheet": "26 Metrics (Ant int Calcite)",
-        "description": "26 metrics common to Ant & Calcite (corr>=0.1)",
-    },
-    "ant_all": {
-        "sheet": "Ant_All",
-        "header_row": 9,
-        "exclude_cols": ["Ant version", "ID", "file", "Bug"],
-        "description": "149 Ant effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
-    },
-    "calcite_all": {
-        "sheet": "Calcite_All",
-        "header_row": 9,
-        "exclude_cols": ["Calcite version", "ID", "file", "Bug", "Version-ID"],
-        "description": "170 Calcite effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
-    },
-}
+from .config import RAW_DATA, EFFORT_SHEETS
 
 
-def load_clustering_results(results_path: str) -> tuple[list[dict], dict]:
+def load_clustering_results(results_path: str) -> tuple:
     """
     Load feature relevance rankings from clustering results.
+
+    Args:
+        results_path: Path to results.json file
 
     Returns:
         Tuple of (feature_rankings, metadata)
@@ -58,7 +38,7 @@ def load_clustering_results(results_path: str) -> tuple[list[dict], dict]:
     return feature_relevance, metadata
 
 
-def load_effort_data_features(xlsx_path: str, dataset: str) -> dict[str, list[str]]:
+def load_effort_data_features(xlsx_path: str, dataset: str) -> dict:
     """
     Load feature lists from effort_data Excel sheets.
 
@@ -114,11 +94,15 @@ def get_feature_category(feature_name: str) -> str:
 
 
 def find_feature_ranks(
-    clustering_features: list[dict],
-    effort_features: list[str],
-) -> dict[str, int | None]:
+    clustering_features: list,
+    effort_features: list,
+) -> dict:
     """
     Find the rank of each effort_data feature in clustering results.
+
+    Args:
+        clustering_features: List of feature dicts with 'feature' key
+        effort_features: List of feature names to look up
 
     Returns:
         Dictionary mapping feature name to rank (1-indexed) or None if not found
@@ -137,9 +121,13 @@ def find_feature_ranks(
     return ranks
 
 
-def compute_statistics(ranks: dict[str, int | None], total_features: int) -> dict:
+def compute_statistics(ranks: dict, total_features: int) -> dict:
     """
     Compute comparison statistics.
+
+    Args:
+        ranks: Dictionary of feature name -> rank
+        total_features: Total number of features in clustering
 
     Returns:
         Dictionary with statistics
@@ -195,11 +183,11 @@ def compute_statistics(ranks: dict[str, int | None], total_features: int) -> dic
     return stats
 
 
-def generate_report(
+def generate_comparison_report(
     metadata: dict,
-    effort_features: dict[str, list[str]],
-    all_ranks: dict[str, dict],
-    all_stats: dict[str, dict],
+    effort_features: dict,
+    all_ranks: dict,
+    all_stats: dict,
     output_path: str,
 ) -> None:
     """Generate and save comparison report."""
@@ -272,47 +260,43 @@ def generate_report(
     print("\n".join(lines))
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Compare clustering feature rankings with effort_data feature groups"
-    )
-    parser.add_argument(
-        "--dataset", "-d",
-        default="ant-ivy",
-        help="Dataset name (default: ant-ivy)",
-    )
-    parser.add_argument(
-        "--algorithm", "-a",
-        default="dbscan",
-        help="Clustering algorithm (default: dbscan)",
-    )
-    parser.add_argument(
-        "--effort-data",
-        default=EFFORT_DATA_FILE,
-        help=f"Path to effort_data Excel file (default: {EFFORT_DATA_FILE})",
-    )
+def run_comparison(
+    dataset: str = "ant-ivy",
+    algorithm: str = "dbscan",
+    effort_data_path: Optional[str] = None,
+) -> int:
+    """
+    Run feature comparison between clustering results and effort data.
 
-    args = parser.parse_args()
+    Args:
+        dataset: Dataset name
+        algorithm: Clustering algorithm used
+        effort_data_path: Optional custom path to effort data file
+
+    Returns:
+        0 on success, 1 on error
+    """
+    effort_data = effort_data_path or RAW_DATA["effort_data"]
 
     # Build paths
-    results_path = os.path.join("results", args.dataset, args.algorithm, "results.json")
-    output_path = os.path.join("results", args.dataset, args.algorithm, "comparison_report.txt")
+    results_path = os.path.join("results", dataset, algorithm, "results.json")
+    output_path = os.path.join("results", dataset, algorithm, "comparison_report.txt")
 
     # Check files exist
     if not os.path.exists(results_path):
         print(f"Error: Results file not found: {results_path}")
         return 1
 
-    if not os.path.exists(args.effort_data):
-        print(f"Error: Effort data file not found: {args.effort_data}")
+    if not os.path.exists(effort_data):
+        print(f"Error: Effort data file not found: {effort_data}")
         return 1
 
     # Load data
     print(f"Loading clustering results from {results_path}...")
     clustering_features, metadata = load_clustering_results(results_path)
 
-    print(f"Loading effort_data features from {args.effort_data}...")
-    effort_features = load_effort_data_features(args.effort_data, args.dataset)
+    print(f"Loading effort_data features from {effort_data}...")
+    effort_features = load_effort_data_features(effort_data, dataset)
 
     # Compute comparisons for each group
     all_ranks = {}
@@ -327,11 +311,7 @@ def main():
 
     # Generate report
     print(f"\nGenerating report to {output_path}...\n")
-    generate_report(metadata, effort_features, all_ranks, all_stats, output_path)
+    generate_comparison_report(metadata, effort_features, all_ranks, all_stats, output_path)
 
     print(f"\nReport saved to: {output_path}")
     return 0
-
-
-if __name__ == "__main__":
-    exit(main())

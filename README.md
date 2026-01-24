@@ -53,65 +53,119 @@ pip install -r requirements.txt
 
 ```
 eadp-experiments/
-├── run_clustering.py          # Clustering experiments
-├── run_classification.py      # Supervised learning experiments
-├── compare_features.py        # Compare clustering vs effort-data features
+├── eadp.py                    # Unified CLI entry point
+├── README.md
+├── requirements.txt
+│
 ├── src/
-│   ├── config.py              # Dataset and algorithm configurations
+│   ├── __init__.py
+│   ├── config.py              # ALL configuration (paths, features, defaults)
 │   ├── data_utils.py          # Data loading and preprocessing
+│   ├── prepare.py             # Data preparation functions
+│   ├── compare.py             # Feature comparison logic
 │   ├── clustering.py          # K-Means and DBSCAN implementations
 │   ├── classification.py      # Random Forest, Logistic Regression
 │   ├── metrics.py             # Internal and external metrics
 │   ├── feature_analysis.py    # Feature relevance computation
 │   └── plotting.py            # Visualization functions
-├── data/
+│
+├── data/                      # Input data
 │   ├── Calcite-top30-sm-only-v1.1+.csv
 │   ├── Calcite-effort-cov-only.csv
 │   ├── Calcite-top30-sm-cov-effort.csv
 │   └── ...
-└── results/
+│
+├── effort_data/               # Effort-related metrics
+│
+└── results/                   # Output results
     ├── supervised_learning_comparison.txt
-    ├── classification/         # Per-dataset JSON results
-    ├── calcite/dbscan/         # Clustering results
+    ├── classification/        # Per-dataset JSON results
+    ├── calcite/dbscan/        # Clustering results
     └── ant-ivy/dbscan/
 ```
 
 ## Usage
 
+All functionality is accessed through the unified `eadp.py` CLI:
+
+```bash
+python eadp.py --help
+```
+
+### Data Preparation
+
+```bash
+# Extract SM features from raw Excel data
+python eadp.py prepare --action extract-sm --dataset calcite
+python eadp.py prepare --action extract-sm --dataset ant-ivy
+
+# Merge coverage data with SM data
+python eadp.py prepare --action merge-coverage
+
+# Create combined dataset (top-30 SM + effort + coverage)
+python eadp.py prepare --action create-combined
+
+# Create top-30 SM only dataset
+python eadp.py prepare --action create-top30-sm
+python eadp.py prepare --action create-top30-sm --v11-plus  # Exclude v1.0.0
+
+# Create effort + coverage only dataset
+python eadp.py prepare --action create-effort-only
+```
+
 ### Supervised Learning (Recommended)
 
 ```bash
 # Compare all three feature sets with Random Forest
-python3 run_classification.py --compare-all
+python eadp.py classify --compare-all
 
 # Compare with Logistic Regression
-python3 run_classification.py --compare-all --classifier lr
+python eadp.py classify --compare-all --classifier lr
 
 # Run on a single dataset
-python3 run_classification.py --dataset calcite-effort-cov-only --classifier rf
+python eadp.py classify --dataset calcite-effort-cov-only --classifier rf
 ```
 
 ### Clustering
 
 ```bash
 # Run DBSCAN on Calcite dataset
-python3 run_clustering.py --dataset calcite --algorithm dbscan
+python eadp.py cluster --dataset calcite --algorithm dbscan
 
 # Run on Ant-Ivy dataset
-python3 run_clustering.py --dataset ant-ivy --algorithm dbscan
+python eadp.py cluster --dataset ant-ivy --algorithm dbscan
 
 # With outlier removal
-python3 run_clustering.py --dataset ant-ivy --algorithm dbscan --no-outliers
+python eadp.py cluster --dataset ant-ivy --algorithm dbscan --no-outliers
 
 # K-Means with custom cluster count
-python3 run_clustering.py --dataset ant-ivy --algorithm kmeans --k 3
+python eadp.py cluster --dataset ant-ivy --algorithm kmeans --k 3
 ```
 
 ### Compare Clustering with Effort Features
 
 ```bash
-python3 compare_features.py --dataset calcite --algorithm dbscan
+python eadp.py compare --dataset calcite --algorithm dbscan
 ```
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `prepare` | Data preparation (extract, merge, create datasets) |
+| `cluster` | Run clustering experiments (DBSCAN, K-Means) |
+| `classify` | Run supervised learning experiments (RF, LR) |
+| `compare` | Compare clustering features with effort data |
+
+### Prepare Actions
+
+| Action | Description |
+|--------|-------------|
+| `extract-sm` | Extract SM_* features from raw Excel data |
+| `merge-coverage` | Merge coverage CSVs with SM data |
+| `create-combined` | Create top-30 SM + effort + coverage dataset |
+| `create-top30-sm` | Create top-30 SM features only dataset |
+| `create-effort-only` | Create effort + coverage only dataset |
 
 ## Experiments
 
@@ -199,30 +253,29 @@ results/{dataset}/{algorithm}/
 
 ## Configuration
 
-Dataset configurations are in `src/config.py`. Available datasets:
+All configuration is centralized in `src/config.py`:
 
 ```python
+# Raw data paths
+RAW_DATA = {
+    "calcite_sm": "data/All Calcite 1.0.0-1.15.0 software metrics.xlsx",
+    "ant_ivy_sm": "data/ant-ivy-all versions.xlsx",
+    "effort_data": "effort_data/All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx",
+    "coverage_pattern": "data/Coverage-Calcite-*-filename.csv",
+}
+
+# Feature definitions
+COVERAGE_FEATURES = ["COV_INSTRUCTION", "COV_BRANCH", "COV_LINE", ...]
+EFFORT_FEATURES_26 = ["CHANGE_TYPE_computation", "HASSAN_edhcm", ...]
+
+# Dataset configurations
 DATASETS = {
-    "calcite-top30-sm-only-v1.1+": {...},  # 30 SM features
-    "calcite-effort-cov-only": {...},       # 31 effort+coverage features
-    "calcite-top30-sm-cov-effort": {...},   # 61 combined features
-    "ant-ivy": {...},
-    "calcite": {...},
+    "calcite-top30-sm-only-v1.1+": {...},
+    "calcite-effort-cov-only": {...},
+    "calcite-top30-sm-cov-effort": {...},
     # ... more datasets
 }
 ```
-
-## Practical Implications
-
-1. **For defect prediction, use supervised learning** - clustering is not suitable due to class imbalance
-
-2. **Prioritize effort + coverage data collection** over complex software metric extraction:
-   - Test coverage (branch, instruction, complexity)
-   - Code churn metrics (HASSAN_whcm, HASSAN_hcm)
-   - File history (MOSER_weighted_age, MOSER_revisions)
-   - Static analysis warnings (PMD severity)
-
-3. **Software metrics alone are insufficient** - they capture code structure but not defect-proneness
 
 ## License
 

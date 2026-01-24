@@ -1,8 +1,92 @@
 """
-Configuration for clustering analysis experiments.
+Configuration for defect prediction experiments.
+
+Centralizes all paths, feature definitions, and dataset configurations.
 """
 
-# Dataset configurations
+# =============================================================================
+# RAW DATA PATHS
+# =============================================================================
+RAW_DATA = {
+    "calcite_sm": "data/All Calcite 1.0.0-1.15.0 software metrics.xlsx",
+    "ant_ivy_sm": "data/ant-ivy-all versions.xlsx",
+    "effort_data": "effort_data/All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx",
+    "coverage_pattern": "data/Coverage-Calcite-*-filename.csv",
+}
+
+# =============================================================================
+# FEATURE DEFINITIONS
+# =============================================================================
+COVERAGE_FEATURES = [
+    "COV_INSTRUCTION",
+    "COV_BRANCH",
+    "COV_LINE",
+    "COV_COMPLEXITY",
+    "COV_METHOD",
+]
+
+EFFORT_FEATURES_26 = [
+    "CHANGE_TYPE_computation",
+    "CHANGE_TYPE_data",
+    "CHANGE_TYPE_other",
+    "HASSAN_edhcm",
+    "HASSAN_hcm",
+    "HASSAN_ldhcm",
+    "HASSAN_lgdhcm",
+    "HASSAN_whcm",
+    "ISSUE_major_bug",
+    "ISSUE_major_improvement",
+    "MOSER_authors",
+    "MOSER_bugfix",
+    "MOSER_revisions",
+    "MOSER_sum_lines_deleted",
+    "MOSER_weighted_age",
+    "PMD_arp",
+    "PMD_cis",
+    "PMD_odpl",
+    "PMD_rule_type_basic rules",
+    "PMD_rule_type_controversial rules",
+    "PMD_rule_type_design rules",
+    "PMD_rule_type_string and stringbuffer rules",
+    "PMD_rule_type_unnecessary and unused code rules",
+    "PMD_severity_critical",
+    "PMD_severity_major",
+    "PMD_severity_minor",
+]
+
+EFFORT_PREFIXES = ("CHANGE_TYPE_", "HASSAN_", "ISSUE_", "MOSER_", "PMD_")
+
+# =============================================================================
+# METADATA COLUMNS
+# =============================================================================
+METADATA_COLUMNS = {
+    "calcite": ["Calcite version", "ID", "file", "Version-ID", "Bug"],
+    "ant_ivy": ["Version", "Id", "Class", "Label"],
+}
+
+# Effort data sheet configurations
+EFFORT_SHEETS = {
+    "26_common": {
+        "sheet": "26 Metrics (Ant int Calcite)",
+        "description": "26 metrics common to Ant & Calcite (corr>=0.1)",
+    },
+    "ant_all": {
+        "sheet": "Ant_All",
+        "header_row": 9,
+        "exclude_cols": ["Ant version", "ID", "file", "Bug"],
+        "description": "149 Ant effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
+    },
+    "calcite_all": {
+        "sheet": "Calcite_All",
+        "header_row": 9,
+        "exclude_cols": ["Calcite version", "ID", "file", "Bug", "Version-ID"],
+        "description": "170 Calcite effort-data features (all CHANGE, HASSAN, ISSUE, MOSER, PMD)",
+    },
+}
+
+# =============================================================================
+# DATASET CONFIGURATIONS
+# =============================================================================
 DATASETS = {
     "ant-ivy": {
         "file": "data/ant-ivy-all versions.xlsx",
