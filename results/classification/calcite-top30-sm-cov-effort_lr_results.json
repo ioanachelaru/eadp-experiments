@@ -1,0 +1,314 @@
+{
+  "dataset": "calcite-top30-sm-cov-effort",
+  "description": "Calcite: top-30 SM + 5 coverage + 26 effort (61 features)",
+  "classifier": "lr",
+  "cv_folds": 5,
+  "random_state": 42,
+  "n_samples": 18676,
+  "n_features": 61,
+  "n_defective": 1399,
+  "defect_rate": 7.49,
+  "metrics": {
+    "precision": {
+      "mean": 0.19430957159847492,
+      "std": 0.005834292217712477,
+      "values": [
+        0.20135527589545016,
+        0.18874773139745918,
+        0.1925133689839572,
+        0.1878952122854562,
+        0.20103626943005182
+      ]
+    },
+    "recall": {
+      "mean": 0.739068100358423,
+      "std": 0.02450458525839374,
+      "values": [
+        0.7428571428571429,
+        0.7428571428571429,
+        0.7714285714285715,
+        0.7428571428571429,
+        0.6953405017921147
+      ]
+    },
+    "f1": {
+      "mean": 0.3075601913820961,
+      "std": 0.006422035844309171,
+      "values": [
+        0.31683168316831684,
+        0.30101302460202606,
+        0.30813124108416545,
+        0.2999279019466474,
+        0.31189710610932475
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.827035731373049,
+      "std": 0.007576556352660577,
+      "values": [
+        0.829764488260582,
+        0.8280075459995866,
+        0.8372017779615464,
+        0.8263929088277858,
+        0.8138119358157441
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.16307763001627112,
+      "std": 0.0037653744998054376,
+      "values": [
+        0.1688501535590429,
+        0.15948970890041891,
+        0.16564552071284885,
+        0.15885640898864528,
+        0.16254635792039965
+      ]
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "SM_enum_cco_min",
+      "importance": 2.719038
+    },
+    {
+      "feature": "SM_enum_ci_min",
+      "importance": 1.614896
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "importance": 1.115622
+    },
+    {
+      "feature": "SM_method_cco_avg",
+      "importance": 1.006356
+    },
+    {
+      "feature": "SM_method_ccl_min",
+      "importance": 0.943371
+    },
+    {
+      "feature": "SM_enum_cco_median",
+      "importance": 0.777439
+    },
+    {
+      "feature": "COV_BRANCH",
+      "importance": 0.73618
+    },
+    {
+      "feature": "MOSER_revisions",
+      "importance": 0.728921
+    },
+    {
+      "feature": "COV_METHOD",
+      "importance": 0.623857
+    },
+    {
+      "feature": "SM_enum_npa_stdev",
+      "importance": 0.586222
+    },
+    {
+      "feature": "SM_enum_nlpa_stdev",
+      "importance": 0.586222
+    },
+    {
+      "feature": "SM_enum_tna_stdev",
+      "importance": 0.582564
+    },
+    {
+      "feature": "SM_enum_tnla_stdev",
+      "importance": 0.582564
+    },
+    {
+      "feature": "SM_interface_nod_stdev",
+      "importance": 0.505378
+    },
+    {
+      "feature": "SM_enum_ad_theil",
+      "importance": 0.493313
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "importance": 0.487104
+    },
+    {
+      "feature": "SM_method_cco_median",
+      "importance": 0.47215
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "importance": 0.457367
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "importance": 0.410473
+    },
+    {
+      "feature": "SM_enum_ad_generalized_entropy",
+      "importance": 0.399559
+    },
+    {
+      "feature": "SM_method_ci_min",
+      "importance": 0.372752
+    },
+    {
+      "feature": "COV_LINE",
+      "importance": 0.365715
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "importance": 0.344457
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "importance": 0.321321
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "importance": 0.285411
+    },
+    {
+      "feature": "SM_enum_cloc_stdev",
+      "importance": 0.28379
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "importance": 0.280268
+    },
+    {
+      "feature": "SM_enum_dloc_stdev",
+      "importance": 0.273932
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "importance": 0.2583
+    },
+    {
+      "feature": "SM_enum_tcloc_stdev",
+      "importance": 0.246215
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "importance": 0.216762
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "importance": 0.201155
+    },
+    {
+      "feature": "SM_enum_pua_stdev",
+      "importance": 0.178076
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "importance": 0.175828
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "importance": 0.167207
+    },
+    {
+      "feature": "SM_interface_noc_stdev",
+      "importance": 0.151864
+    },
+    {
+      "feature": "SM_enum_cboi_stdev",
+      "importance": 0.146081
+    },
+    {
+      "feature": "PMD_cis",
+      "importance": 0.142136
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "importance": 0.122824
+    },
+    {
+      "feature": "PMD_severity_major",
+      "importance": 0.105682
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "importance": 0.091236
+    },
+    {
+      "feature": "SM_method_cco_min",
+      "importance": 0.078429
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "importance": 0.067224
+    },
+    {
+      "feature": "PMD_odpl",
+      "importance": 0.065404
+    },
+    {
+      "feature": "SM_enum_nla_stdev",
+      "importance": 0.062964
+    },
+    {
+      "feature": "SM_enum_na_stdev",
+      "importance": 0.062964
+    },
+    {
+      "feature": "SM_enum_ad_atkinson",
+      "importance": 0.058726
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "importance": 0.054117
+    },
+    {
+      "feature": "MOSER_authors",
+      "importance": 0.051753
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "importance": 0.049922
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "importance": 0.04665
+    },
+    {
+      "feature": "SM_enum_nlg_stdev",
+      "importance": 0.037432
+    },
+    {
+      "feature": "SM_enum_ng_stdev",
+      "importance": 0.037432
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "importance": 0.036433
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "importance": 0.032673
+    },
+    {
+      "feature": "SM_interface_cboi_stdev",
+      "importance": 0.029711
+    },
+    {
+      "feature": "PMD_arp",
+      "importance": 0.029426
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "importance": 0.015497
+    },
+    {
+      "feature": "SM_method_ci_median",
+      "importance": 0.010912
+    },
+    {
+      "feature": "SM_enum_tnpa_stdev",
+      "importance": 0.002969
+    },
+    {
+      "feature": "SM_enum_tnlpa_stdev",
+      "importance": 0.002969
+    }
+  ]
+}

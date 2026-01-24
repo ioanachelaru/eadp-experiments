@@ -1,21 +1,42 @@
 # eadp-experiments
 
-Effort-aware defect prediction experiments using clustering analysis on software metrics.
+Effort-aware defect prediction experiments comparing clustering and supervised learning approaches on software metrics.
 
 ## Overview
 
-This project analyzes software metrics from Apache Ant-Ivy and Apache Calcite projects to identify which metrics are most relevant for predicting software defects. Using DBSCAN clustering with automatic epsilon detection, we evaluate feature importance based on cluster separation and compare results with effort-related metrics.
+This project analyzes software metrics from Apache Calcite to evaluate different approaches for predicting software defects. We compare:
+
+1. **Clustering (DBSCAN)** - Unsupervised approach using feature relevance for cluster separation
+2. **Supervised Learning (Random Forest, Logistic Regression)** - Classification with cross-validation
+
+We also compare three feature sets:
+- **Software Metrics (SM)** - Code complexity, coupling, cohesion metrics
+- **Effort + Coverage** - Code churn, file age, test coverage, PMD warnings
+- **Combined** - All features together
 
 ## Key Findings
 
-| Dataset | Samples | Features | Clusters | Top Feature Category |
-|---------|---------|----------|----------|---------------------|
-| Ant-Ivy | 2,237 | 4,189 | 4 | SM_interface (88%) |
-| Calcite | 19,751 | 5,234 | 65 | SM_enum (68%) |
+### Supervised Learning Dramatically Outperforms Clustering
 
-- **Only 1 feature** appears in both top 100 lists (`SM_interface_nop_sum`)
-- Software Metrics (SM_*) dominate top rankings in both datasets (96%)
-- Effort-data features (PMD, HASSAN, MOSER) show minimal overlap with clustering results (~2% in top 100)
+| Approach | Precision | Recall | F1-Score |
+|----------|-----------|--------|----------|
+| Clustering (DBSCAN) | 25-47% | 5-8% | 8-14% |
+| Random Forest (SM-only) | 39.2% | 32.0% | 35.2% |
+| Random Forest (Effort+Cov) | 80.8% | 51.5% | 62.9% |
+
+### Effort + Coverage Features Outperform Software Metrics
+
+| Feature Set | F1-Score | ROC-AUC |
+|-------------|----------|---------|
+| SM-only (30 features) | 35.2% | 0.662 |
+| Effort+Coverage (31 features) | 62.9% | 0.947 |
+| Combined (61 features) | 63.4% | 0.949 |
+
+**Top predictive features:**
+1. Test coverage (`COV_BRANCH`, `COV_INSTRUCTION`)
+2. Code churn (`HASSAN_whcm`)
+3. File age (`MOSER_weighted_age`)
+4. Code quality warnings (`PMD_severity_minor`, `PMD_severity_major`)
 
 ## Prerequisites
 
@@ -32,146 +53,176 @@ pip install -r requirements.txt
 
 ```
 eadp-experiments/
-├── run_clustering.py          # Main clustering entry point
+├── run_clustering.py          # Clustering experiments
+├── run_classification.py      # Supervised learning experiments
 ├── compare_features.py        # Compare clustering vs effort-data features
 ├── src/
 │   ├── config.py              # Dataset and algorithm configurations
 │   ├── data_utils.py          # Data loading and preprocessing
 │   ├── clustering.py          # K-Means and DBSCAN implementations
+│   ├── classification.py      # Random Forest, Logistic Regression
 │   ├── metrics.py             # Internal and external metrics
 │   ├── feature_analysis.py    # Feature relevance computation
 │   └── plotting.py            # Visualization functions
 ├── data/
-│   ├── ant-ivy-all versions.xlsx
-│   └── All Calcite 1.0.0-1.15.0 software metrics.xlsx
-├── effort_data/
-│   └── All Calcite 1.0.0-1.15.0 effort-related metrics.xlsx
+│   ├── Calcite-top30-sm-only-v1.1+.csv
+│   ├── Calcite-effort-cov-only.csv
+│   ├── Calcite-top30-sm-cov-effort.csv
+│   └── ...
 └── results/
-    ├── ant-ivy/dbscan/        # Ant-Ivy clustering results
-    ├── calcite/dbscan/        # Calcite clustering results
-    └── clustering_comparison_report.txt
+    ├── supervised_learning_comparison.txt
+    ├── classification/         # Per-dataset JSON results
+    ├── calcite/dbscan/         # Clustering results
+    └── ant-ivy/dbscan/
 ```
 
 ## Usage
 
-### Run DBSCAN Clustering
+### Supervised Learning (Recommended)
 
 ```bash
+# Compare all three feature sets with Random Forest
+python3 run_classification.py --compare-all
+
+# Compare with Logistic Regression
+python3 run_classification.py --compare-all --classifier lr
+
+# Run on a single dataset
+python3 run_classification.py --dataset calcite-effort-cov-only --classifier rf
+```
+
+### Clustering
+
+```bash
+# Run DBSCAN on Calcite dataset
+python3 run_clustering.py --dataset calcite --algorithm dbscan
+
 # Run on Ant-Ivy dataset
 python3 run_clustering.py --dataset ant-ivy --algorithm dbscan
-
-# Run on Calcite dataset
-python3 run_clustering.py --dataset calcite --algorithm dbscan
 
 # With outlier removal
 python3 run_clustering.py --dataset ant-ivy --algorithm dbscan --no-outliers
 
-# With custom parameters
-python3 run_clustering.py --dataset ant-ivy --algorithm dbscan --eps 50 --min-samples 10
-```
-
-### Run K-Means Clustering
-
-```bash
+# K-Means with custom cluster count
 python3 run_clustering.py --dataset ant-ivy --algorithm kmeans --k 3
 ```
 
-### Compare with Effort-Data Features
+### Compare Clustering with Effort Features
 
 ```bash
-# Compare Ant-Ivy clustering results with effort-data features
-python3 compare_features.py --dataset ant-ivy --algorithm dbscan
-
-# Compare Calcite clustering results
 python3 compare_features.py --dataset calcite --algorithm dbscan
 ```
 
-## Output
+## Experiments
 
-### Clustering Results
+### Experiment 1: Clustering Analysis
 
+**Goal:** Identify features that best separate clusters in the data.
+
+**Method:** DBSCAN with automatic epsilon detection, feature relevance based on standard deviation across cluster centers.
+
+**Results:**
+- Ant-Ivy: 4 clusters, Silhouette 0.507, top features are SM_interface_* metrics
+- Calcite: 65 clusters, Silhouette 0.423, top features are SM_enum_* metrics
+- Clustering achieves poor defect prediction: ~6% recall, ~35% precision
+
+**Conclusion:** Clustering identifies structurally distinct code but fails at defect prediction due to class imbalance (7.5% defective).
+
+### Experiment 2: Supervised Learning Comparison
+
+**Goal:** Compare SM vs Effort+Coverage features for defect prediction.
+
+**Method:**
+- 5-fold stratified cross-validation (preserves class ratio in each fold)
+- `class_weight='balanced'` to handle class imbalance
+- Random Forest and Logistic Regression classifiers
+
+**Datasets (all 18,676 samples, 7.5% defective):**
+
+| Dataset | Features | Description |
+|---------|----------|-------------|
+| `calcite-top30-sm-only-v1.1+` | 30 | Top software metrics |
+| `calcite-effort-cov-only` | 31 | 26 effort + 5 coverage |
+| `calcite-top30-sm-cov-effort` | 61 | Combined |
+
+**Results (Random Forest):**
+
+| Feature Set | Precision | Recall | F1 | ROC-AUC |
+|-------------|-----------|--------|-----|---------|
+| SM-only | 39.2% | 32.0% | 35.2% | 0.662 |
+| Effort+Cov | 80.8% | 51.5% | 62.9% | 0.947 |
+| Combined | 81.7% | 51.9% | 63.4% | 0.949 |
+
+**Conclusions:**
+1. Effort+Coverage features outperform SM by 79% (F1: 35% -> 63%)
+2. Adding SM to Effort+Cov provides marginal improvement (+0.5% F1)
+3. Random Forest outperforms Logistic Regression (63% vs 31% F1)
+4. Supervised learning vastly outperforms clustering (~9x better recall)
+
+## Output Files
+
+### Supervised Learning
+```
+results/supervised_learning_comparison.txt    # Main comparison report
+results/classification/
+├── calcite-top30-sm-only-v1.1+_rf_results.json
+├── calcite-effort-cov-only_rf_results.json
+├── calcite-top30-sm-cov-effort_rf_results.json
+└── ..._lr_results.json
+```
+
+### Clustering
 ```
 results/{dataset}/{algorithm}/
-├── results.json               # Full results with all feature rankings
+├── results.json               # Full results with feature rankings
 ├── top_features.txt           # Human-readable feature rankings
-├── metrics_summary.txt        # Clustering metrics and cluster statistics
-├── comparison_report.txt      # Comparison with effort-data features
+├── metrics_summary.txt        # Clustering metrics
+├── comparison_report.txt      # Comparison with effort-data
 └── visualizations/
-    ├── clusters_pca.png       # PCA cluster visualization
-    ├── feature_relevance.png  # Top features chart
-    ├── metrics_comparison.png # Metrics bar chart
-    └── k_distance.png         # K-distance graph (DBSCAN only)
+    ├── clusters_pca.png
+    ├── feature_relevance.png
+    └── k_distance.png         # DBSCAN only
 ```
 
-### Comparison Report
+## Metrics
 
-```
-results/clustering_comparison_report.txt   # Ant vs Calcite feature comparison
-```
+### Classification Metrics
+- **Precision**: Of predicted defects, how many are actual defects
+- **Recall**: Of actual defects, how many were predicted
+- **F1-Score**: Harmonic mean of precision and recall
+- **ROC-AUC**: Area under ROC curve (0.5 = random, 1.0 = perfect)
+- **PR-AUC**: Area under Precision-Recall curve (better for imbalanced data)
 
-## Metrics Computed
-
-### Internal Clustering Metrics
-
-- **Silhouette Score**: Measures cluster cohesion vs separation. Range: -1 to 1, higher is better.
-- **Davies-Bouldin Index**: Ratio of within-cluster to between-cluster distances. Lower is better.
-
-### External Clustering Metrics
-
-Using defect labels as ground truth:
-
-- **Homogeneity**: Each cluster contains only members of a single class (0 to 1).
-- **Completeness**: All members of a class are assigned to the same cluster (0 to 1).
-- **V-Measure**: Harmonic mean of homogeneity and completeness (0 to 1).
-
-### Feature Relevance
-
-Features are ranked by the standard deviation across cluster centers. Higher values indicate features that better distinguish between clusters.
+### Clustering Metrics
+- **Silhouette Score**: Cluster cohesion vs separation (-1 to 1, higher is better)
+- **V-Measure**: Harmonic mean of homogeneity and completeness (0 to 1)
 
 ## Configuration
 
-Edit `src/config.py` to modify datasets and algorithm defaults:
+Dataset configurations are in `src/config.py`. Available datasets:
 
 ```python
 DATASETS = {
-    "ant-ivy": {
-        "file": "data/ant-ivy-all versions.xlsx",
-        "sheet": "ant-ivy-all versions",
-        "header_row": 8,
-        "feature_name_row": 7,
-        "label_column": "Label",
-    },
-    "calcite": {
-        "file": "data/All Calcite 1.0.0-1.15.0 software metrics.xlsx",
-        "sheet": "All SM",
-        "header_row": 9,
-        "label_column": "Bug",
-    },
-}
-
-CLUSTERING_DEFAULTS = {
-    "kmeans": {"n_clusters": 2, "random_state": 42},
-    "dbscan": {"eps": None, "min_samples": 5},  # eps auto-detected
+    "calcite-top30-sm-only-v1.1+": {...},  # 30 SM features
+    "calcite-effort-cov-only": {...},       # 31 effort+coverage features
+    "calcite-top30-sm-cov-effort": {...},   # 61 combined features
+    "ant-ivy": {...},
+    "calcite": {...},
+    # ... more datasets
 }
 ```
 
-## Results Summary
+## Practical Implications
 
-### Ant-Ivy DBSCAN Results
-- **Clusters**: 4 (+ 1.5% noise)
-- **Silhouette**: 0.507
-- **Top features**: SM_class_nii_stdev, SM_interface_nii_*, SM_class_pda_stdev
-- **Effort-data overlap**: 3/149 features in top 100 (2.0%)
+1. **For defect prediction, use supervised learning** - clustering is not suitable due to class imbalance
 
-### Calcite DBSCAN Results
-- **Clusters**: 65 (+ 0.9% noise)
-- **Silhouette**: 0.423
-- **Top features**: SM_interface_nod_stdev, SM_enum_dloc_stdev, SM_enum_cloc_stdev
-- **Effort-data overlap**: 4/170 features in top 100 (2.4%)
+2. **Prioritize effort + coverage data collection** over complex software metric extraction:
+   - Test coverage (branch, instruction, complexity)
+   - Code churn metrics (HASSAN_whcm, HASSAN_hcm)
+   - File history (MOSER_weighted_age, MOSER_revisions)
+   - Static analysis warnings (PMD severity)
 
-### Key Insight
-
-The clustering analysis identifies **Software Metrics (SM_*)** as most important for cluster separation, while the effort-data correlation analysis prioritizes **PMD, HASSAN, and MOSER** metrics. The two approaches capture fundamentally different aspects of defect prediction.
+3. **Software metrics alone are insufficient** - they capture code structure but not defect-proneness
 
 ## License
 
