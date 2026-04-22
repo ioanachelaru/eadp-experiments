@@ -1,0 +1,364 @@
+{
+  "cv_mode": "chronological",
+  "n_folds": 5,
+  "release_order": [
+    "1.4.1",
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0",
+    "2.4.0"
+  ],
+  "n_features": 30,
+  "feature_names": [
+    "SM_interface_nod_stdev",
+    "SM_enum_dloc_stdev",
+    "SM_enum_cloc_stdev",
+    "SM_enum_tcloc_stdev",
+    "SM_enum_npa_stdev",
+    "SM_enum_nlpa_stdev",
+    "SM_enum_nla_stdev",
+    "SM_enum_na_stdev",
+    "SM_enum_tnlpa_stdev",
+    "SM_enum_tnpa_stdev",
+    "SM_enum_tna_stdev",
+    "SM_enum_tnla_stdev",
+    "SM_interface_cboi_stdev",
+    "SM_enum_ad_generalized_entropy",
+    "SM_enum_ad_atkinson",
+    "SM_enum_ad_theil",
+    "SM_method_cco_min",
+    "SM_method_ci_min",
+    "SM_method_cco_median",
+    "SM_method_ccl_min",
+    "SM_enum_cco_min",
+    "SM_method_ci_median",
+    "SM_method_cco_avg",
+    "SM_enum_cboi_stdev",
+    "SM_enum_ci_min",
+    "SM_interface_noc_stdev",
+    "SM_enum_pua_stdev",
+    "SM_enum_nlg_stdev",
+    "SM_enum_ng_stdev",
+    "SM_enum_cco_median"
+  ],
+  "metrics": {
+    "precision": {
+      "mean": 0.3546096745248389,
+      "std": 0.26165934861596896,
+      "values": [
+        0.0,
+        0.7,
+        0.6086956521739131,
+        0.1951219512195122,
+        0.2692307692307692
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "recall": {
+      "mean": 0.33824839707192644,
+      "std": 0.2004950660436756,
+      "values": [
+        0.0,
+        0.2857142857142857,
+        0.3783783783783784,
+        0.6153846153846154,
+        0.4117647058823529
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "f1": {
+      "mean": 0.29886829195221515,
+      "std": 0.1610170958913601,
+      "values": [
+        0.0,
+        0.4057971014492754,
+        0.4666666666666667,
+        0.2962962962962963,
+        0.32558139534883723
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.5871927858443795,
+      "std": 0.1542690204752377,
+      "values": [
+        0.30827814569536416,
+        0.5667572223694674,
+        0.6532498756425138,
+        0.771689497716895,
+        0.6359891877976576
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.20471443720228585,
+      "std": 0.08869596238077701,
+      "values": [
+        0.11008273958745657,
+        0.24810745265818301,
+        0.338656058303003,
+        0.10362809177291976,
+        0.2230978436898669
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    }
+  },
+  "fold_details": [
+    {
+      "test_version": "2.0.0",
+      "train_versions": [
+        "1.4.1"
+      ],
+      "n_train": 240,
+      "n_test": 352,
+      "n_defective_train": 11,
+      "n_defective_test": 50,
+      "defect_rate_train": 4.583333333333333,
+      "defect_rate_test": 14.204545454545455,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.30827814569536416,
+      "avg_precision": 0.11008273958745657
+    },
+    {
+      "test_version": "2.1.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0"
+      ],
+      "n_train": 592,
+      "n_test": 357,
+      "n_defective_train": 61,
+      "n_defective_test": 49,
+      "defect_rate_train": 10.304054054054054,
+      "defect_rate_test": 13.725490196078432,
+      "precision": 0.7,
+      "recall": 0.2857142857142857,
+      "f1": 0.4057971014492754,
+      "roc_auc": 0.5667572223694674,
+      "avg_precision": 0.24810745265818301
+    },
+    {
+      "test_version": "2.2.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "n_train": 949,
+      "n_test": 363,
+      "n_defective_train": 110,
+      "n_defective_test": 37,
+      "defect_rate_train": 11.591148577449948,
+      "defect_rate_test": 10.192837465564738,
+      "precision": 0.6086956521739131,
+      "recall": 0.3783783783783784,
+      "f1": 0.4666666666666667,
+      "roc_auc": 0.6532498756425138,
+      "avg_precision": 0.338656058303003
+    },
+    {
+      "test_version": "2.3.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "n_train": 1312,
+      "n_test": 451,
+      "n_defective_train": 147,
+      "n_defective_test": 13,
+      "defect_rate_train": 11.204268292682928,
+      "defect_rate_test": 2.882483370288248,
+      "precision": 0.1951219512195122,
+      "recall": 0.6153846153846154,
+      "f1": 0.2962962962962963,
+      "roc_auc": 0.771689497716895,
+      "avg_precision": 0.10362809177291976
+    },
+    {
+      "test_version": "2.4.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0"
+      ],
+      "n_train": 1763,
+      "n_test": 474,
+      "n_defective_train": 160,
+      "n_defective_test": 17,
+      "defect_rate_train": 9.075439591605218,
+      "defect_rate_test": 3.5864978902953584,
+      "precision": 0.2692307692307692,
+      "recall": 0.4117647058823529,
+      "f1": 0.32558139534883723,
+      "roc_auc": 0.6359891877976576,
+      "avg_precision": 0.2230978436898669
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "SM_method_cco_avg",
+      "importance": 0.981704
+    },
+    {
+      "feature": "SM_method_cco_median",
+      "importance": 0.010034
+    },
+    {
+      "feature": "SM_method_ci_median",
+      "importance": 0.007992
+    },
+    {
+      "feature": "SM_interface_noc_stdev",
+      "importance": 9.1e-05
+    },
+    {
+      "feature": "SM_interface_nod_stdev",
+      "importance": 9.1e-05
+    },
+    {
+      "feature": "SM_interface_cboi_stdev",
+      "importance": 8.9e-05
+    },
+    {
+      "feature": "SM_enum_dloc_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_cloc_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_tcloc_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_npa_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_nlpa_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_nla_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_na_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnlpa_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnpa_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_tna_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnla_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_generalized_entropy",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_atkinson",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_theil",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_method_cco_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_method_ci_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_method_ccl_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_cco_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_cboi_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_ci_min",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_pua_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_nlg_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_ng_stdev",
+      "importance": 0.0
+    },
+    {
+      "feature": "SM_enum_cco_median",
+      "importance": 0.0
+    }
+  ],
+  "dataset": "ant-ivy-top30-sm-only",
+  "description": "Ant-Ivy: top-30 SM features (30 total)",
+  "classifier": "rf",
+  "n_estimators": 100,
+  "random_state": 42,
+  "n_samples": 2237,
+  "n_defective": 177,
+  "defect_rate": 7.91
+}

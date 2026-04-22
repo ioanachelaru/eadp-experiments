@@ -1,0 +1,21 @@
+{
+  "test_version": "2.4.0",
+  "train_versions": [
+    "1.4.1",
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0"
+  ],
+  "n_train": 1763,
+  "n_test": 474,
+  "n_defective_train": 160,
+  "n_defective_test": 17,
+  "defect_rate_train": 9.075439591605218,
+  "defect_rate_test": 3.5864978902953584,
+  "precision": 0.4444444444444444,
+  "recall": 0.23529411764705882,
+  "f1": 0.3076923076923077,
+  "roc_auc": 0.9395675119062942,
+  "avg_precision": 0.3414109786886337
+}

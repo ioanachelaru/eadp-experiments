@@ -487,6 +487,66 @@ def create_ant_ivy_effort_dataset(output_path: Optional[str] = None) -> str:
     return output_file
 
 
+def create_ant_ivy_effort_cov_dataset(output_path: Optional[str] = None) -> str:
+    """
+    Create Ant-Ivy effort + coverage dataset by merging effort data with
+    JaCoCo coverage CSVs extracted per release.
+
+    Returns:
+        Path to the output CSV file
+    """
+    from glob import glob
+    import os
+
+    output_file = output_path or "data/Ant-Ivy-effort-cov.csv"
+    coverage_pattern = RAW_DATA["ant_ivy_coverage_pattern"]
+
+    print("Creating Ant-Ivy effort + coverage dataset...")
+
+    # Load effort data
+    effort_df = pd.read_csv("data/Ant-Ivy-effort-only.csv")
+    print(f"  Effort data: {effort_df.shape}")
+
+    # Load and concat all coverage CSVs
+    all_coverage = []
+    for csv_file in sorted(glob(coverage_pattern)):
+        basename = os.path.basename(csv_file)
+        # Extract version from filename: Coverage-AntIvy-{version}-filename.csv
+        version = basename.split("-")[2]
+        df = pd.read_csv(csv_file)
+        df["version"] = version
+        df = df.rename(columns={"filename": "file"})
+        all_coverage.append(df)
+        print(f"    {basename}: {len(df)} rows")
+
+    coverage_df = pd.concat(all_coverage, ignore_index=True)
+    print(f"  Total coverage rows: {len(coverage_df)}")
+
+    # Merge on version + file
+    cov_subset = coverage_df[["version", "file"] + COVERAGE_FEATURES].copy()
+    merged = pd.merge(
+        effort_df,
+        cov_subset,
+        left_on=["Ant version", "file"],
+        right_on=["version", "file"],
+        how="left",
+    )
+    merged = merged.drop(columns=["version"])
+
+    # Fill unmatched coverage with 0 (files excluded from compilation, e.g. VFS)
+    unmatched = merged[COVERAGE_FEATURES[0]].isna().sum()
+    if unmatched > 0:
+        print(f"  {unmatched} files without coverage data — filling with 0.0")
+        for col in COVERAGE_FEATURES:
+            merged[col] = merged[col].fillna(0.0)
+
+    merged.to_csv(output_file, index=False)
+    print(f"  Output: {output_file}")
+    print(f"  Shape: {merged.shape}")
+
+    return output_file
+
+
 def run_prepare_action(action: str, dataset: str = "calcite", **kwargs) -> str:
     """
     Run a data preparation action.
@@ -516,9 +576,12 @@ def run_prepare_action(action: str, dataset: str = "calcite", **kwargs) -> str:
         return create_sm_baseline_dataset(**kwargs)
     elif action == "create-ant-ivy-effort":
         return create_ant_ivy_effort_dataset(**kwargs)
+    elif action == "create-ant-ivy-effort-cov":
+        return create_ant_ivy_effort_cov_dataset(**kwargs)
     else:
         raise ValueError(
             f"Unknown action: {action}. "
             f"Use: extract-sm, merge-coverage, create-combined, create-top30-sm, "
-            f"create-effort-only, deduplicate, create-sm-baseline, create-ant-ivy-effort"
+            f"create-effort-only, deduplicate, create-sm-baseline, create-ant-ivy-effort, "
+            f"create-ant-ivy-effort-cov"
         )

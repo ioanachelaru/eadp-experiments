@@ -1,0 +1,369 @@
+{
+  "cv_mode": "chronological",
+  "n_folds": 5,
+  "release_order": [
+    "1.4.1",
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0",
+    "2.4.0"
+  ],
+  "n_features": 31,
+  "feature_names": [
+    "CHANGE_TYPE_computation",
+    "CHANGE_TYPE_data",
+    "CHANGE_TYPE_other",
+    "HASSAN_edhcm",
+    "HASSAN_hcm",
+    "HASSAN_ldhcm",
+    "HASSAN_lgdhcm",
+    "HASSAN_whcm",
+    "ISSUE_major_bug",
+    "ISSUE_major_improvement",
+    "MOSER_authors",
+    "MOSER_bugfix",
+    "MOSER_revisions",
+    "MOSER_sum_lines_deleted",
+    "MOSER_weighted_age",
+    "PMD_arp",
+    "PMD_cis",
+    "PMD_odpl",
+    "PMD_rule_type_basic rules",
+    "PMD_rule_type_controversial rules",
+    "PMD_rule_type_design rules",
+    "PMD_rule_type_string and stringbuffer rules",
+    "PMD_rule_type_unnecessary and unused code rules",
+    "PMD_severity_critical",
+    "PMD_severity_major",
+    "PMD_severity_minor",
+    "COV_INSTRUCTION",
+    "COV_BRANCH",
+    "COV_LINE",
+    "COV_COMPLEXITY",
+    "COV_METHOD"
+  ],
+  "metrics": {
+    "precision": {
+      "mean": 0.42337977296181634,
+      "std": 0.3375145527203812,
+      "values": [
+        0.0,
+        0.875,
+        0.7647058823529411,
+        0.21052631578947367,
+        0.26666666666666666
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "recall": {
+      "mean": 0.20743898390957213,
+      "std": 0.12549036070302286,
+      "values": [
+        0.0,
+        0.14285714285714285,
+        0.35135135135135137,
+        0.3076923076923077,
+        0.23529411764705882
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "f1": {
+      "mean": 0.24541910331384015,
+      "std": 0.15231414240629584,
+      "values": [
+        0.0,
+        0.24561403508771928,
+        0.48148148148148145,
+        0.25,
+        0.25
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.8564224586785464,
+      "std": 0.08711575552541634,
+      "values": [
+        0.6913907284768211,
+        0.854492446329181,
+        0.936204609517493,
+        0.8835616438356166,
+        0.9164628652336209
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.37424649542436716,
+      "std": 0.16279265711632462,
+      "values": [
+        0.22940892125607237,
+        0.5039601994215044,
+        0.630447025493436,
+        0.25543856686158284,
+        0.2519777640892403
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    }
+  },
+  "fold_details": [
+    {
+      "test_version": "2.0.0",
+      "train_versions": [
+        "1.4.1"
+      ],
+      "n_train": 240,
+      "n_test": 352,
+      "n_defective_train": 11,
+      "n_defective_test": 50,
+      "defect_rate_train": 4.583333333333333,
+      "defect_rate_test": 14.204545454545455,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.6913907284768211,
+      "avg_precision": 0.22940892125607237
+    },
+    {
+      "test_version": "2.1.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0"
+      ],
+      "n_train": 592,
+      "n_test": 357,
+      "n_defective_train": 61,
+      "n_defective_test": 49,
+      "defect_rate_train": 10.304054054054054,
+      "defect_rate_test": 13.725490196078432,
+      "precision": 0.875,
+      "recall": 0.14285714285714285,
+      "f1": 0.24561403508771928,
+      "roc_auc": 0.854492446329181,
+      "avg_precision": 0.5039601994215044
+    },
+    {
+      "test_version": "2.2.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "n_train": 949,
+      "n_test": 363,
+      "n_defective_train": 110,
+      "n_defective_test": 37,
+      "defect_rate_train": 11.591148577449948,
+      "defect_rate_test": 10.192837465564738,
+      "precision": 0.7647058823529411,
+      "recall": 0.35135135135135137,
+      "f1": 0.48148148148148145,
+      "roc_auc": 0.936204609517493,
+      "avg_precision": 0.630447025493436
+    },
+    {
+      "test_version": "2.3.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "n_train": 1312,
+      "n_test": 451,
+      "n_defective_train": 147,
+      "n_defective_test": 13,
+      "defect_rate_train": 11.204268292682928,
+      "defect_rate_test": 2.882483370288248,
+      "precision": 0.21052631578947367,
+      "recall": 0.3076923076923077,
+      "f1": 0.25,
+      "roc_auc": 0.8835616438356166,
+      "avg_precision": 0.25543856686158284
+    },
+    {
+      "test_version": "2.4.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0"
+      ],
+      "n_train": 1763,
+      "n_test": 474,
+      "n_defective_train": 160,
+      "n_defective_test": 17,
+      "defect_rate_train": 9.075439591605218,
+      "defect_rate_test": 3.5864978902953584,
+      "precision": 0.26666666666666666,
+      "recall": 0.23529411764705882,
+      "f1": 0.25,
+      "roc_auc": 0.9164628652336209,
+      "avg_precision": 0.2519777640892403
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "COV_BRANCH",
+      "importance": 0.132862
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "importance": 0.085576
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "importance": 0.078621
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "importance": 0.077956
+    },
+    {
+      "feature": "COV_LINE",
+      "importance": 0.069375
+    },
+    {
+      "feature": "COV_METHOD",
+      "importance": 0.068846
+    },
+    {
+      "feature": "PMD_severity_major",
+      "importance": 0.065482
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "importance": 0.053749
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "importance": 0.04665
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "importance": 0.036768
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "importance": 0.02815
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "importance": 0.024328
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "importance": 0.022051
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "importance": 0.021889
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "importance": 0.019189
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "importance": 0.019106
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "importance": 0.018714
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "importance": 0.017217
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "importance": 0.017004
+    },
+    {
+      "feature": "MOSER_revisions",
+      "importance": 0.014692
+    },
+    {
+      "feature": "MOSER_authors",
+      "importance": 0.013314
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "importance": 0.011853
+    },
+    {
+      "feature": "PMD_arp",
+      "importance": 0.010875
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "importance": 0.010075
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "importance": 0.009563
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "importance": 0.006872
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "importance": 0.006575
+    },
+    {
+      "feature": "PMD_cis",
+      "importance": 0.005007
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "importance": 0.00469
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "importance": 0.002918
+    },
+    {
+      "feature": "PMD_odpl",
+      "importance": 3e-05
+    }
+  ],
+  "dataset": "ant-ivy-effort26-cov",
+  "description": "Ant-Ivy: 26 common effort + 5 coverage features (31 total)",
+  "classifier": "rf",
+  "n_estimators": 100,
+  "random_state": 42,
+  "n_samples": 2237,
+  "n_defective": 177,
+  "defect_rate": 7.91
+}

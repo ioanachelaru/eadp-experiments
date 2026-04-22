@@ -209,3 +209,8 @@ __marimo__/
 # Large per-fold train/test CSVs (reproducible from input data)
 results/**/train.csv
 results/**/test.csv
+
+# Large data files (>100MB, exceeds GitHub limit)
+data/*.xlsx
+data/Calcite-SM-only.csv
+data/Calcite-sm-only-v1.1+.csv

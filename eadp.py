@@ -730,6 +730,7 @@ Examples:
         choices=[
             "extract-sm", "merge-coverage", "create-combined", "create-top30-sm",
             "create-effort-only", "deduplicate", "create-sm-baseline", "create-ant-ivy-effort",
+            "create-ant-ivy-effort-cov",
         ],
         help="Preparation action to perform",
     )

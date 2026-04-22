@@ -1,0 +1,984 @@
+{
+  "cv_mode": "chronological",
+  "n_folds": 5,
+  "release_order": [
+    "1.4.1",
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0",
+    "2.4.0"
+  ],
+  "n_features": 154,
+  "feature_names": [
+    "CHANGE_TYPE_computation",
+    "CHANGE_TYPE_data",
+    "CHANGE_TYPE_interface",
+    "CHANGE_TYPE_logic/control",
+    "CHANGE_TYPE_other",
+    "HASSAN_edhcm",
+    "HASSAN_hcm",
+    "HASSAN_ldhcm",
+    "HASSAN_lgdhcm",
+    "HASSAN_whcm",
+    "ISSUE_blocker_bug",
+    "ISSUE_critical_bug",
+    "ISSUE_critical_improvement",
+    "ISSUE_major_bug",
+    "ISSUE_major_improvement",
+    "ISSUE_minor_bug",
+    "ISSUE_minor_improvement",
+    "ISSUE_minor_task",
+    "ISSUE_trivial_bug",
+    "ISSUE_trivial_improvement",
+    "MOSER_age",
+    "MOSER_authors",
+    "MOSER_avg_changeset",
+    "MOSER_avg_code_churn",
+    "MOSER_avg_lines_added",
+    "MOSER_avg_lines_deleted",
+    "MOSER_bugfix",
+    "MOSER_max_changeset",
+    "MOSER_max_code_churn",
+    "MOSER_max_lines_added",
+    "MOSER_max_lines_deleted",
+    "MOSER_refactorings",
+    "MOSER_revisions",
+    "MOSER_sum_code_churn",
+    "MOSER_sum_lines_added",
+    "MOSER_sum_lines_deleted",
+    "MOSER_weighted_age",
+    "PMD_absalil",
+    "PMD_acge",
+    "PMD_aci",
+    "PMD_act",
+    "PMD_acwam",
+    "PMD_adl",
+    "PMD_aes",
+    "PMD_afnmmn",
+    "PMD_afnmtn",
+    "PMD_aicicc",
+    "PMD_aio",
+    "PMD_aisd",
+    "PMD_apmifcne",
+    "PMD_apmp",
+    "PMD_apst",
+    "PMD_are",
+    "PMD_arp",
+    "PMD_asaml",
+    "PMD_asbf",
+    "PMD_atnpe",
+    "PMD_atret",
+    "PMD_bgmn",
+    "PMD_bi",
+    "PMD_casr",
+    "PMD_ccom",
+    "PMD_cis",
+    "PMD_cla",
+    "PMD_clmmic",
+    "PMD_ctcnse",
+    "PMD_cwopcsbf",
+    "PMD_dncgce",
+    "PMD_dncse",
+    "PMD_dnteif",
+    "PMD_dp",
+    "PMD_ecb",
+    "PMD_eis",
+    "PMD_emiacsba",
+    "PMD_esnil",
+    "PMD_ews",
+    "PMD_fdncsf",
+    "PMD_fdsbasoc",
+    "PMD_flmub",
+    "PMD_gdl",
+    "PMD_gls",
+    "PMD_glsju",
+    "PMD_iesmub",
+    "PMD_if",
+    "PMD_ifsp",
+    "PMD_isb",
+    "PMD_ismub",
+    "PMD_loc",
+    "PMD_mbis",
+    "PMD_menc",
+    "PMD_mria",
+    "PMD_nsi",
+    "PMD_ntss",
+    "PMD_obeah",
+    "PMD_odpl",
+    "PMD_pci",
+    "PMD_plfic",
+    "PMD_pst",
+    "PMD_reartn",
+    "PMD_rfi",
+    "PMD_rule_type_basic rules",
+    "PMD_rule_type_brace rules",
+    "PMD_rule_type_clone implementation rules",
+    "PMD_rule_type_controversial rules",
+    "PMD_rule_type_design rules",
+    "PMD_rule_type_finalizer rules",
+    "PMD_rule_type_import statement rules",
+    "PMD_rule_type_j2ee rules",
+    "PMD_rule_type_jakarta commons logging rules",
+    "PMD_rule_type_java logging rules",
+    "PMD_rule_type_naming rules",
+    "PMD_rule_type_optimization rules",
+    "PMD_rule_type_security code guideline rules",
+    "PMD_rule_type_strict exception rules",
+    "PMD_rule_type_string and stringbuffer rules",
+    "PMD_rule_type_type resolution rules",
+    "PMD_rule_type_unnecessary and unused code rules",
+    "PMD_sbe",
+    "PMD_sc",
+    "PMD_scfn",
+    "PMD_scn",
+    "PMD_sdfnl",
+    "PMD_severity_critical",
+    "PMD_severity_major",
+    "PMD_severity_minor",
+    "PMD_sf",
+    "PMD_sidte",
+    "PMD_smn",
+    "PMD_sp",
+    "PMD_ssshd",
+    "PMD_sts",
+    "PMD_tfbfass",
+    "PMD_uc",
+    "PMD_ucie",
+    "PMD_uec",
+    "PMD_uem",
+    "PMD_ulbr",
+    "PMD_ulv",
+    "PMD_ulwcc",
+    "PMD_unaion",
+    "PMD_uni",
+    "PMD_upf",
+    "PMD_upm",
+    "PMD_usbfsa",
+    "PMD_usdf",
+    "PMD_uv",
+    "PMD_uwoc",
+    "PMD_vnc",
+    "PMD_wlmub",
+    "COV_INSTRUCTION",
+    "COV_BRANCH",
+    "COV_LINE",
+    "COV_COMPLEXITY",
+    "COV_METHOD"
+  ],
+  "metrics": {
+    "precision": {
+      "mean": 0.46094861660079045,
+      "std": 0.32802746602404076,
+      "values": [
+        0.0,
+        0.9090909090909091,
+        0.6956521739130435,
+        0.2,
+        0.5
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "recall": {
+      "mean": 0.2630494193519404,
+      "std": 0.1530400736363279,
+      "values": [
+        0.0,
+        0.20408163265306123,
+        0.43243243243243246,
+        0.38461538461538464,
+        0.29411764705882354
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "f1": {
+      "mean": 0.30003898635477577,
+      "std": 0.17427844255797154,
+      "values": [
+        0.0,
+        0.3333333333333333,
+        0.5333333333333333,
+        0.2631578947368421,
+        0.37037037037037035
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.8828845131333566,
+      "std": 0.06901102812645712,
+      "values": [
+        0.7541721854304636,
+        0.9065730188179167,
+        0.9402255015751949,
+        0.873112047769582,
+        0.9403398120736259
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.45005839024047634,
+      "std": 0.15872425747655042,
+      "values": [
+        0.3349319151685413,
+        0.6292799839881265,
+        0.6521854504114046,
+        0.2705792518976371,
+        0.3633153497366722
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    }
+  },
+  "fold_details": [
+    {
+      "test_version": "2.0.0",
+      "train_versions": [
+        "1.4.1"
+      ],
+      "n_train": 240,
+      "n_test": 352,
+      "n_defective_train": 11,
+      "n_defective_test": 50,
+      "defect_rate_train": 4.583333333333333,
+      "defect_rate_test": 14.204545454545455,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.7541721854304636,
+      "avg_precision": 0.3349319151685413
+    },
+    {
+      "test_version": "2.1.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0"
+      ],
+      "n_train": 592,
+      "n_test": 357,
+      "n_defective_train": 61,
+      "n_defective_test": 49,
+      "defect_rate_train": 10.304054054054054,
+      "defect_rate_test": 13.725490196078432,
+      "precision": 0.9090909090909091,
+      "recall": 0.20408163265306123,
+      "f1": 0.3333333333333333,
+      "roc_auc": 0.9065730188179167,
+      "avg_precision": 0.6292799839881265
+    },
+    {
+      "test_version": "2.2.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "n_train": 949,
+      "n_test": 363,
+      "n_defective_train": 110,
+      "n_defective_test": 37,
+      "defect_rate_train": 11.591148577449948,
+      "defect_rate_test": 10.192837465564738,
+      "precision": 0.6956521739130435,
+      "recall": 0.43243243243243246,
+      "f1": 0.5333333333333333,
+      "roc_auc": 0.9402255015751949,
+      "avg_precision": 0.6521854504114046
+    },
+    {
+      "test_version": "2.3.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "n_train": 1312,
+      "n_test": 451,
+      "n_defective_train": 147,
+      "n_defective_test": 13,
+      "defect_rate_train": 11.204268292682928,
+      "defect_rate_test": 2.882483370288248,
+      "precision": 0.2,
+      "recall": 0.38461538461538464,
+      "f1": 0.2631578947368421,
+      "roc_auc": 0.873112047769582,
+      "avg_precision": 0.2705792518976371
+    },
+    {
+      "test_version": "2.4.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0"
+      ],
+      "n_train": 1763,
+      "n_test": 474,
+      "n_defective_train": 160,
+      "n_defective_test": 17,
+      "defect_rate_train": 9.075439591605218,
+      "defect_rate_test": 3.5864978902953584,
+      "precision": 0.5,
+      "recall": 0.29411764705882354,
+      "f1": 0.37037037037037035,
+      "roc_auc": 0.9403398120736259,
+      "avg_precision": 0.3633153497366722
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "COV_BRANCH",
+      "importance": 0.066627
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "importance": 0.051613
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "importance": 0.050763
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "importance": 0.048188
+    },
+    {
+      "feature": "COV_LINE",
+      "importance": 0.043829
+    },
+    {
+      "feature": "COV_METHOD",
+      "importance": 0.042444
+    },
+    {
+      "feature": "MOSER_age",
+      "importance": 0.04155
+    },
+    {
+      "feature": "PMD_severity_major",
+      "importance": 0.037115
+    },
+    {
+      "feature": "PMD_if",
+      "importance": 0.031091
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "importance": 0.030027
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "importance": 0.029724
+    },
+    {
+      "feature": "PMD_vnc",
+      "importance": 0.020187
+    },
+    {
+      "feature": "PMD_adl",
+      "importance": 0.019668
+    },
+    {
+      "feature": "PMD_fdsbasoc",
+      "importance": 0.01773
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "importance": 0.017711
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "importance": 0.016907
+    },
+    {
+      "feature": "MOSER_max_changeset",
+      "importance": 0.013842
+    },
+    {
+      "feature": "PMD_gls",
+      "importance": 0.01368
+    },
+    {
+      "feature": "PMD_rule_type_naming rules",
+      "importance": 0.013445
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "importance": 0.013356
+    },
+    {
+      "feature": "MOSER_avg_lines_deleted",
+      "importance": 0.012966
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "importance": 0.01284
+    },
+    {
+      "feature": "PMD_rule_type_optimization rules",
+      "importance": 0.012468
+    },
+    {
+      "feature": "MOSER_avg_changeset",
+      "importance": 0.012259
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "importance": 0.012235
+    },
+    {
+      "feature": "PMD_rule_type_jakarta commons logging rules",
+      "importance": 0.012145
+    },
+    {
+      "feature": "PMD_dp",
+      "importance": 0.01089
+    },
+    {
+      "feature": "MOSER_avg_lines_added",
+      "importance": 0.010837
+    },
+    {
+      "feature": "MOSER_sum_lines_added",
+      "importance": 0.010752
+    },
+    {
+      "feature": "MOSER_max_lines_deleted",
+      "importance": 0.010133
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "importance": 0.010081
+    },
+    {
+      "feature": "PMD_rfi",
+      "importance": 0.009867
+    },
+    {
+      "feature": "PMD_rule_type_strict exception rules",
+      "importance": 0.009844
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "importance": 0.009797
+    },
+    {
+      "feature": "MOSER_avg_code_churn",
+      "importance": 0.009516
+    },
+    {
+      "feature": "PMD_usbfsa",
+      "importance": 0.009348
+    },
+    {
+      "feature": "MOSER_sum_code_churn",
+      "importance": 0.009318
+    },
+    {
+      "feature": "MOSER_max_lines_added",
+      "importance": 0.009085
+    },
+    {
+      "feature": "PMD_gdl",
+      "importance": 0.008953
+    },
+    {
+      "feature": "MOSER_authors",
+      "importance": 0.008498
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "importance": 0.008102
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "importance": 0.00789
+    },
+    {
+      "feature": "PMD_uv",
+      "importance": 0.007815
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "importance": 0.007248
+    },
+    {
+      "feature": "MOSER_max_code_churn",
+      "importance": 0.007127
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "importance": 0.006914
+    },
+    {
+      "feature": "PMD_arp",
+      "importance": 0.006904
+    },
+    {
+      "feature": "CHANGE_TYPE_interface",
+      "importance": 0.006201
+    },
+    {
+      "feature": "MOSER_revisions",
+      "importance": 0.0061
+    },
+    {
+      "feature": "PMD_acge",
+      "importance": 0.005541
+    },
+    {
+      "feature": "PMD_uec",
+      "importance": 0.005263
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "importance": 0.005249
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "importance": 0.005058
+    },
+    {
+      "feature": "CHANGE_TYPE_logic/control",
+      "importance": 0.004969
+    },
+    {
+      "feature": "PMD_apmp",
+      "importance": 0.00393
+    },
+    {
+      "feature": "PMD_glsju",
+      "importance": 0.003746
+    },
+    {
+      "feature": "PMD_atnpe",
+      "importance": 0.003374
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "importance": 0.003187
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "importance": 0.003133
+    },
+    {
+      "feature": "PMD_atret",
+      "importance": 0.002933
+    },
+    {
+      "feature": "PMD_rule_type_java logging rules",
+      "importance": 0.002692
+    },
+    {
+      "feature": "PMD_afnmmn",
+      "importance": 0.002617
+    },
+    {
+      "feature": "PMD_pst",
+      "importance": 0.002418
+    },
+    {
+      "feature": "PMD_afnmtn",
+      "importance": 0.001949
+    },
+    {
+      "feature": "PMD_ecb",
+      "importance": 0.001913
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "importance": 0.001888
+    },
+    {
+      "feature": "PMD_uc",
+      "importance": 0.001753
+    },
+    {
+      "feature": "PMD_cis",
+      "importance": 0.001659
+    },
+    {
+      "feature": "PMD_mria",
+      "importance": 0.001582
+    },
+    {
+      "feature": "PMD_bgmn",
+      "importance": 0.001554
+    },
+    {
+      "feature": "PMD_ismub",
+      "importance": 0.001516
+    },
+    {
+      "feature": "PMD_rule_type_security code guideline rules",
+      "importance": 0.001484
+    },
+    {
+      "feature": "PMD_uem",
+      "importance": 0.001447
+    },
+    {
+      "feature": "PMD_apst",
+      "importance": 0.001421
+    },
+    {
+      "feature": "PMD_upm",
+      "importance": 0.001401
+    },
+    {
+      "feature": "PMD_sidte",
+      "importance": 0.001347
+    },
+    {
+      "feature": "ISSUE_minor_improvement",
+      "importance": 0.001255
+    },
+    {
+      "feature": "PMD_sp",
+      "importance": 0.001234
+    },
+    {
+      "feature": "PMD_rule_type_type resolution rules",
+      "importance": 0.001189
+    },
+    {
+      "feature": "PMD_aio",
+      "importance": 0.001144
+    },
+    {
+      "feature": "PMD_iesmub",
+      "importance": 0.001136
+    },
+    {
+      "feature": "PMD_ccom",
+      "importance": 0.001129
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "importance": 0.00111
+    },
+    {
+      "feature": "PMD_aicicc",
+      "importance": 0.00099
+    },
+    {
+      "feature": "PMD_aisd",
+      "importance": 0.000978
+    },
+    {
+      "feature": "PMD_menc",
+      "importance": 0.00096
+    },
+    {
+      "feature": "PMD_sdfnl",
+      "importance": 0.000942
+    },
+    {
+      "feature": "PMD_rule_type_brace rules",
+      "importance": 0.00091
+    },
+    {
+      "feature": "ISSUE_trivial_bug",
+      "importance": 0.000864
+    },
+    {
+      "feature": "PMD_uwoc",
+      "importance": 0.000828
+    },
+    {
+      "feature": "PMD_asaml",
+      "importance": 0.000795
+    },
+    {
+      "feature": "PMD_ulwcc",
+      "importance": 0.000692
+    },
+    {
+      "feature": "PMD_isb",
+      "importance": 0.000686
+    },
+    {
+      "feature": "PMD_dncse",
+      "importance": 0.00065
+    },
+    {
+      "feature": "PMD_ulbr",
+      "importance": 0.00064
+    },
+    {
+      "feature": "PMD_nsi",
+      "importance": 0.000609
+    },
+    {
+      "feature": "PMD_scfn",
+      "importance": 0.000578
+    },
+    {
+      "feature": "PMD_ucie",
+      "importance": 0.000572
+    },
+    {
+      "feature": "PMD_emiacsba",
+      "importance": 0.000526
+    },
+    {
+      "feature": "PMD_cwopcsbf",
+      "importance": 0.000514
+    },
+    {
+      "feature": "PMD_scn",
+      "importance": 0.000486
+    },
+    {
+      "feature": "PMD_clmmic",
+      "importance": 0.00047
+    },
+    {
+      "feature": "PMD_reartn",
+      "importance": 0.000465
+    },
+    {
+      "feature": "PMD_loc",
+      "importance": 0.000445
+    },
+    {
+      "feature": "PMD_asbf",
+      "importance": 0.000388
+    },
+    {
+      "feature": "PMD_rule_type_j2ee rules",
+      "importance": 0.000383
+    },
+    {
+      "feature": "PMD_usdf",
+      "importance": 0.000335
+    },
+    {
+      "feature": "ISSUE_critical_bug",
+      "importance": 0.000322
+    },
+    {
+      "feature": "PMD_ctcnse",
+      "importance": 0.000308
+    },
+    {
+      "feature": "PMD_plfic",
+      "importance": 0.000295
+    },
+    {
+      "feature": "PMD_casr",
+      "importance": 0.000292
+    },
+    {
+      "feature": "PMD_rule_type_clone implementation rules",
+      "importance": 0.000281
+    },
+    {
+      "feature": "PMD_uni",
+      "importance": 0.000268
+    },
+    {
+      "feature": "ISSUE_minor_bug",
+      "importance": 0.000265
+    },
+    {
+      "feature": "ISSUE_minor_task",
+      "importance": 0.000227
+    },
+    {
+      "feature": "PMD_upf",
+      "importance": 0.000224
+    },
+    {
+      "feature": "PMD_absalil",
+      "importance": 0.000222
+    },
+    {
+      "feature": "PMD_cla",
+      "importance": 0.000214
+    },
+    {
+      "feature": "PMD_are",
+      "importance": 0.000212
+    },
+    {
+      "feature": "PMD_acwam",
+      "importance": 0.000202
+    },
+    {
+      "feature": "MOSER_refactorings",
+      "importance": 0.000177
+    },
+    {
+      "feature": "PMD_ntss",
+      "importance": 0.00017
+    },
+    {
+      "feature": "ISSUE_blocker_bug",
+      "importance": 0.000152
+    },
+    {
+      "feature": "PMD_mbis",
+      "importance": 0.000149
+    },
+    {
+      "feature": "PMD_rule_type_finalizer rules",
+      "importance": 0.000138
+    },
+    {
+      "feature": "PMD_sf",
+      "importance": 0.000134
+    },
+    {
+      "feature": "PMD_sts",
+      "importance": 0.000127
+    },
+    {
+      "feature": "PMD_fdncsf",
+      "importance": 0.000123
+    },
+    {
+      "feature": "PMD_aes",
+      "importance": 0.000111
+    },
+    {
+      "feature": "PMD_ifsp",
+      "importance": 0.000103
+    },
+    {
+      "feature": "PMD_eis",
+      "importance": 0.0001
+    },
+    {
+      "feature": "PMD_unaion",
+      "importance": 9.7e-05
+    },
+    {
+      "feature": "PMD_sc",
+      "importance": 9.5e-05
+    },
+    {
+      "feature": "PMD_aci",
+      "importance": 6.7e-05
+    },
+    {
+      "feature": "PMD_rule_type_import statement rules",
+      "importance": 5.6e-05
+    },
+    {
+      "feature": "PMD_dnteif",
+      "importance": 5.3e-05
+    },
+    {
+      "feature": "PMD_flmub",
+      "importance": 5.2e-05
+    },
+    {
+      "feature": "PMD_dncgce",
+      "importance": 3.3e-05
+    },
+    {
+      "feature": "ISSUE_trivial_improvement",
+      "importance": 3.2e-05
+    },
+    {
+      "feature": "PMD_tfbfass",
+      "importance": 2.7e-05
+    },
+    {
+      "feature": "PMD_ulv",
+      "importance": 2.5e-05
+    },
+    {
+      "feature": "PMD_pci",
+      "importance": 2.3e-05
+    },
+    {
+      "feature": "PMD_obeah",
+      "importance": 2.1e-05
+    },
+    {
+      "feature": "PMD_esnil",
+      "importance": 1.3e-05
+    },
+    {
+      "feature": "PMD_wlmub",
+      "importance": 1e-05
+    },
+    {
+      "feature": "PMD_ssshd",
+      "importance": 7e-06
+    },
+    {
+      "feature": "PMD_smn",
+      "importance": 7e-06
+    },
+    {
+      "feature": "PMD_act",
+      "importance": 4e-06
+    },
+    {
+      "feature": "PMD_bi",
+      "importance": 4e-06
+    },
+    {
+      "feature": "PMD_sbe",
+      "importance": 3e-06
+    },
+    {
+      "feature": "PMD_ews",
+      "importance": 2e-06
+    },
+    {
+      "feature": "ISSUE_critical_improvement",
+      "importance": 0.0
+    },
+    {
+      "feature": "PMD_odpl",
+      "importance": 0.0
+    },
+    {
+      "feature": "PMD_apmifcne",
+      "importance": 0.0
+    }
+  ],
+  "dataset": "ant-ivy-effort-cov",
+  "description": "Ant-Ivy: 149 effort + 5 coverage features (154 total)",
+  "classifier": "rf",
+  "n_estimators": 100,
+  "random_state": 42,
+  "n_samples": 2237,
+  "n_defective": 177,
+  "defect_rate": 7.91
+}
