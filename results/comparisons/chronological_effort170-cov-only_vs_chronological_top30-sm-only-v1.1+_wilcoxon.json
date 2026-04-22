@@ -1,0 +1,65 @@
+{
+  "result_a": "results/calcite/chronological/effort170-cov-only/rf_results.json",
+  "result_b": "results/calcite/chronological/top30-sm-only-v1.1+/rf_results.json",
+  "dataset_a": "calcite-effort170-cov-only",
+  "dataset_b": "calcite-top30-sm-only-v1.1+",
+  "n_common_folds": 14,
+  "common_versions": [
+    "1.10.0",
+    "1.11.0",
+    "1.12.0",
+    "1.13.0",
+    "1.14.0",
+    "1.15.0",
+    "1.2.0",
+    "1.3.0",
+    "1.4.0",
+    "1.5.0",
+    "1.6.0",
+    "1.7.0",
+    "1.8.0",
+    "1.9.0"
+  ],
+  "tests": {
+    "precision": {
+      "statistic": 0.0,
+      "p_value": 0.0001220703125,
+      "mean_a": 0.8469329987446648,
+      "mean_b": 0.3864647891186372,
+      "mean_diff": 0.4604682096260273,
+      "n_pairs": 14
+    },
+    "recall": {
+      "statistic": 1.0,
+      "p_value": 0.0018714329102470324,
+      "mean_a": 0.4933533242865586,
+      "mean_b": 0.2972554372581419,
+      "mean_diff": 0.19609788702841674,
+      "n_pairs": 14
+    },
+    "f1": {
+      "statistic": 0.0,
+      "p_value": 0.0001220703125,
+      "mean_a": 0.6099214024463487,
+      "mean_b": 0.321240733687744,
+      "mean_diff": 0.2886806687586046,
+      "n_pairs": 14
+    },
+    "roc_auc": {
+      "statistic": 0.0,
+      "p_value": 0.0001220703125,
+      "mean_a": 0.9323733387878459,
+      "mean_b": 0.632116957786691,
+      "mean_diff": 0.30025638100115476,
+      "n_pairs": 14
+    },
+    "avg_precision": {
+      "statistic": 0.0,
+      "p_value": 0.0001220703125,
+      "mean_a": 0.7201351014650192,
+      "mean_b": 0.2525588237910555,
+      "mean_diff": 0.46757627767396376,
+      "n_pairs": 14
+    }
+  }
+}

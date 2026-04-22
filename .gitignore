@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Large per-fold train/test CSVs (reproducible from input data)
+results/**/train.csv
+results/**/test.csv

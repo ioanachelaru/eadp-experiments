@@ -1,0 +1,186 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: calcite-effort170-cov-only
+Algorithm: DBSCAN
+Samples: 18676, Features: 175
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      PMD_aicicc                                             6.237357
+2      PMD_msminic                                            6.174186
+3      PMD_rule_type_j2ee rules                               5.577586
+4      PMD_isb                                                5.445412
+5      PMD_sc                                                 5.444893
+6      PMD_flsbwl                                             5.166109
+7      PMD_are                                                5.062704
+8      PMD_sts                                                4.925824
+9      PMD_cla                                                4.729894
+10     PMD_sdfnl                                              4.622549
+11     PMD_ntss                                               4.588451
+12     PMD_ulv                                                4.575467
+13     PMD_act                                                4.504553
+14     PMD_ecb                                                4.423725
+15     PMD_aal                                                4.421331
+16     PMD_uem                                                4.345225
+17     PMD_glsju                                              4.293498
+18     ISSUE_major_test                                       4.218676
+19     PMD_crs                                                4.218676
+20     PMD_ncliss                                             4.218676
+21     PMD_ccewta                                             4.218676
+22     PMD_plfic                                              4.217817
+23     PMD_pci                                                4.206407
+24     PMD_adlibdc                                            4.195136
+25     PMD_mria                                               4.182703
+26     PMD_reartn                                             4.084825
+27     PMD_afnmtn                                             3.876298
+28     PMD_ufqn                                               3.641781
+29     PMD_ulwcc                                              3.637327
+30     PMD_plficic                                            3.594505
+31     PMD_auhcip                                             3.586990
+32     PMD_msvuid                                             3.528072
+33     PMD_asbf                                               3.499485
+34     PMD_sp                                                 3.480984
+35     PMD_ffcbs                                              3.407448
+36     PMD_absalil                                            3.404141
+37     PMD_rule_type_clone implementation rules               3.387995
+38     PMD_aisd                                               3.343981
+39     PMD_aio                                                3.316284
+40     PMD_uis                                                3.259105
+41     PMD_tmsi                                               3.246173
+42     PMD_apst                                               3.237594
+43     PMD_uv                                                 3.210572
+44     PMD_rule_type_import statement rules                   3.132247
+45     PMD_scn                                                3.129773
+46     PMD_asaml                                              3.101254
+47     PMD_nsi                                                3.097399
+48     PMD_smn                                                3.088877
+49     PMD_ssshd                                              3.056013
+50     PMD_uc                                                 3.030193
+51     PMD_abcwam                                             2.984254
+52     PMD_linsf                                              2.984254
+53     PMD_obeah                                              2.984254
+54     PMD_rule_type_javabean rules                           2.933571
+55     PMD_mbis                                               2.927507
+56     PMD_menc                                               2.918037
+57     PMD_rule_type_java logging rules                       2.907249
+58     PMD_uom                                                2.890784
+59     PMD_aes                                                2.890442
+60     PMD_rule_type_jakarta commons logging rules            2.804609
+61     PMD_rule_type_string and stringbuffer rules            2.755249
+62     PMD_gls                                                2.693879
+63     PMD_loc                                                2.690555
+64     PMD_ccom                                               2.682932
+65     PMD_apmp                                               2.653543
+66     PMD_ucie                                               2.603607
+67     ISSUE_critical_improvement                             2.585133
+68     PMD_ctcnse                                             2.535428
+69     PMD_aci                                                2.437614
+70     PMD_uec                                                2.436342
+71     PMD_severity_critical                                  2.421154
+72     PMD_acge                                               2.406397
+73     PMD_uni                                                2.396203
+74     PMD_tfbfass                                            2.359448
+75     PMD_arp                                                2.186467
+76     PMD_rule_type_optimization rules                       2.149833
+77     PMD_rule_type_basic rules                              2.148818
+78     PMD_rule_type_security code guideline rules            2.101335
+79     PMD_dncse                                              2.095543
+80     PMD_rule_type_type resolution rules                    2.075784
+81     PMD_upm                                                2.026783
+82     PMD_rule_type_naming rules                             1.986680
+83     PMD_casr                                               1.984913
+84     PMD_usbfsa                                             1.968270
+85     PMD_severity_major                                     1.897608
+86     PMD_rule_type_unnecessary and unused code rules        1.883895
+87     PMD_rule_type_strict exception rules                   1.838706
+88     PMD_dp                                                 1.825730
+89     PMD_acwam                                              1.791788
+90     PMD_rule_type_controversial rules                      1.788075
+91     PMD_sidte                                              1.782508
+92     ISSUE_critical_bug                                     1.761937
+93     PMD_semn                                               1.697741
+94     PMD_afnmmn                                             1.680584
+95     PMD_severity_minor                                     1.667931
+96     PMD_gn                                                 1.633727
+97     PMD_odpl                                               1.623339
+98     PMD_rule_type_design rules                             1.527272
+99     PMD_sf                                                 1.390076
+100    PMD_atret                                              1.376410
+101    PMD_emiacsba                                           1.166846
+102    MOSER_weighted_age                                     1.157148
+103    PMD_cwopcsbf                                           1.128037
+104    PMD_adl                                                1.094690
+105    ISSUE_minor_improvement                                1.037468
+106    ISSUE_major_improvement                                1.001643
+107    MOSER_age                                              0.993713
+108    MOSER_authors                                          0.979600
+109    PMD_cis                                                0.949989
+110    MOSER_revisions                                        0.927618
+111    HASSAN_hcm                                             0.919803
+112    ISSUE_minor_bug                                        0.917853
+113    PMD_rfi                                                0.913440
+114    ISSUE_blocker_bug                                      0.906347
+115    COV_BRANCH                                             0.887849
+116    COV_LINE                                               0.860650
+117    COV_METHOD                                             0.859102
+118    COV_INSTRUCTION                                        0.849704
+119    COV_COMPLEXITY                                         0.824767
+120    ISSUE_major_bug                                        0.791325
+121    MOSER_bugfix                                           0.780220
+122    HASSAN_whcm                                            0.778514
+123    ISSUE_minor_task                                       0.771391
+124    CHANGE_TYPE_logic/control                              0.748770
+125    PMD_upf                                                0.729201
+126    PMD_eis                                                0.725310
+127    PMD_if                                                 0.714673
+128    ISSUE_major_task                                       0.701197
+129    PMD_uwoc                                               0.681367
+130    HASSAN_ldhcm                                           0.632270
+131    PMD_clmmic                                             0.604956
+132    PMD_clr                                                0.584115
+133    PMD_ulbr                                               0.570338
+134    CHANGE_TYPE_other                                      0.510585
+135    MOSER_avg_code_churn                                   0.505836
+136    HASSAN_edhcm                                           0.495311
+137    CHANGE_TYPE_interface                                  0.459536
+138    MOSER_max_lines_deleted                                0.429832
+139    MOSER_refactorings                                     0.429099
+140    MOSER_avg_lines_added                                  0.424949
+141    MOSER_sum_lines_deleted                                0.420702
+142    MOSER_avg_lines_deleted                                0.406949
+143    CHANGE_TYPE_computation                                0.405565
+144    CHANGE_TYPE_data                                       0.385256
+145    HASSAN_lgdhcm                                          0.371035
+146    PMD_atnpe                                              0.332468
+147    ISSUE_trivial_improvement                              0.315227
+148    MOSER_max_changeset                                    0.313310
+149    PMD_bgmn                                               0.307354
+150    MOSER_max_code_churn                                   0.299968
+151    MOSER_avg_changeset                                    0.286826
+152    MOSER_max_lines_added                                  0.286094
+153    ISSUE_other_other                                      0.279545
+154    PMD_pst                                                0.262750
+155    MOSER_sum_code_churn                                   0.243348
+156    MOSER_sum_lines_added                                  0.223643
+157    PMD_fdsbasoc                                           0.170110
+158    PMD_vnc                                                0.107834
+159    PMD_li                                                 0.022195
+160    PMD_dlnliss                                            0.000295
+161    PMD_eafc                                               0.000277
+162    PMD_soe                                                0.000000
+163    PMD_sbe                                                0.000000
+164    PMD_ismub                                              0.000000
+165    PMD_ews                                                0.000000
+166    PMD_rule_type_brace rules                              0.000000
+167    PMD_otac                                               0.000000
+168    PMD_acnpe                                              0.000000
+169    PMD_esnil                                              0.000000
+170    ISSUE_critical_task                                    0.000000
+171    PMD_pl                                                 0.000000
+172    ISSUE_blocker_task                                     0.000000
+173    PMD_gdl                                                0.000000
+174    ISSUE_trivial_bug                                      0.000000
+175    ISSUE_minor_test                                       0.000000
+
+======================================================================

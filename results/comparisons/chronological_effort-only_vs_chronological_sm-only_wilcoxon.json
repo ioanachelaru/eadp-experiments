@@ -1,0 +1,56 @@
+{
+  "result_a": "results/ant-ivy/chronological/effort-only/rf_results.json",
+  "result_b": "results/ant-ivy/chronological/sm-only/rf_results.json",
+  "dataset_a": "ant-ivy-effort-only",
+  "dataset_b": "ant-ivy-sm-only",
+  "n_common_folds": 5,
+  "common_versions": [
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0",
+    "2.4.0"
+  ],
+  "tests": {
+    "precision": {
+      "statistic": 1.0,
+      "p_value": 0.25,
+      "mean_a": 0.23856579402606384,
+      "mean_b": 0.46511420828494004,
+      "mean_diff": -0.22654841425887612,
+      "n_pairs": 5
+    },
+    "recall": {
+      "statistic": 0.0,
+      "p_value": 0.125,
+      "mean_a": 0.25528648049656455,
+      "mean_b": 0.5204283792519087,
+      "mean_diff": -0.2651418987553441,
+      "n_pairs": 5
+    },
+    "f1": {
+      "statistic": 0.0,
+      "p_value": 0.125,
+      "mean_a": 0.23117438117438116,
+      "mean_b": 0.46920584306864577,
+      "mean_diff": -0.2380314618942645,
+      "n_pairs": 5
+    },
+    "roc_auc": {
+      "statistic": 0.0,
+      "p_value": 0.0625,
+      "mean_a": 0.8436072631825227,
+      "mean_b": 0.9086890156961603,
+      "mean_diff": -0.06508175251363757,
+      "n_pairs": 5
+    },
+    "avg_precision": {
+      "statistic": 0.0,
+      "p_value": 0.0625,
+      "mean_a": 0.3600692747294251,
+      "mean_b": 0.5362571477307673,
+      "mean_diff": -0.17618787300134214,
+      "n_pairs": 5
+    }
+  }
+}

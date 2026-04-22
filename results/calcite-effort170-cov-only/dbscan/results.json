@@ -1,0 +1,1164 @@
+{
+  "dataset": "calcite-effort170-cov-only",
+  "algorithm": "dbscan",
+  "algorithm_params": {
+    "eps": 15.202706695719474,
+    "auto_eps": true,
+    "min_samples": 5,
+    "n_clusters": 69,
+    "n_noise": 337,
+    "noise_ratio": 0.018044549153994432
+  },
+  "preprocessing": {
+    "remove_outliers": false,
+    "z_threshold": null
+  },
+  "n_samples": 18676,
+  "n_features": 175,
+  "n_defective": 1399,
+  "defect_rate": 7.49,
+  "internal_metrics": {
+    "silhouette_score": 0.5175964139622391,
+    "davies_bouldin_index": 0.46161065321422295
+  },
+  "external_metrics": {
+    "homogeneity": 0.06660481080768094,
+    "completeness": 0.039922592757305274,
+    "v_measure": 0.04992211672427154
+  },
+  "prediction_metrics": {
+    "precision": 0.387,
+    "recall": 0.1188,
+    "f1_score": 0.1818,
+    "inspection_rate": 0.021,
+    "high_risk_clusters": 26,
+    "total_clusters": 69,
+    "files_in_high_risk": 385,
+    "defects_captured": 149,
+    "total_defects": 1254
+  },
+  "cluster_stats": {
+    "noise": {
+      "total": 337,
+      "defective": 145,
+      "defect_rate": 43.03,
+      "risk": "HIGH"
+    },
+    "cluster_0": {
+      "total": 17376,
+      "defective": 1105,
+      "defect_rate": 6.36,
+      "risk": "LOW"
+    },
+    "cluster_1": {
+      "total": 87,
+      "defective": 7,
+      "defect_rate": 8.05,
+      "risk": "HIGH"
+    },
+    "cluster_2": {
+      "total": 15,
+      "defective": 2,
+      "defect_rate": 13.33,
+      "risk": "HIGH"
+    },
+    "cluster_3": {
+      "total": 13,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_4": {
+      "total": 15,
+      "defective": 2,
+      "defect_rate": 13.33,
+      "risk": "HIGH"
+    },
+    "cluster_5": {
+      "total": 37,
+      "defective": 10,
+      "defect_rate": 27.03,
+      "risk": "HIGH"
+    },
+    "cluster_6": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_7": {
+      "total": 15,
+      "defective": 12,
+      "defect_rate": 80.0,
+      "risk": "HIGH"
+    },
+    "cluster_8": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_9": {
+      "total": 11,
+      "defective": 7,
+      "defect_rate": 63.64,
+      "risk": "HIGH"
+    },
+    "cluster_10": {
+      "total": 15,
+      "defective": 15,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_11": {
+      "total": 11,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_12": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_13": {
+      "total": 30,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_14": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_15": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_16": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_17": {
+      "total": 14,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_18": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_19": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_20": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_21": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_22": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_23": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_24": {
+      "total": 30,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_25": {
+      "total": 30,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_26": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_27": {
+      "total": 12,
+      "defective": 9,
+      "defect_rate": 75.0,
+      "risk": "HIGH"
+    },
+    "cluster_28": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_29": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_30": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_31": {
+      "total": 15,
+      "defective": 2,
+      "defect_rate": 13.33,
+      "risk": "HIGH"
+    },
+    "cluster_32": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_33": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_34": {
+      "total": 45,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_35": {
+      "total": 12,
+      "defective": 3,
+      "defect_rate": 25.0,
+      "risk": "HIGH"
+    },
+    "cluster_36": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_37": {
+      "total": 7,
+      "defective": 1,
+      "defect_rate": 14.29,
+      "risk": "HIGH"
+    },
+    "cluster_38": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_39": {
+      "total": 15,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_40": {
+      "total": 15,
+      "defective": 6,
+      "defect_rate": 40.0,
+      "risk": "HIGH"
+    },
+    "cluster_41": {
+      "total": 13,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_42": {
+      "total": 6,
+      "defective": 3,
+      "defect_rate": 50.0,
+      "risk": "HIGH"
+    },
+    "cluster_43": {
+      "total": 11,
+      "defective": 4,
+      "defect_rate": 36.36,
+      "risk": "HIGH"
+    },
+    "cluster_44": {
+      "total": 26,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_45": {
+      "total": 13,
+      "defective": 2,
+      "defect_rate": 15.38,
+      "risk": "HIGH"
+    },
+    "cluster_46": {
+      "total": 9,
+      "defective": 9,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_47": {
+      "total": 10,
+      "defective": 3,
+      "defect_rate": 30.0,
+      "risk": "HIGH"
+    },
+    "cluster_48": {
+      "total": 11,
+      "defective": 5,
+      "defect_rate": 45.45,
+      "risk": "HIGH"
+    },
+    "cluster_49": {
+      "total": 11,
+      "defective": 11,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_50": {
+      "total": 11,
+      "defective": 11,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_51": {
+      "total": 8,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_52": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_53": {
+      "total": 10,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_54": {
+      "total": 9,
+      "defective": 8,
+      "defect_rate": 88.89,
+      "risk": "HIGH"
+    },
+    "cluster_55": {
+      "total": 12,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_56": {
+      "total": 9,
+      "defective": 6,
+      "defect_rate": 66.67,
+      "risk": "HIGH"
+    },
+    "cluster_57": {
+      "total": 12,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_58": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_59": {
+      "total": 8,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_60": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_61": {
+      "total": 14,
+      "defective": 2,
+      "defect_rate": 14.29,
+      "risk": "HIGH"
+    },
+    "cluster_62": {
+      "total": 5,
+      "defective": 3,
+      "defect_rate": 60.0,
+      "risk": "HIGH"
+    },
+    "cluster_63": {
+      "total": 5,
+      "defective": 1,
+      "defect_rate": 20.0,
+      "risk": "HIGH"
+    },
+    "cluster_64": {
+      "total": 7,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_65": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_66": {
+      "total": 5,
+      "defective": 5,
+      "defect_rate": 100.0,
+      "risk": "HIGH"
+    },
+    "cluster_67": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_68": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    }
+  },
+  "feature_relevance": [
+    {
+      "feature": "PMD_aicicc",
+      "relevance": 6.237357286122662
+    },
+    {
+      "feature": "PMD_msminic",
+      "relevance": 6.174185635555556
+    },
+    {
+      "feature": "PMD_rule_type_j2ee rules",
+      "relevance": 5.577586371677839
+    },
+    {
+      "feature": "PMD_isb",
+      "relevance": 5.445411603173266
+    },
+    {
+      "feature": "PMD_sc",
+      "relevance": 5.44489307587796
+    },
+    {
+      "feature": "PMD_flsbwl",
+      "relevance": 5.166109416254014
+    },
+    {
+      "feature": "PMD_are",
+      "relevance": 5.062704058113217
+    },
+    {
+      "feature": "PMD_sts",
+      "relevance": 4.925824008541722
+    },
+    {
+      "feature": "PMD_cla",
+      "relevance": 4.729894466229851
+    },
+    {
+      "feature": "PMD_sdfnl",
+      "relevance": 4.622549263731617
+    },
+    {
+      "feature": "PMD_ntss",
+      "relevance": 4.588451106531817
+    },
+    {
+      "feature": "PMD_ulv",
+      "relevance": 4.575467250110061
+    },
+    {
+      "feature": "PMD_act",
+      "relevance": 4.504552778477099
+    },
+    {
+      "feature": "PMD_ecb",
+      "relevance": 4.423724669388248
+    },
+    {
+      "feature": "PMD_aal",
+      "relevance": 4.421331056447831
+    },
+    {
+      "feature": "PMD_uem",
+      "relevance": 4.34522521954413
+    },
+    {
+      "feature": "PMD_glsju",
+      "relevance": 4.293497634205326
+    },
+    {
+      "feature": "ISSUE_major_test",
+      "relevance": 4.2186757343063555
+    },
+    {
+      "feature": "PMD_crs",
+      "relevance": 4.218675734306349
+    },
+    {
+      "feature": "PMD_ncliss",
+      "relevance": 4.218675734306348
+    },
+    {
+      "feature": "PMD_ccewta",
+      "relevance": 4.2186757343063475
+    },
+    {
+      "feature": "PMD_plfic",
+      "relevance": 4.217817237087137
+    },
+    {
+      "feature": "PMD_pci",
+      "relevance": 4.2064070209339075
+    },
+    {
+      "feature": "PMD_adlibdc",
+      "relevance": 4.195135637542554
+    },
+    {
+      "feature": "PMD_mria",
+      "relevance": 4.1827028133061965
+    },
+    {
+      "feature": "PMD_reartn",
+      "relevance": 4.084824665142507
+    },
+    {
+      "feature": "PMD_afnmtn",
+      "relevance": 3.8762978310825265
+    },
+    {
+      "feature": "PMD_ufqn",
+      "relevance": 3.641780832863893
+    },
+    {
+      "feature": "PMD_ulwcc",
+      "relevance": 3.6373270575402263
+    },
+    {
+      "feature": "PMD_plficic",
+      "relevance": 3.5945045858867624
+    },
+    {
+      "feature": "PMD_auhcip",
+      "relevance": 3.586989530969448
+    },
+    {
+      "feature": "PMD_msvuid",
+      "relevance": 3.5280719115870753
+    },
+    {
+      "feature": "PMD_asbf",
+      "relevance": 3.49948511722523
+    },
+    {
+      "feature": "PMD_sp",
+      "relevance": 3.480984415624288
+    },
+    {
+      "feature": "PMD_ffcbs",
+      "relevance": 3.407447936146569
+    },
+    {
+      "feature": "PMD_absalil",
+      "relevance": 3.404140658547914
+    },
+    {
+      "feature": "PMD_rule_type_clone implementation rules",
+      "relevance": 3.3879948266580007
+    },
+    {
+      "feature": "PMD_aisd",
+      "relevance": 3.3439812995405407
+    },
+    {
+      "feature": "PMD_aio",
+      "relevance": 3.3162840322353437
+    },
+    {
+      "feature": "PMD_uis",
+      "relevance": 3.2591045052700247
+    },
+    {
+      "feature": "PMD_tmsi",
+      "relevance": 3.2461732136001054
+    },
+    {
+      "feature": "PMD_apst",
+      "relevance": 3.237594424573683
+    },
+    {
+      "feature": "PMD_uv",
+      "relevance": 3.2105715571659137
+    },
+    {
+      "feature": "PMD_rule_type_import statement rules",
+      "relevance": 3.132247224077637
+    },
+    {
+      "feature": "PMD_scn",
+      "relevance": 3.129773050469374
+    },
+    {
+      "feature": "PMD_asaml",
+      "relevance": 3.1012544269195876
+    },
+    {
+      "feature": "PMD_nsi",
+      "relevance": 3.097398716607563
+    },
+    {
+      "feature": "PMD_smn",
+      "relevance": 3.0888771710640066
+    },
+    {
+      "feature": "PMD_ssshd",
+      "relevance": 3.056012986035303
+    },
+    {
+      "feature": "PMD_uc",
+      "relevance": 3.0301933732874957
+    },
+    {
+      "feature": "PMD_abcwam",
+      "relevance": 2.984253855143821
+    },
+    {
+      "feature": "PMD_linsf",
+      "relevance": 2.984253855143821
+    },
+    {
+      "feature": "PMD_obeah",
+      "relevance": 2.9842538551438205
+    },
+    {
+      "feature": "PMD_rule_type_javabean rules",
+      "relevance": 2.933571472700162
+    },
+    {
+      "feature": "PMD_mbis",
+      "relevance": 2.9275070126113096
+    },
+    {
+      "feature": "PMD_menc",
+      "relevance": 2.9180366706981213
+    },
+    {
+      "feature": "PMD_rule_type_java logging rules",
+      "relevance": 2.9072485990721684
+    },
+    {
+      "feature": "PMD_uom",
+      "relevance": 2.890783774075481
+    },
+    {
+      "feature": "PMD_aes",
+      "relevance": 2.8904420036841136
+    },
+    {
+      "feature": "PMD_rule_type_jakarta commons logging rules",
+      "relevance": 2.8046094906016608
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "relevance": 2.7552491275559383
+    },
+    {
+      "feature": "PMD_gls",
+      "relevance": 2.693878646892242
+    },
+    {
+      "feature": "PMD_loc",
+      "relevance": 2.69055489517413
+    },
+    {
+      "feature": "PMD_ccom",
+      "relevance": 2.682931737189298
+    },
+    {
+      "feature": "PMD_apmp",
+      "relevance": 2.653542913543644
+    },
+    {
+      "feature": "PMD_ucie",
+      "relevance": 2.6036068663460816
+    },
+    {
+      "feature": "ISSUE_critical_improvement",
+      "relevance": 2.5851329566795718
+    },
+    {
+      "feature": "PMD_ctcnse",
+      "relevance": 2.5354280858425478
+    },
+    {
+      "feature": "PMD_aci",
+      "relevance": 2.43761375053288
+    },
+    {
+      "feature": "PMD_uec",
+      "relevance": 2.436341872962349
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "relevance": 2.4211540646262533
+    },
+    {
+      "feature": "PMD_acge",
+      "relevance": 2.4063970268784973
+    },
+    {
+      "feature": "PMD_uni",
+      "relevance": 2.3962032983613093
+    },
+    {
+      "feature": "PMD_tfbfass",
+      "relevance": 2.3594483723000685
+    },
+    {
+      "feature": "PMD_arp",
+      "relevance": 2.1864665804836942
+    },
+    {
+      "feature": "PMD_rule_type_optimization rules",
+      "relevance": 2.149833135962358
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "relevance": 2.148818392291231
+    },
+    {
+      "feature": "PMD_rule_type_security code guideline rules",
+      "relevance": 2.1013351523668873
+    },
+    {
+      "feature": "PMD_dncse",
+      "relevance": 2.0955430251503775
+    },
+    {
+      "feature": "PMD_rule_type_type resolution rules",
+      "relevance": 2.0757843937961447
+    },
+    {
+      "feature": "PMD_upm",
+      "relevance": 2.0267831254709923
+    },
+    {
+      "feature": "PMD_rule_type_naming rules",
+      "relevance": 1.9866798196385036
+    },
+    {
+      "feature": "PMD_casr",
+      "relevance": 1.9849133483252006
+    },
+    {
+      "feature": "PMD_usbfsa",
+      "relevance": 1.968270296525369
+    },
+    {
+      "feature": "PMD_severity_major",
+      "relevance": 1.8976084526191186
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "relevance": 1.8838954084288646
+    },
+    {
+      "feature": "PMD_rule_type_strict exception rules",
+      "relevance": 1.838706289766887
+    },
+    {
+      "feature": "PMD_dp",
+      "relevance": 1.8257295932764839
+    },
+    {
+      "feature": "PMD_acwam",
+      "relevance": 1.7917875071109264
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "relevance": 1.7880753049765874
+    },
+    {
+      "feature": "PMD_sidte",
+      "relevance": 1.7825079559499248
+    },
+    {
+      "feature": "ISSUE_critical_bug",
+      "relevance": 1.7619374746643632
+    },
+    {
+      "feature": "PMD_semn",
+      "relevance": 1.6977413037446387
+    },
+    {
+      "feature": "PMD_afnmmn",
+      "relevance": 1.6805838790605527
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "relevance": 1.6679313752749456
+    },
+    {
+      "feature": "PMD_gn",
+      "relevance": 1.6337270112827045
+    },
+    {
+      "feature": "PMD_odpl",
+      "relevance": 1.623339211290525
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "relevance": 1.5272716599765528
+    },
+    {
+      "feature": "PMD_sf",
+      "relevance": 1.3900763772072768
+    },
+    {
+      "feature": "PMD_atret",
+      "relevance": 1.3764096654279558
+    },
+    {
+      "feature": "PMD_emiacsba",
+      "relevance": 1.1668461720540417
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "relevance": 1.1571480850288411
+    },
+    {
+      "feature": "PMD_cwopcsbf",
+      "relevance": 1.1280374695230064
+    },
+    {
+      "feature": "PMD_adl",
+      "relevance": 1.0946899737166589
+    },
+    {
+      "feature": "ISSUE_minor_improvement",
+      "relevance": 1.0374681864346014
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "relevance": 1.0016427388590978
+    },
+    {
+      "feature": "MOSER_age",
+      "relevance": 0.9937125436796996
+    },
+    {
+      "feature": "MOSER_authors",
+      "relevance": 0.9796002976220309
+    },
+    {
+      "feature": "PMD_cis",
+      "relevance": 0.9499891170284709
+    },
+    {
+      "feature": "MOSER_revisions",
+      "relevance": 0.9276184501046214
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "relevance": 0.9198033778142295
+    },
+    {
+      "feature": "ISSUE_minor_bug",
+      "relevance": 0.9178534945219113
+    },
+    {
+      "feature": "PMD_rfi",
+      "relevance": 0.913440157392214
+    },
+    {
+      "feature": "ISSUE_blocker_bug",
+      "relevance": 0.9063469867302515
+    },
+    {
+      "feature": "COV_BRANCH",
+      "relevance": 0.8878485658048569
+    },
+    {
+      "feature": "COV_LINE",
+      "relevance": 0.860649840217914
+    },
+    {
+      "feature": "COV_METHOD",
+      "relevance": 0.8591019901468594
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "relevance": 0.8497043205900074
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "relevance": 0.8247674084932347
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "relevance": 0.7913251087450235
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "relevance": 0.7802200571078974
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "relevance": 0.7785142939119266
+    },
+    {
+      "feature": "ISSUE_minor_task",
+      "relevance": 0.7713905750137919
+    },
+    {
+      "feature": "CHANGE_TYPE_logic/control",
+      "relevance": 0.7487703591433067
+    },
+    {
+      "feature": "PMD_upf",
+      "relevance": 0.7292013858026961
+    },
+    {
+      "feature": "PMD_eis",
+      "relevance": 0.7253099525839419
+    },
+    {
+      "feature": "PMD_if",
+      "relevance": 0.7146725099822252
+    },
+    {
+      "feature": "ISSUE_major_task",
+      "relevance": 0.7011972642401832
+    },
+    {
+      "feature": "PMD_uwoc",
+      "relevance": 0.681366677777433
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "relevance": 0.63226982865989
+    },
+    {
+      "feature": "PMD_clmmic",
+      "relevance": 0.6049555287264644
+    },
+    {
+      "feature": "PMD_clr",
+      "relevance": 0.5841145273515687
+    },
+    {
+      "feature": "PMD_ulbr",
+      "relevance": 0.5703381036604706
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "relevance": 0.5105852043089761
+    },
+    {
+      "feature": "MOSER_avg_code_churn",
+      "relevance": 0.5058357059961861
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "relevance": 0.49531102045270425
+    },
+    {
+      "feature": "CHANGE_TYPE_interface",
+      "relevance": 0.4595358012209428
+    },
+    {
+      "feature": "MOSER_max_lines_deleted",
+      "relevance": 0.42983194261380014
+    },
+    {
+      "feature": "MOSER_refactorings",
+      "relevance": 0.42909912054970806
+    },
+    {
+      "feature": "MOSER_avg_lines_added",
+      "relevance": 0.4249486478378482
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "relevance": 0.42070226023216806
+    },
+    {
+      "feature": "MOSER_avg_lines_deleted",
+      "relevance": 0.40694879195807554
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "relevance": 0.4055645625330426
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "relevance": 0.3852556284417349
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "relevance": 0.3710346356810466
+    },
+    {
+      "feature": "PMD_atnpe",
+      "relevance": 0.33246787481540463
+    },
+    {
+      "feature": "ISSUE_trivial_improvement",
+      "relevance": 0.3152271476247809
+    },
+    {
+      "feature": "MOSER_max_changeset",
+      "relevance": 0.3133101663149851
+    },
+    {
+      "feature": "PMD_bgmn",
+      "relevance": 0.3073543140199597
+    },
+    {
+      "feature": "MOSER_max_code_churn",
+      "relevance": 0.2999676965020082
+    },
+    {
+      "feature": "MOSER_avg_changeset",
+      "relevance": 0.2868263399991162
+    },
+    {
+      "feature": "MOSER_max_lines_added",
+      "relevance": 0.2860939236015491
+    },
+    {
+      "feature": "ISSUE_other_other",
+      "relevance": 0.27954510912971403
+    },
+    {
+      "feature": "PMD_pst",
+      "relevance": 0.2627501479484331
+    },
+    {
+      "feature": "MOSER_sum_code_churn",
+      "relevance": 0.24334848587520563
+    },
+    {
+      "feature": "MOSER_sum_lines_added",
+      "relevance": 0.2236430072970519
+    },
+    {
+      "feature": "PMD_fdsbasoc",
+      "relevance": 0.17010969710141277
+    },
+    {
+      "feature": "PMD_vnc",
+      "relevance": 0.10783407650234107
+    },
+    {
+      "feature": "PMD_li",
+      "relevance": 0.022195416830413452
+    },
+    {
+      "feature": "PMD_dlnliss",
+      "relevance": 0.00029496492149064246
+    },
+    {
+      "feature": "PMD_eafc",
+      "relevance": 0.0002772312714717232
+    },
+    {
+      "feature": "PMD_soe",
+      "relevance": 1.592137999796765e-15
+    },
+    {
+      "feature": "PMD_sbe",
+      "relevance": 1.0339238755553558e-15
+    },
+    {
+      "feature": "PMD_ismub",
+      "relevance": 9.976225815351588e-16
+    },
+    {
+      "feature": "PMD_ews",
+      "relevance": 7.8484709815881e-16
+    },
+    {
+      "feature": "PMD_rule_type_brace rules",
+      "relevance": 6.627579486189999e-16
+    },
+    {
+      "feature": "PMD_otac",
+      "relevance": 4.260497317308962e-16
+    },
+    {
+      "feature": "PMD_acnpe",
+      "relevance": 3.565691464639456e-16
+    },
+    {
+      "feature": "PMD_esnil",
+      "relevance": 3.565691464639456e-16
+    },
+    {
+      "feature": "ISSUE_critical_task",
+      "relevance": 3.5593255787032097e-16
+    },
+    {
+      "feature": "PMD_pl",
+      "relevance": 2.0412140805744527e-16
+    },
+    {
+      "feature": "ISSUE_blocker_task",
+      "relevance": 1.972939262824199e-16
+    },
+    {
+      "feature": "PMD_gdl",
+      "relevance": 1.0729871305542131e-16
+    },
+    {
+      "feature": "ISSUE_trivial_bug",
+      "relevance": 5.197965301709925e-17
+    },
+    {
+      "feature": "ISSUE_minor_test",
+      "relevance": 1.1082099259161627e-17
+    }
+  ]
+}

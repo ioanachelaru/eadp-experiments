@@ -1,0 +1,1422 @@
+{
+  "cv_mode": "chronological",
+  "n_folds": 14,
+  "release_order": [
+    "1.1.0",
+    "1.2.0",
+    "1.3.0",
+    "1.4.0",
+    "1.5.0",
+    "1.6.0",
+    "1.7.0",
+    "1.8.0",
+    "1.9.0",
+    "1.10.0",
+    "1.11.0",
+    "1.12.0",
+    "1.13.0",
+    "1.14.0",
+    "1.15.0"
+  ],
+  "n_features": 175,
+  "feature_names": [
+    "CHANGE_TYPE_computation",
+    "CHANGE_TYPE_data",
+    "CHANGE_TYPE_interface",
+    "CHANGE_TYPE_logic/control",
+    "CHANGE_TYPE_other",
+    "HASSAN_edhcm",
+    "HASSAN_hcm",
+    "HASSAN_ldhcm",
+    "HASSAN_lgdhcm",
+    "HASSAN_whcm",
+    "ISSUE_blocker_bug",
+    "ISSUE_blocker_task",
+    "ISSUE_critical_bug",
+    "ISSUE_critical_improvement",
+    "ISSUE_critical_task",
+    "ISSUE_major_bug",
+    "ISSUE_major_improvement",
+    "ISSUE_major_task",
+    "ISSUE_major_test",
+    "ISSUE_minor_bug",
+    "ISSUE_minor_improvement",
+    "ISSUE_minor_task",
+    "ISSUE_minor_test",
+    "ISSUE_other_other",
+    "ISSUE_trivial_bug",
+    "ISSUE_trivial_improvement",
+    "MOSER_age",
+    "MOSER_authors",
+    "MOSER_avg_changeset",
+    "MOSER_avg_code_churn",
+    "MOSER_avg_lines_added",
+    "MOSER_avg_lines_deleted",
+    "MOSER_bugfix",
+    "MOSER_max_changeset",
+    "MOSER_max_code_churn",
+    "MOSER_max_lines_added",
+    "MOSER_max_lines_deleted",
+    "MOSER_refactorings",
+    "MOSER_revisions",
+    "MOSER_sum_code_churn",
+    "MOSER_sum_lines_added",
+    "MOSER_sum_lines_deleted",
+    "MOSER_weighted_age",
+    "PMD_aal",
+    "PMD_abcwam",
+    "PMD_absalil",
+    "PMD_acge",
+    "PMD_aci",
+    "PMD_acnpe",
+    "PMD_act",
+    "PMD_acwam",
+    "PMD_adl",
+    "PMD_adlibdc",
+    "PMD_aes",
+    "PMD_afnmmn",
+    "PMD_afnmtn",
+    "PMD_aicicc",
+    "PMD_aio",
+    "PMD_aisd",
+    "PMD_apmp",
+    "PMD_apst",
+    "PMD_are",
+    "PMD_arp",
+    "PMD_asaml",
+    "PMD_asbf",
+    "PMD_atnpe",
+    "PMD_atret",
+    "PMD_auhcip",
+    "PMD_bgmn",
+    "PMD_casr",
+    "PMD_ccewta",
+    "PMD_ccom",
+    "PMD_cis",
+    "PMD_cla",
+    "PMD_clmmic",
+    "PMD_clr",
+    "PMD_crs",
+    "PMD_ctcnse",
+    "PMD_cwopcsbf",
+    "PMD_dlnliss",
+    "PMD_dncse",
+    "PMD_dp",
+    "PMD_eafc",
+    "PMD_ecb",
+    "PMD_eis",
+    "PMD_emiacsba",
+    "PMD_esnil",
+    "PMD_ews",
+    "PMD_fdsbasoc",
+    "PMD_ffcbs",
+    "PMD_flsbwl",
+    "PMD_gdl",
+    "PMD_gls",
+    "PMD_glsju",
+    "PMD_gn",
+    "PMD_if",
+    "PMD_isb",
+    "PMD_ismub",
+    "PMD_li",
+    "PMD_linsf",
+    "PMD_loc",
+    "PMD_mbis",
+    "PMD_menc",
+    "PMD_mria",
+    "PMD_msminic",
+    "PMD_msvuid",
+    "PMD_ncliss",
+    "PMD_nsi",
+    "PMD_ntss",
+    "PMD_obeah",
+    "PMD_odpl",
+    "PMD_otac",
+    "PMD_pci",
+    "PMD_pl",
+    "PMD_plfic",
+    "PMD_plficic",
+    "PMD_pst",
+    "PMD_reartn",
+    "PMD_rfi",
+    "PMD_rule_type_basic rules",
+    "PMD_rule_type_brace rules",
+    "PMD_rule_type_clone implementation rules",
+    "PMD_rule_type_controversial rules",
+    "PMD_rule_type_design rules",
+    "PMD_rule_type_import statement rules",
+    "PMD_rule_type_j2ee rules",
+    "PMD_rule_type_jakarta commons logging rules",
+    "PMD_rule_type_java logging rules",
+    "PMD_rule_type_javabean rules",
+    "PMD_rule_type_naming rules",
+    "PMD_rule_type_optimization rules",
+    "PMD_rule_type_security code guideline rules",
+    "PMD_rule_type_strict exception rules",
+    "PMD_rule_type_string and stringbuffer rules",
+    "PMD_rule_type_type resolution rules",
+    "PMD_rule_type_unnecessary and unused code rules",
+    "PMD_sbe",
+    "PMD_sc",
+    "PMD_scn",
+    "PMD_sdfnl",
+    "PMD_semn",
+    "PMD_severity_critical",
+    "PMD_severity_major",
+    "PMD_severity_minor",
+    "PMD_sf",
+    "PMD_sidte",
+    "PMD_smn",
+    "PMD_soe",
+    "PMD_sp",
+    "PMD_ssshd",
+    "PMD_sts",
+    "PMD_tfbfass",
+    "PMD_tmsi",
+    "PMD_uc",
+    "PMD_ucie",
+    "PMD_uec",
+    "PMD_uem",
+    "PMD_ufqn",
+    "PMD_uis",
+    "PMD_ulbr",
+    "PMD_ulv",
+    "PMD_ulwcc",
+    "PMD_uni",
+    "PMD_uom",
+    "PMD_upf",
+    "PMD_upm",
+    "PMD_usbfsa",
+    "PMD_uv",
+    "PMD_uwoc",
+    "PMD_vnc",
+    "COV_INSTRUCTION",
+    "COV_BRANCH",
+    "COV_LINE",
+    "COV_COMPLEXITY",
+    "COV_METHOD"
+  ],
+  "metrics": {
+    "precision": {
+      "mean": 0.8466995215909282,
+      "std": 0.10838317226039755,
+      "values": [
+        1.0,
+        0.9130434782608695,
+        0.926829268292683,
+        0.8461538461538461,
+        0.9152542372881356,
+        0.9230769230769231,
+        0.9344262295081968,
+        0.7804878048780488,
+        0.9459459459459459,
+        0.8113207547169812,
+        0.7045454545454546,
+        0.6,
+        0.7241379310344828,
+        0.8285714285714286
+      ],
+      "fold_versions": [
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0",
+        "1.15.0"
+      ]
+    },
+    "recall": {
+      "mean": 0.49369508062485895,
+      "std": 0.167432183930132,
+      "values": [
+        0.753968253968254,
+        0.1875,
+        0.3089430894308943,
+        0.42718446601941745,
+        0.5046728971962616,
+        0.5625,
+        0.5643564356435643,
+        0.35555555555555557,
+        0.8333333333333334,
+        0.5375,
+        0.38271604938271603,
+        0.4528301886792453,
+        0.39622641509433965,
+        0.6444444444444445
+      ],
+      "fold_versions": [
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0",
+        "1.15.0"
+      ]
+    },
+    "f1": {
+      "mean": 0.6089926921667764,
+      "std": 0.15358112725639117,
+      "values": [
+        0.8597285067873304,
+        0.3111111111111111,
+        0.4634146341463415,
+        0.567741935483871,
+        0.6506024096385542,
+        0.6990291262135923,
+        0.7037037037037037,
+        0.48854961832061067,
+        0.8860759493670886,
+        0.6466165413533834,
+        0.496,
+        0.5161290322580645,
+        0.5121951219512195,
+        0.725
+      ],
+      "fold_versions": [
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0",
+        "1.15.0"
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.9335377697763231,
+      "std": 0.044583225214616384,
+      "values": [
+        0.9858322826754599,
+        0.8055787993163369,
+        0.8990056036018527,
+        0.9134085541852531,
+        0.9439381422006505,
+        0.9212216414590747,
+        0.9676361386138613,
+        0.9421766848816029,
+        0.9938776897382118,
+        0.9080235811350919,
+        0.9286884335609973,
+        0.9513016088688508,
+        0.9466360971209502,
+        0.9622035195103289
+      ],
+      "fold_versions": [
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0",
+        "1.15.0"
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.7242952348804774,
+      "std": 0.12456980447565322,
+      "values": [
+        0.9522201038515234,
+        0.5218098815737017,
+        0.6719572397695034,
+        0.6531409988525505,
+        0.8018011547737496,
+        0.8081856883498462,
+        0.8322971826416362,
+        0.6466121426681407,
+        0.9478655764515042,
+        0.6934359154402923,
+        0.6236718195039905,
+        0.5931827599157796,
+        0.6421740041644557,
+        0.7517788203700092
+      ],
+      "fold_versions": [
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0",
+        "1.15.0"
+      ]
+    }
+  },
+  "fold_details": [
+    {
+      "test_version": "1.2.0",
+      "train_versions": [
+        "1.1.0"
+      ],
+      "n_train": 1103,
+      "n_test": 1108,
+      "n_defective_train": 113,
+      "n_defective_test": 126,
+      "defect_rate_train": 10.244786944696283,
+      "defect_rate_test": 11.371841155234657,
+      "precision": 1.0,
+      "recall": 0.753968253968254,
+      "f1": 0.8597285067873304,
+      "roc_auc": 0.9858322826754599,
+      "avg_precision": 0.9522201038515234
+    },
+    {
+      "test_version": "1.3.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0"
+      ],
+      "n_train": 2211,
+      "n_test": 1115,
+      "n_defective_train": 239,
+      "n_defective_test": 112,
+      "defect_rate_train": 10.80958842152872,
+      "defect_rate_test": 10.044843049327353,
+      "precision": 0.9130434782608695,
+      "recall": 0.1875,
+      "f1": 0.3111111111111111,
+      "roc_auc": 0.8055787993163369,
+      "avg_precision": 0.5218098815737017
+    },
+    {
+      "test_version": "1.4.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0"
+      ],
+      "n_train": 3326,
+      "n_test": 1127,
+      "n_defective_train": 351,
+      "n_defective_test": 123,
+      "defect_rate_train": 10.553217077570656,
+      "defect_rate_test": 10.913930789707187,
+      "precision": 0.926829268292683,
+      "recall": 0.3089430894308943,
+      "f1": 0.4634146341463415,
+      "roc_auc": 0.8990056036018527,
+      "avg_precision": 0.6719572397695034
+    },
+    {
+      "test_version": "1.5.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0"
+      ],
+      "n_train": 4453,
+      "n_test": 1176,
+      "n_defective_train": 474,
+      "n_defective_test": 103,
+      "defect_rate_train": 10.644509319559848,
+      "defect_rate_test": 8.758503401360544,
+      "precision": 0.8461538461538461,
+      "recall": 0.42718446601941745,
+      "f1": 0.567741935483871,
+      "roc_auc": 0.9134085541852531,
+      "avg_precision": 0.6531409988525505
+    },
+    {
+      "test_version": "1.6.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0"
+      ],
+      "n_train": 5629,
+      "n_test": 1193,
+      "n_defective_train": 577,
+      "n_defective_test": 107,
+      "defect_rate_train": 10.250488541481612,
+      "defect_rate_test": 8.968985750209555,
+      "precision": 0.9152542372881356,
+      "recall": 0.5046728971962616,
+      "f1": 0.6506024096385542,
+      "roc_auc": 0.9439381422006505,
+      "avg_precision": 0.8018011547737496
+    },
+    {
+      "test_version": "1.7.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0"
+      ],
+      "n_train": 6822,
+      "n_test": 1252,
+      "n_defective_train": 684,
+      "n_defective_test": 128,
+      "defect_rate_train": 10.026385224274406,
+      "defect_rate_test": 10.223642172523961,
+      "precision": 0.9230769230769231,
+      "recall": 0.5625,
+      "f1": 0.6990291262135923,
+      "roc_auc": 0.9212216414590747,
+      "avg_precision": 0.8081856883498462
+    },
+    {
+      "test_version": "1.8.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0"
+      ],
+      "n_train": 8074,
+      "n_test": 1301,
+      "n_defective_train": 812,
+      "n_defective_test": 101,
+      "defect_rate_train": 10.056972999752292,
+      "defect_rate_test": 7.763259031514219,
+      "precision": 0.9344262295081968,
+      "recall": 0.5643564356435643,
+      "f1": 0.7037037037037037,
+      "roc_auc": 0.9676361386138613,
+      "avg_precision": 0.8322971826416362
+    },
+    {
+      "test_version": "1.9.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0"
+      ],
+      "n_train": 9375,
+      "n_test": 1310,
+      "n_defective_train": 913,
+      "n_defective_test": 90,
+      "defect_rate_train": 9.738666666666667,
+      "defect_rate_test": 6.870229007633588,
+      "precision": 0.7804878048780488,
+      "recall": 0.35555555555555557,
+      "f1": 0.48854961832061067,
+      "roc_auc": 0.9421766848816029,
+      "avg_precision": 0.6466121426681407
+    },
+    {
+      "test_version": "1.10.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0"
+      ],
+      "n_train": 10685,
+      "n_test": 1310,
+      "n_defective_train": 1003,
+      "n_defective_test": 84,
+      "defect_rate_train": 9.386991109031353,
+      "defect_rate_test": 6.412213740458015,
+      "precision": 0.9459459459459459,
+      "recall": 0.8333333333333334,
+      "f1": 0.8860759493670886,
+      "roc_auc": 0.9938776897382118,
+      "avg_precision": 0.9478655764515042
+    },
+    {
+      "test_version": "1.11.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0"
+      ],
+      "n_train": 11995,
+      "n_test": 1331,
+      "n_defective_train": 1087,
+      "n_defective_test": 80,
+      "defect_rate_train": 9.06210921217174,
+      "defect_rate_test": 6.010518407212622,
+      "precision": 0.8113207547169812,
+      "recall": 0.5375,
+      "f1": 0.6466165413533834,
+      "roc_auc": 0.9080235811350919,
+      "avg_precision": 0.6934359154402923
+    },
+    {
+      "test_version": "1.12.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0"
+      ],
+      "n_train": 13326,
+      "n_test": 1415,
+      "n_defective_train": 1167,
+      "n_defective_test": 81,
+      "defect_rate_train": 8.75731652408825,
+      "defect_rate_test": 5.724381625441696,
+      "precision": 0.7045454545454546,
+      "recall": 0.38271604938271603,
+      "f1": 0.496,
+      "roc_auc": 0.9286884335609973,
+      "avg_precision": 0.6236718195039905
+    },
+    {
+      "test_version": "1.13.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0"
+      ],
+      "n_train": 14741,
+      "n_test": 1275,
+      "n_defective_train": 1248,
+      "n_defective_test": 53,
+      "defect_rate_train": 8.466182755579675,
+      "defect_rate_test": 4.156862745098039,
+      "precision": 0.6,
+      "recall": 0.4528301886792453,
+      "f1": 0.5161290322580645,
+      "roc_auc": 0.9513016088688508,
+      "avg_precision": 0.5931827599157796
+    },
+    {
+      "test_version": "1.14.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0"
+      ],
+      "n_train": 16016,
+      "n_test": 1308,
+      "n_defective_train": 1301,
+      "n_defective_test": 53,
+      "defect_rate_train": 8.123126873126873,
+      "defect_rate_test": 4.051987767584098,
+      "precision": 0.7241379310344828,
+      "recall": 0.39622641509433965,
+      "f1": 0.5121951219512195,
+      "roc_auc": 0.9466360971209502,
+      "avg_precision": 0.6421740041644557
+    },
+    {
+      "test_version": "1.15.0",
+      "train_versions": [
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0",
+        "1.7.0",
+        "1.8.0",
+        "1.9.0",
+        "1.10.0",
+        "1.11.0",
+        "1.12.0",
+        "1.13.0",
+        "1.14.0"
+      ],
+      "n_train": 17324,
+      "n_test": 1352,
+      "n_defective_train": 1354,
+      "n_defective_test": 45,
+      "defect_rate_train": 7.815746940660355,
+      "defect_rate_test": 3.3284023668639056,
+      "precision": 0.8285714285714286,
+      "recall": 0.6444444444444445,
+      "f1": 0.725,
+      "roc_auc": 0.9622035195103289,
+      "avg_precision": 0.7517788203700092
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "COV_BRANCH",
+      "importance": 0.074118
+    },
+    {
+      "feature": "COV_LINE",
+      "importance": 0.053074
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "importance": 0.052949
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "importance": 0.051594
+    },
+    {
+      "feature": "COV_METHOD",
+      "importance": 0.042014
+    },
+    {
+      "feature": "MOSER_age",
+      "importance": 0.035436
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "importance": 0.030281
+    },
+    {
+      "feature": "MOSER_sum_lines_added",
+      "importance": 0.027918
+    },
+    {
+      "feature": "MOSER_max_lines_added",
+      "importance": 0.024317
+    },
+    {
+      "feature": "MOSER_max_code_churn",
+      "importance": 0.024288
+    },
+    {
+      "feature": "MOSER_sum_code_churn",
+      "importance": 0.02297
+    },
+    {
+      "feature": "MOSER_avg_code_churn",
+      "importance": 0.022285
+    },
+    {
+      "feature": "MOSER_avg_lines_added",
+      "importance": 0.02138
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "importance": 0.020926
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "importance": 0.02059
+    },
+    {
+      "feature": "PMD_dp",
+      "importance": 0.020453
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "importance": 0.019995
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "importance": 0.019951
+    },
+    {
+      "feature": "MOSER_avg_changeset",
+      "importance": 0.018796
+    },
+    {
+      "feature": "MOSER_avg_lines_deleted",
+      "importance": 0.018193
+    },
+    {
+      "feature": "PMD_arp",
+      "importance": 0.017363
+    },
+    {
+      "feature": "PMD_severity_major",
+      "importance": 0.0173
+    },
+    {
+      "feature": "MOSER_max_lines_deleted",
+      "importance": 0.016862
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "importance": 0.015718
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "importance": 0.015573
+    },
+    {
+      "feature": "CHANGE_TYPE_interface",
+      "importance": 0.015172
+    },
+    {
+      "feature": "MOSER_revisions",
+      "importance": 0.014987
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "importance": 0.014975
+    },
+    {
+      "feature": "CHANGE_TYPE_logic/control",
+      "importance": 0.014934
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "importance": 0.014085
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "importance": 0.013678
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "importance": 0.013142
+    },
+    {
+      "feature": "PMD_tfbfass",
+      "importance": 0.011071
+    },
+    {
+      "feature": "MOSER_max_changeset",
+      "importance": 0.010129
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "importance": 0.009867
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "importance": 0.008686
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "importance": 0.00736
+    },
+    {
+      "feature": "PMD_rule_type_naming rules",
+      "importance": 0.007131
+    },
+    {
+      "feature": "PMD_uv",
+      "importance": 0.006477
+    },
+    {
+      "feature": "MOSER_authors",
+      "importance": 0.005403
+    },
+    {
+      "feature": "PMD_smn",
+      "importance": 0.005276
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "importance": 0.005265
+    },
+    {
+      "feature": "PMD_ssshd",
+      "importance": 0.005071
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "importance": 0.004741
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "importance": 0.004483
+    },
+    {
+      "feature": "PMD_atret",
+      "importance": 0.004343
+    },
+    {
+      "feature": "PMD_cwopcsbf",
+      "importance": 0.00433
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "importance": 0.004155
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "importance": 0.003823
+    },
+    {
+      "feature": "PMD_rule_type_strict exception rules",
+      "importance": 0.00351
+    },
+    {
+      "feature": "PMD_cis",
+      "importance": 0.003452
+    },
+    {
+      "feature": "PMD_aio",
+      "importance": 0.003347
+    },
+    {
+      "feature": "PMD_ulv",
+      "importance": 0.003303
+    },
+    {
+      "feature": "PMD_afnmmn",
+      "importance": 0.003203
+    },
+    {
+      "feature": "ISSUE_major_task",
+      "importance": 0.003198
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "importance": 0.00303
+    },
+    {
+      "feature": "PMD_if",
+      "importance": 0.002359
+    },
+    {
+      "feature": "PMD_uem",
+      "importance": 0.002333
+    },
+    {
+      "feature": "PMD_menc",
+      "importance": 0.00208
+    },
+    {
+      "feature": "PMD_mbis",
+      "importance": 0.002033
+    },
+    {
+      "feature": "PMD_fdsbasoc",
+      "importance": 0.001995
+    },
+    {
+      "feature": "PMD_emiacsba",
+      "importance": 0.001942
+    },
+    {
+      "feature": "PMD_upm",
+      "importance": 0.001775
+    },
+    {
+      "feature": "PMD_rule_type_optimization rules",
+      "importance": 0.001707
+    },
+    {
+      "feature": "PMD_rfi",
+      "importance": 0.001663
+    },
+    {
+      "feature": "PMD_acge",
+      "importance": 0.001661
+    },
+    {
+      "feature": "PMD_ucie",
+      "importance": 0.001559
+    },
+    {
+      "feature": "PMD_uec",
+      "importance": 0.001517
+    },
+    {
+      "feature": "PMD_rule_type_security code guideline rules",
+      "importance": 0.001451
+    },
+    {
+      "feature": "PMD_aisd",
+      "importance": 0.001433
+    },
+    {
+      "feature": "ISSUE_minor_bug",
+      "importance": 0.001431
+    },
+    {
+      "feature": "PMD_adl",
+      "importance": 0.001422
+    },
+    {
+      "feature": "PMD_ffcbs",
+      "importance": 0.001395
+    },
+    {
+      "feature": "ISSUE_trivial_improvement",
+      "importance": 0.001379
+    },
+    {
+      "feature": "PMD_scn",
+      "importance": 0.001304
+    },
+    {
+      "feature": "PMD_absalil",
+      "importance": 0.001186
+    },
+    {
+      "feature": "PMD_rule_type_type resolution rules",
+      "importance": 0.0011
+    },
+    {
+      "feature": "PMD_bgmn",
+      "importance": 0.001064
+    },
+    {
+      "feature": "ISSUE_minor_improvement",
+      "importance": 0.001016
+    },
+    {
+      "feature": "PMD_eis",
+      "importance": 0.001009
+    },
+    {
+      "feature": "PMD_pst",
+      "importance": 0.00098
+    },
+    {
+      "feature": "MOSER_refactorings",
+      "importance": 0.000902
+    },
+    {
+      "feature": "PMD_cla",
+      "importance": 0.000883
+    },
+    {
+      "feature": "PMD_rule_type_java logging rules",
+      "importance": 0.00088
+    },
+    {
+      "feature": "PMD_rule_type_javabean rules",
+      "importance": 0.000879
+    },
+    {
+      "feature": "PMD_vnc",
+      "importance": 0.000856
+    },
+    {
+      "feature": "PMD_msvuid",
+      "importance": 0.000821
+    },
+    {
+      "feature": "PMD_acwam",
+      "importance": 0.000785
+    },
+    {
+      "feature": "PMD_rule_type_clone implementation rules",
+      "importance": 0.000758
+    },
+    {
+      "feature": "PMD_plfic",
+      "importance": 0.000756
+    },
+    {
+      "feature": "PMD_usbfsa",
+      "importance": 0.000741
+    },
+    {
+      "feature": "PMD_loc",
+      "importance": 0.000726
+    },
+    {
+      "feature": "PMD_ctcnse",
+      "importance": 0.000703
+    },
+    {
+      "feature": "PMD_odpl",
+      "importance": 0.000694
+    },
+    {
+      "feature": "PMD_ulbr",
+      "importance": 0.000688
+    },
+    {
+      "feature": "PMD_sp",
+      "importance": 0.000668
+    },
+    {
+      "feature": "PMD_ulwcc",
+      "importance": 0.000637
+    },
+    {
+      "feature": "PMD_mria",
+      "importance": 0.000593
+    },
+    {
+      "feature": "PMD_uc",
+      "importance": 0.000586
+    },
+    {
+      "feature": "PMD_apmp",
+      "importance": 0.000574
+    },
+    {
+      "feature": "PMD_clr",
+      "importance": 0.000563
+    },
+    {
+      "feature": "PMD_asbf",
+      "importance": 0.000547
+    },
+    {
+      "feature": "PMD_clmmic",
+      "importance": 0.000521
+    },
+    {
+      "feature": "PMD_ecb",
+      "importance": 0.000489
+    },
+    {
+      "feature": "PMD_rule_type_import statement rules",
+      "importance": 0.000478
+    },
+    {
+      "feature": "ISSUE_other_other",
+      "importance": 0.000453
+    },
+    {
+      "feature": "PMD_glsju",
+      "importance": 0.000453
+    },
+    {
+      "feature": "PMD_upf",
+      "importance": 0.00044
+    },
+    {
+      "feature": "PMD_casr",
+      "importance": 0.00043
+    },
+    {
+      "feature": "PMD_asaml",
+      "importance": 0.000406
+    },
+    {
+      "feature": "PMD_act",
+      "importance": 0.000401
+    },
+    {
+      "feature": "PMD_uis",
+      "importance": 0.000399
+    },
+    {
+      "feature": "PMD_sf",
+      "importance": 0.000291
+    },
+    {
+      "feature": "PMD_ufqn",
+      "importance": 0.000288
+    },
+    {
+      "feature": "PMD_ccom",
+      "importance": 0.000275
+    },
+    {
+      "feature": "PMD_gn",
+      "importance": 0.000267
+    },
+    {
+      "feature": "PMD_afnmtn",
+      "importance": 0.000264
+    },
+    {
+      "feature": "PMD_tmsi",
+      "importance": 0.000245
+    },
+    {
+      "feature": "PMD_li",
+      "importance": 0.000236
+    },
+    {
+      "feature": "PMD_sidte",
+      "importance": 0.000235
+    },
+    {
+      "feature": "PMD_dlnliss",
+      "importance": 0.000232
+    },
+    {
+      "feature": "PMD_semn",
+      "importance": 0.00022
+    },
+    {
+      "feature": "PMD_aci",
+      "importance": 0.000215
+    },
+    {
+      "feature": "ISSUE_minor_task",
+      "importance": 0.000207
+    },
+    {
+      "feature": "PMD_apst",
+      "importance": 0.000206
+    },
+    {
+      "feature": "PMD_uni",
+      "importance": 0.000194
+    },
+    {
+      "feature": "PMD_adlibdc",
+      "importance": 0.000173
+    },
+    {
+      "feature": "PMD_isb",
+      "importance": 0.00014
+    },
+    {
+      "feature": "PMD_plficic",
+      "importance": 0.000135
+    },
+    {
+      "feature": "ISSUE_blocker_bug",
+      "importance": 0.000114
+    },
+    {
+      "feature": "PMD_nsi",
+      "importance": 0.000111
+    },
+    {
+      "feature": "PMD_sdfnl",
+      "importance": 0.0001
+    },
+    {
+      "feature": "PMD_aal",
+      "importance": 9.5e-05
+    },
+    {
+      "feature": "PMD_are",
+      "importance": 9.5e-05
+    },
+    {
+      "feature": "PMD_atnpe",
+      "importance": 8.9e-05
+    },
+    {
+      "feature": "PMD_gls",
+      "importance": 6.9e-05
+    },
+    {
+      "feature": "PMD_ccewta",
+      "importance": 6.8e-05
+    },
+    {
+      "feature": "PMD_pci",
+      "importance": 6.7e-05
+    },
+    {
+      "feature": "PMD_obeah",
+      "importance": 6.4e-05
+    },
+    {
+      "feature": "PMD_aes",
+      "importance": 6e-05
+    },
+    {
+      "feature": "PMD_rule_type_jakarta commons logging rules",
+      "importance": 5.7e-05
+    },
+    {
+      "feature": "PMD_uwoc",
+      "importance": 5.1e-05
+    },
+    {
+      "feature": "PMD_sts",
+      "importance": 4.8e-05
+    },
+    {
+      "feature": "PMD_uom",
+      "importance": 4.4e-05
+    },
+    {
+      "feature": "PMD_aicicc",
+      "importance": 4.4e-05
+    },
+    {
+      "feature": "PMD_abcwam",
+      "importance": 3.9e-05
+    },
+    {
+      "feature": "PMD_rule_type_j2ee rules",
+      "importance": 3.9e-05
+    },
+    {
+      "feature": "ISSUE_critical_improvement",
+      "importance": 3.5e-05
+    },
+    {
+      "feature": "PMD_ismub",
+      "importance": 3.4e-05
+    },
+    {
+      "feature": "PMD_eafc",
+      "importance": 3.2e-05
+    },
+    {
+      "feature": "PMD_soe",
+      "importance": 2.9e-05
+    },
+    {
+      "feature": "PMD_sbe",
+      "importance": 2.9e-05
+    },
+    {
+      "feature": "PMD_acnpe",
+      "importance": 2.7e-05
+    },
+    {
+      "feature": "PMD_auhcip",
+      "importance": 2.6e-05
+    },
+    {
+      "feature": "PMD_ncliss",
+      "importance": 2.6e-05
+    },
+    {
+      "feature": "PMD_rule_type_brace rules",
+      "importance": 2.5e-05
+    },
+    {
+      "feature": "PMD_linsf",
+      "importance": 2.4e-05
+    },
+    {
+      "feature": "PMD_dncse",
+      "importance": 2.3e-05
+    },
+    {
+      "feature": "ISSUE_trivial_bug",
+      "importance": 2.2e-05
+    },
+    {
+      "feature": "PMD_crs",
+      "importance": 1.8e-05
+    },
+    {
+      "feature": "PMD_ews",
+      "importance": 1.6e-05
+    },
+    {
+      "feature": "PMD_ntss",
+      "importance": 1.4e-05
+    },
+    {
+      "feature": "PMD_sc",
+      "importance": 1.3e-05
+    },
+    {
+      "feature": "PMD_reartn",
+      "importance": 1e-05
+    },
+    {
+      "feature": "PMD_msminic",
+      "importance": 9e-06
+    },
+    {
+      "feature": "ISSUE_critical_bug",
+      "importance": 9e-06
+    },
+    {
+      "feature": "ISSUE_critical_task",
+      "importance": 7e-06
+    },
+    {
+      "feature": "PMD_flsbwl",
+      "importance": 5e-06
+    },
+    {
+      "feature": "PMD_gdl",
+      "importance": 4e-06
+    },
+    {
+      "feature": "ISSUE_minor_test",
+      "importance": 4e-06
+    },
+    {
+      "feature": "ISSUE_blocker_task",
+      "importance": 2e-06
+    },
+    {
+      "feature": "ISSUE_major_test",
+      "importance": 2e-06
+    },
+    {
+      "feature": "PMD_esnil",
+      "importance": 2e-06
+    },
+    {
+      "feature": "PMD_pl",
+      "importance": 2e-06
+    },
+    {
+      "feature": "PMD_otac",
+      "importance": 0.0
+    }
+  ],
+  "dataset": "calcite-effort170-cov-only",
+  "description": "Calcite: 170 effort + 5 coverage features (175 total)",
+  "classifier": "rf",
+  "n_estimators": 200,
+  "random_state": 42,
+  "n_samples": 18676,
+  "n_defective": 1399,
+  "defect_rate": 7.49
+}

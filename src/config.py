@@ -57,6 +57,19 @@ EFFORT_FEATURES_26 = [
 EFFORT_PREFIXES = ("CHANGE_TYPE_", "HASSAN_", "ISSUE_", "MOSER_", "PMD_")
 
 # =============================================================================
+# RELEASE ORDERING (for chronological CV)
+# =============================================================================
+CALCITE_RELEASE_ORDER = [
+    "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0", "1.6.0",
+    "1.7.0", "1.8.0", "1.9.0", "1.10.0", "1.11.0", "1.12.0",
+    "1.13.0", "1.14.0", "1.15.0",
+]
+
+ANT_IVY_RELEASE_ORDER = [
+    "1.4.1", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0",
+]
+
+# =============================================================================
 # METADATA COLUMNS
 # =============================================================================
 METADATA_COLUMNS = {
@@ -142,6 +155,8 @@ DATASETS = {
         "header_row": 0,
         "feature_name_row": None,
         "label_column": "Label",
+        "version_column": "Version",
+        "release_order": "ant-ivy",
         "description": "Ant-Ivy SM_* software metrics only (3624 features)",
     },
     "calcite-top30-sm-cov-effort": {
@@ -150,6 +165,8 @@ DATASETS = {
         "header_row": 0,
         "feature_name_row": None,
         "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
         "description": "Calcite: top-30 SM + 5 coverage + 26 effort (61 features)",
     },
     "calcite-top30-sm-only": {
@@ -166,6 +183,8 @@ DATASETS = {
         "header_row": 0,
         "feature_name_row": None,
         "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
         "description": "Calcite: 26 effort + 5 coverage features (31 total)",
     },
     "calcite-top30-sm-only-v1.1+": {
@@ -174,8 +193,95 @@ DATASETS = {
         "header_row": 0,
         "feature_name_row": None,
         "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
         "description": "Calcite: top-30 SM features (v1.1.0+ only, for fair comparison)",
     },
+    "calcite-top30-sm-only-v1.1+-dedup": {
+        "file": "data/Calcite-top30-sm-only-v1.1+-dedup.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM features (v1.1.0+, deduplicated - earliest version per file)",
+    },
+    "calcite-effort-cov-only-dedup": {
+        "file": "data/Calcite-effort-cov-only-dedup.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: 26 effort + 5 coverage (deduplicated - earliest version per file)",
+    },
+    "calcite-top30-sm-cov-effort-dedup": {
+        "file": "data/Calcite-top30-sm-cov-effort-dedup.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: top-30 SM + 5 cov + 26 effort (deduplicated - earliest version per file)",
+    },
+    "calcite-effort170-cov-only": {
+        "file": "data/Calcite-effort170-cov-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
+        "description": "Calcite: 170 effort + 5 coverage features (175 total)",
+    },
+    "calcite-top30-sm-effort170-cov": {
+        "file": "data/Calcite-top30-sm-effort170-cov.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
+        "description": "Calcite: 30 SM + 170 effort + 5 coverage (205 features)",
+    },
+    "calcite-effort170-cov-only-dedup": {
+        "file": "data/Calcite-effort170-cov-only-dedup.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: 170 effort + 5 coverage (deduplicated - earliest version per file)",
+    },
+    "calcite-top30-sm-effort170-cov-dedup": {
+        "file": "data/Calcite-top30-sm-effort170-cov-dedup.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "description": "Calcite: 30 SM + 170 effort + 5 cov (deduplicated - earliest version per file)",
+    },
+    "calcite-sm-only-v1.1+": {
+        "file": "data/Calcite-sm-only-v1.1+.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
+        "description": "Calcite: all 2859 SM features (v1.1.0+ only, for fair baseline comparison)",
+    },
+    "ant-ivy-effort-only": {
+        "file": "data/Ant-Ivy-effort-only.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "version_column": "Ant version",
+        "release_order": "ant-ivy",
+        "description": "Ant-Ivy: 149 effort features (CHANGE, HASSAN, ISSUE, MOSER, PMD)",
+    },
+}
+
+RELEASE_ORDERS = {
+    "calcite": CALCITE_RELEASE_ORDER,
+    "ant-ivy": ANT_IVY_RELEASE_ORDER,
 }
 
 # Clustering algorithm defaults

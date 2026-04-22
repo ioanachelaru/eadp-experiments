@@ -341,6 +341,152 @@ def create_effort_only_dataset(output_path: Optional[str] = None) -> str:
     return output_file
 
 
+def deduplicate_dataset(
+    dataset_name: str,
+    output_path: Optional[str] = None,
+) -> str:
+    """
+    Remove duplicate samples from a dataset based on feature values and label.
+
+    Two samples are considered duplicates if ALL their feature values AND
+    the label (Bug) are identical, regardless of which version they belong to.
+
+    Args:
+        dataset_name: Name of the dataset in DATASETS config
+        output_path: Optional custom output path
+
+    Returns:
+        Path to the deduplicated CSV file
+    """
+    from .config import DATASETS
+
+    if dataset_name not in DATASETS:
+        raise ValueError(f"Unknown dataset: {dataset_name}")
+
+    config = DATASETS[dataset_name]
+    input_file = config["file"]
+    label_col = config["label_column"]
+
+    # Generate output filename
+    if output_path:
+        output_file = output_path
+    else:
+        # Insert -dedup before .csv
+        base = input_file.rsplit(".csv", 1)[0]
+        output_file = f"{base}-dedup.csv"
+
+    print(f"Deduplicating dataset: {dataset_name}")
+    print(f"  Input: {input_file}")
+
+    # Load data
+    df = pd.read_csv(input_file)
+    original_count = len(df)
+    print(f"  Original rows: {original_count}")
+
+    # Identify metadata vs feature columns
+    metadata_cols = ["Calcite version", "ID", "file", "Version-ID", "Version", "Id", "Class"]
+    metadata_cols = [c for c in metadata_cols if c in df.columns]
+    feature_cols = [c for c in df.columns if c not in metadata_cols]
+
+    print(f"  Metadata columns: {metadata_cols}")
+    print(f"  Feature columns (including label): {len(feature_cols)}")
+
+    # Drop duplicates based on feature values + label only
+    df_dedup = df.drop_duplicates(subset=feature_cols, keep="first")
+    dedup_count = len(df_dedup)
+
+    print(f"  Distinct samples: {dedup_count}")
+    print(f"  Removed: {original_count - dedup_count} duplicates")
+
+    # Save
+    df_dedup.to_csv(output_file, index=False)
+    print(f"  Output: {output_file}")
+
+    return output_file
+
+
+def create_sm_baseline_dataset(output_path: Optional[str] = None) -> str:
+    """
+    Create full SM baseline dataset (v1.1.0+ only).
+
+    Uses all 2,859 SM features from Calcite, excluding version 1.0.0
+    (no coverage data for that release).
+
+    Args:
+        output_path: Optional custom output path
+
+    Returns:
+        Path to the output CSV file
+    """
+    output_file = output_path or "data/Calcite-sm-only-v1.1+.csv"
+    metadata_cols = METADATA_COLUMNS["calcite"]
+
+    print("Creating full SM baseline dataset (v1.1.0+)...")
+
+    df = pd.read_csv("data/Calcite-SM-only.csv")
+    print(f"  Input shape: {df.shape}")
+
+    # Filter out version 1.0.0
+    df_filtered = df[df["Calcite version"] != "1.0.0"].copy()
+    print(f"  After removing v1.0.0: {df_filtered.shape}")
+
+    # Save
+    df_filtered.to_csv(output_file, index=False)
+    print(f"  Output: {output_file}")
+
+    # Summary
+    feature_cols = [c for c in df_filtered.columns if c not in metadata_cols]
+    sm_count = len([c for c in feature_cols if c.startswith("SM_")])
+    print(f"  SM features: {sm_count}")
+
+    return output_file
+
+
+def create_ant_ivy_effort_dataset(output_path: Optional[str] = None) -> str:
+    """
+    Create Ant-Ivy effort-only dataset from the effort_data Excel.
+
+    Loads 149 effort features from the Ant_All sheet. No coverage data
+    is available for Ant-Ivy.
+
+    Args:
+        output_path: Optional custom output path
+
+    Returns:
+        Path to the output CSV file
+    """
+    output_file = output_path or "data/Ant-Ivy-effort-only.csv"
+
+    print("Creating Ant-Ivy effort-only dataset...")
+
+    effort_file = RAW_DATA["effort_data"]
+    df = pd.read_excel(effort_file, sheet_name="Ant_All", header=9)
+
+    # Drop rows with NaN version (blank separator rows)
+    df = df.dropna(subset=["Ant version"])
+    print(f"  Rows after dropping NaN: {len(df)}")
+
+    # Drop Unnamed columns
+    unnamed = [c for c in df.columns if "Unnamed" in str(c)]
+    if unnamed:
+        df = df.drop(columns=unnamed)
+        print(f"  Dropped {len(unnamed)} unnamed columns")
+
+    # Rename to match standard metadata
+    # Keep: Ant version, ID, file, Bug + all effort features
+    metadata = ["Ant version", "ID", "file", "Bug"]
+    feature_cols = [c for c in df.columns if c not in metadata]
+    print(f"  Effort features: {len(feature_cols)}")
+    print(f"  Versions: {sorted([str(v) for v in df['Ant version'].unique()])}")
+
+    # Save
+    df.to_csv(output_file, index=False)
+    print(f"  Output: {output_file}")
+    print(f"  Shape: {df.shape}")
+
+    return output_file
+
+
 def run_prepare_action(action: str, dataset: str = "calcite", **kwargs) -> str:
     """
     Run a data preparation action.
@@ -364,8 +510,15 @@ def run_prepare_action(action: str, dataset: str = "calcite", **kwargs) -> str:
         return create_top30_sm_dataset(**kwargs)
     elif action == "create-effort-only":
         return create_effort_only_dataset(**kwargs)
+    elif action == "deduplicate":
+        return deduplicate_dataset(dataset, **kwargs)
+    elif action == "create-sm-baseline":
+        return create_sm_baseline_dataset(**kwargs)
+    elif action == "create-ant-ivy-effort":
+        return create_ant_ivy_effort_dataset(**kwargs)
     else:
         raise ValueError(
             f"Unknown action: {action}. "
-            f"Use: extract-sm, merge-coverage, create-combined, create-top30-sm, create-effort-only"
+            f"Use: extract-sm, merge-coverage, create-combined, create-top30-sm, "
+            f"create-effort-only, deduplicate, create-sm-baseline, create-ant-ivy-effort"
         )

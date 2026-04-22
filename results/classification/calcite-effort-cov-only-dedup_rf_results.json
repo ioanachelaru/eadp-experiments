@@ -1,0 +1,194 @@
+{
+  "dataset": "calcite-effort-cov-only-dedup",
+  "description": "Calcite: 26 effort + 5 coverage (deduplicated - earliest version per file)",
+  "classifier": "rf",
+  "cv_folds": 5,
+  "random_state": 42,
+  "n_samples": 9569,
+  "n_features": 31,
+  "n_defective": 1195,
+  "defect_rate": 12.49,
+  "metrics": {
+    "precision": {
+      "mean": 0.8397708514535834,
+      "std": 0.02300517339821976,
+      "values": [
+        0.8,
+        0.847457627118644,
+        0.8712121212121212,
+        0.8372093023255814,
+        0.8429752066115702
+      ]
+    },
+    "recall": {
+      "mean": 0.4527196652719665,
+      "std": 0.027296245071631947,
+      "values": [
+        0.48535564853556484,
+        0.41841004184100417,
+        0.4811715481171548,
+        0.45188284518828453,
+        0.42677824267782427
+      ]
+    },
+    "f1": {
+      "mean": 0.5875920072705046,
+      "std": 0.022399922976043977,
+      "values": [
+        0.6041666666666666,
+        0.5602240896358543,
+        0.6199460916442049,
+        0.5869565217391305,
+        0.5666666666666667
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.9225758190347285,
+      "std": 0.005921871389560383,
+      "values": [
+        0.9312508586773247,
+        0.9168200836820084,
+        0.9268182102042092,
+        0.9224092924498846,
+        0.9155806501602156
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.44837719810307214,
+      "std": 0.020125843404026393,
+      "values": [
+        0.4525478417124644,
+        0.42720756074052124,
+        0.48398827402578665,
+        0.4467635727546543,
+        0.4313787412819341
+      ]
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "COV_BRANCH",
+      "importance": 0.102479
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "importance": 0.072177
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "importance": 0.067543
+    },
+    {
+      "feature": "COV_LINE",
+      "importance": 0.066804
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "importance": 0.055103
+    },
+    {
+      "feature": "COV_METHOD",
+      "importance": 0.053309
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "importance": 0.049717
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "importance": 0.041736
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "importance": 0.041054
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "importance": 0.038188
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "importance": 0.038094
+    },
+    {
+      "feature": "PMD_severity_major",
+      "importance": 0.036632
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "importance": 0.033958
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "importance": 0.032432
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "importance": 0.032409
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "importance": 0.030477
+    },
+    {
+      "feature": "MOSER_revisions",
+      "importance": 0.030476
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "importance": 0.030098
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "importance": 0.020578
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "importance": 0.015422
+    },
+    {
+      "feature": "PMD_arp",
+      "importance": 0.015075
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "importance": 0.014518
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "importance": 0.013553
+    },
+    {
+      "feature": "MOSER_authors",
+      "importance": 0.012045
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "importance": 0.011951
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "importance": 0.010231
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "importance": 0.009672
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "importance": 0.008322
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "importance": 0.007776
+    },
+    {
+      "feature": "PMD_cis",
+      "importance": 0.006619
+    },
+    {
+      "feature": "PMD_odpl",
+      "importance": 0.001554
+    }
+  ]
+}

@@ -17,7 +17,10 @@ import os
 import sys
 from datetime import datetime
 
-from src.config import DATASETS, CLUSTERING_DEFAULTS, PREPROCESSING, OUTPUT
+from src.config import (
+    DATASETS, CLUSTERING_DEFAULTS, PREPROCESSING, OUTPUT,
+    RELEASE_ORDERS,
+)
 
 
 def cmd_prepare(args):
@@ -280,12 +283,16 @@ def cmd_classify(args):
         format_cv_results,
     )
 
-    # Datasets to compare
+    # Datasets to compare (deduplicated versions)
     COMPARISON_DATASETS = [
-        "calcite-top30-sm-only-v1.1+",
-        "calcite-effort-cov-only",
-        "calcite-top30-sm-cov-effort",
+        "calcite-top30-sm-only-v1.1+-dedup",
+        "calcite-effort-cov-only-dedup",
+        "calcite-top30-sm-cov-effort-dedup",
     ]
+
+    cv_mode = getattr(args, "cv_mode", "stratified")
+    exclude_patterns = getattr(args, "exclude", None) or []
+    n_estimators = getattr(args, "n_estimators", 100)
 
     if args.compare_all:
         print("\n" + "=" * 70)
@@ -312,9 +319,15 @@ def cmd_classify(args):
         print(f"Individual results saved to: {output_dir}/")
 
     elif args.dataset:
-        results = run_single_classification(
-            args.dataset, args.classifier, args.cv_folds
-        )
+        if cv_mode == "chronological":
+            results = run_chronological_classification(
+                args.dataset, args.classifier, n_estimators,
+                exclude_patterns=exclude_patterns,
+            )
+        else:
+            results = run_single_classification(
+                args.dataset, args.classifier, args.cv_folds
+            )
         output_dir = os.path.join(OUTPUT["base_dir"], "classification")
         json_path = save_classification_results(results, output_dir)
         print(f"\nResults saved to: {json_path}")
@@ -339,6 +352,7 @@ def run_single_classification(
         run_cross_validation,
         get_feature_importances,
         format_cv_results,
+        save_cv_folds,
     )
 
     print(f"\n{'='*60}")
@@ -353,9 +367,17 @@ def run_single_classification(
     df, label_col, feature_name_map = load_dataset(dataset_name)
     print(f"  Loaded {len(df)} samples")
 
+    # Keep original DataFrame for saving folds
+    df_original = df.copy()
+
     X, y, scaler, feature_names = preprocess_features(
         df, label_col, feature_name_map=feature_name_map
     )
+
+    # Save CV folds to dedicated directory
+    folds_dir = os.path.join(OUTPUT["base_dir"], "classification", "folds", dataset_name)
+    print(f"\nSaving CV folds to: {folds_dir}")
+    save_cv_folds(df_original, y, folds_dir, n_splits=n_splits, random_state=random_state)
     print(f"  Features: {len(feature_names)}")
     print(f"  Defective: {y.sum()} ({y.mean()*100:.1f}%)")
 
@@ -398,6 +420,99 @@ def run_single_classification(
             for f, imp in feature_importances
         ],
     }
+
+    return results
+
+
+def run_chronological_classification(
+    dataset_name: str,
+    classifier_type: str = "rf",
+    n_estimators: int = 100,
+    random_state: int = 42,
+    exclude_patterns: list[str] = None,
+) -> dict:
+    """Run chronological expanding-window CV on a dataset."""
+    import pandas as pd
+    from src.classification import run_chronological_cv
+    from src.data_utils import get_feature_columns
+
+    dataset_config = DATASETS[dataset_name]
+    label_col = dataset_config["label_column"]
+    version_col = dataset_config.get("version_column")
+    release_key = dataset_config.get("release_order")
+
+    if not version_col or not release_key:
+        print(f"Error: Dataset {dataset_name} does not have version_column/release_order configured")
+        return {}
+
+    release_order = RELEASE_ORDERS[release_key]
+
+    print(f"\n{'='*60}")
+    print(f"Chronological CV Classification")
+    print(f"  Dataset: {dataset_name}")
+    print(f"  Classifier: {classifier_type.upper()}")
+    print(f"  n_estimators: {n_estimators}")
+    if exclude_patterns:
+        print(f"  Exclude: {exclude_patterns}")
+    print(f"{'='*60}")
+
+    # Load data
+    print("\nLoading data...")
+    df = pd.read_csv(dataset_config["file"])
+    print(f"  Loaded {len(df)} samples")
+
+    # Identify feature columns (numeric, non-metadata, non-label)
+    feature_cols = get_feature_columns(df, label_col)
+    print(f"  Features: {len(feature_cols)}")
+    print(f"  Defective: {df[label_col].sum()} ({df[label_col].mean()*100:.1f}%)")
+
+    # Build output directory
+    # e.g. results/calcite/chronological/effort170-cov-only/
+    project = release_key  # "calcite" or "ant-ivy"
+    short_name = dataset_name.replace(f"{project}-", "").replace("calcite-", "")
+    if n_estimators != 100:
+        short_name += f"_n{n_estimators}"
+    if exclude_patterns:
+        short_name += "_ablation"
+    output_dir = os.path.join(OUTPUT["base_dir"], project, "chronological", short_name)
+
+    print(f"\nOutput directory: {output_dir}")
+    print(f"Running chronological CV...")
+
+    results = run_chronological_cv(
+        classifier_type=classifier_type,
+        df=df,
+        label_col=label_col,
+        feature_cols=feature_cols,
+        version_col=version_col,
+        release_order=release_order,
+        output_dir=output_dir,
+        random_state=random_state,
+        n_estimators=n_estimators,
+        exclude_patterns=exclude_patterns,
+    )
+
+    # Add metadata
+    results["dataset"] = dataset_name
+    results["description"] = dataset_config.get("description", "")
+    results["classifier"] = classifier_type
+    results["n_estimators"] = n_estimators
+    results["random_state"] = random_state
+    results["n_samples"] = len(df)
+    results["n_defective"] = int(df[label_col].sum())
+    results["defect_rate"] = round(df[label_col].mean() * 100, 2)
+
+    # Save summary JSON to the output dir
+    json_path = os.path.join(output_dir, f"{classifier_type}_results.json")
+    os.makedirs(output_dir, exist_ok=True)
+    with open(json_path, "w") as f:
+        json.dump(results, f, indent=2)
+    print(f"\nSummary saved to: {json_path}")
+
+    # Print summary
+    print(f"\nSummary ({results['n_folds']} folds):")
+    for metric, vals in results["metrics"].items():
+        print(f"  {metric:15s}: {vals['mean']:.4f} +/- {vals['std']:.4f}")
 
     return results
 
@@ -541,6 +656,31 @@ def generate_classification_report(all_results: dict, classifier_type: str, repo
         f.write("\n".join(lines))
 
 
+def cmd_compare_classify(args):
+    """Handle compare-classify subcommand."""
+    from src.statistics import compare_results
+
+    output_path = args.output
+    if not output_path:
+        output_dir = os.path.join(OUTPUT["base_dir"], "comparisons")
+        os.makedirs(output_dir, exist_ok=True)
+        # Generate name from parent directory names (more descriptive than rf_results vs rf_results)
+        a_parts = os.path.normpath(args.result_a).split(os.sep)
+        b_parts = os.path.normpath(args.result_b).split(os.sep)
+        a_name = "_".join(a_parts[-3:-1]) if len(a_parts) >= 3 else os.path.splitext(os.path.basename(args.result_a))[0]
+        b_name = "_".join(b_parts[-3:-1]) if len(b_parts) >= 3 else os.path.splitext(os.path.basename(args.result_b))[0]
+        output_path = os.path.join(output_dir, f"{a_name}_vs_{b_name}_wilcoxon.json")
+
+    print(f"\n{'='*70}")
+    print("Statistical Comparison (Wilcoxon signed-rank test)")
+    print(f"  A: {args.result_a}")
+    print(f"  B: {args.result_b}")
+    print(f"{'='*70}\n")
+
+    compare_results(args.result_a, args.result_b, output_path)
+    return 0
+
+
 def cmd_compare(args):
     """Handle compare subcommand."""
     from src.compare import run_comparison
@@ -587,14 +727,16 @@ Examples:
     prepare_parser.add_argument(
         "--action", "-a",
         required=True,
-        choices=["extract-sm", "merge-coverage", "create-combined", "create-top30-sm", "create-effort-only"],
+        choices=[
+            "extract-sm", "merge-coverage", "create-combined", "create-top30-sm",
+            "create-effort-only", "deduplicate", "create-sm-baseline", "create-ant-ivy-effort",
+        ],
         help="Preparation action to perform",
     )
     prepare_parser.add_argument(
         "--dataset", "-d",
-        choices=["calcite", "ant-ivy"],
         default="calcite",
-        help="Dataset to process (default: calcite)",
+        help="Dataset to process. For deduplicate action, use full dataset name from DATASETS config (default: calcite)",
     )
     prepare_parser.add_argument(
         "--output", "-o",
@@ -687,6 +829,24 @@ Examples:
         default=5,
         help="Number of cross-validation folds (default: 5)",
     )
+    classify_parser.add_argument(
+        "--cv-mode",
+        choices=["stratified", "chronological"],
+        default="stratified",
+        help="CV strategy: stratified (default) or chronological expanding-window",
+    )
+    classify_parser.add_argument(
+        "--exclude",
+        action="append",
+        default=[],
+        help="Exclude features by name or wildcard (e.g., --exclude MOSER_bugfix --exclude 'ISSUE_*'). Repeatable.",
+    )
+    classify_parser.add_argument(
+        "--n-estimators",
+        type=int,
+        default=100,
+        help="Number of trees for Random Forest (default: 100)",
+    )
 
     # =========================================================================
     # compare subcommand
@@ -712,6 +872,29 @@ Examples:
         help="Path to effort_data Excel file",
     )
 
+    # =========================================================================
+    # compare-classify subcommand
+    # =========================================================================
+    compare_classify_parser = subparsers.add_parser(
+        "compare-classify",
+        help="Compare two classification results with Wilcoxon tests",
+        description="Run Wilcoxon signed-rank tests between paired chronological CV results",
+    )
+    compare_classify_parser.add_argument(
+        "--result-a",
+        required=True,
+        help="Path to first result JSON file",
+    )
+    compare_classify_parser.add_argument(
+        "--result-b",
+        required=True,
+        help="Path to second result JSON file",
+    )
+    compare_classify_parser.add_argument(
+        "--output", "-o",
+        help="Custom output path for comparison results",
+    )
+
     # Parse arguments
     args = parser.parse_args()
 
@@ -728,6 +911,8 @@ Examples:
         return cmd_classify(args)
     elif args.command == "compare":
         return cmd_compare(args)
+    elif args.command == "compare-classify":
+        return cmd_compare_classify(args)
     else:
         parser.print_help()
         return 1

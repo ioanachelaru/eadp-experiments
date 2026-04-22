@@ -1,0 +1,190 @@
+{
+  "dataset": "calcite-top30-sm-only-v1.1+-dedup",
+  "description": "Calcite: top-30 SM features (v1.1.0+, deduplicated - earliest version per file)",
+  "classifier": "rf",
+  "cv_folds": 5,
+  "random_state": 42,
+  "n_samples": 734,
+  "n_features": 30,
+  "n_defective": 232,
+  "defect_rate": 31.61,
+  "metrics": {
+    "precision": {
+      "mean": 0.36380393191713944,
+      "std": 0.06677649803638894,
+      "values": [
+        0.40384615384615385,
+        0.43636363636363634,
+        0.26666666666666666,
+        0.3018867924528302,
+        0.41025641025641024
+      ]
+    },
+    "recall": {
+      "mean": 0.3827937095282146,
+      "std": 0.08689430332605434,
+      "values": [
+        0.44680851063829785,
+        0.5106382978723404,
+        0.2608695652173913,
+        0.34782608695652173,
+        0.34782608695652173
+      ]
+    },
+    "f1": {
+      "mean": 0.3716539669480846,
+      "std": 0.07289392482373087,
+      "values": [
+        0.42424242424242425,
+        0.47058823529411764,
+        0.26373626373626374,
+        0.32323232323232326,
+        0.3764705882352941
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.617672420109726,
+      "std": 0.0640341670147663,
+      "values": [
+        0.6429787234042552,
+        0.698404255319149,
+        0.5441239776151527,
+        0.540572535514421,
+        0.6622826086956521
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.3389440038086907,
+      "std": 0.029638705144202554,
+      "values": [
+        0.3573126468263247,
+        0.3792865695601258,
+        0.3008577343981071,
+        0.3090857343757848,
+        0.3481773338831111
+      ]
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "SM_method_cco_avg",
+      "importance": 0.646904
+    },
+    {
+      "feature": "SM_interface_cboi_stdev",
+      "importance": 0.092316
+    },
+    {
+      "feature": "SM_interface_nod_stdev",
+      "importance": 0.050604
+    },
+    {
+      "feature": "SM_interface_noc_stdev",
+      "importance": 0.027925
+    },
+    {
+      "feature": "SM_enum_cloc_stdev",
+      "importance": 0.01859
+    },
+    {
+      "feature": "SM_method_cco_median",
+      "importance": 0.018065
+    },
+    {
+      "feature": "SM_enum_dloc_stdev",
+      "importance": 0.013238
+    },
+    {
+      "feature": "SM_enum_tcloc_stdev",
+      "importance": 0.013025
+    },
+    {
+      "feature": "SM_enum_cco_median",
+      "importance": 0.011682
+    },
+    {
+      "feature": "SM_method_ci_median",
+      "importance": 0.011089
+    },
+    {
+      "feature": "SM_enum_ci_min",
+      "importance": 0.007756
+    },
+    {
+      "feature": "SM_enum_ad_generalized_entropy",
+      "importance": 0.007334
+    },
+    {
+      "feature": "SM_enum_tna_stdev",
+      "importance": 0.006972
+    },
+    {
+      "feature": "SM_enum_ad_theil",
+      "importance": 0.006882
+    },
+    {
+      "feature": "SM_enum_tnlpa_stdev",
+      "importance": 0.006676
+    },
+    {
+      "feature": "SM_enum_cco_min",
+      "importance": 0.006565
+    },
+    {
+      "feature": "SM_enum_na_stdev",
+      "importance": 0.006546
+    },
+    {
+      "feature": "SM_enum_pua_stdev",
+      "importance": 0.006314
+    },
+    {
+      "feature": "SM_enum_tnla_stdev",
+      "importance": 0.006159
+    },
+    {
+      "feature": "SM_enum_tnpa_stdev",
+      "importance": 0.005883
+    },
+    {
+      "feature": "SM_enum_npa_stdev",
+      "importance": 0.005333
+    },
+    {
+      "feature": "SM_enum_cboi_stdev",
+      "importance": 0.004926
+    },
+    {
+      "feature": "SM_enum_nla_stdev",
+      "importance": 0.004842
+    },
+    {
+      "feature": "SM_enum_ad_atkinson",
+      "importance": 0.004479
+    },
+    {
+      "feature": "SM_enum_nlpa_stdev",
+      "importance": 0.004368
+    },
+    {
+      "feature": "SM_enum_ng_stdev",
+      "importance": 0.002293
+    },
+    {
+      "feature": "SM_enum_nlg_stdev",
+      "importance": 0.001172
+    },
+    {
+      "feature": "SM_method_ccl_min",
+      "importance": 0.000723
+    },
+    {
+      "feature": "SM_method_cco_min",
+      "importance": 0.000707
+    },
+    {
+      "feature": "SM_method_ci_min",
+      "importance": 0.000632
+    }
+  ]
+}

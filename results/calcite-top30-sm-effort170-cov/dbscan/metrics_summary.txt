@@ -1,0 +1,107 @@
+============================================================
+CLUSTERING METRICS SUMMARY
+============================================================
+Dataset: calcite-top30-sm-effort170-cov
+Algorithm: DBSCAN
+Samples: 18676
+Features: 205
+Defective: 1399 (7.49%)
+
+Algorithm Parameters:
+  eps: 17.403075520346928
+  auto_eps: True
+  min_samples: 5
+  n_clusters: 69
+  n_noise: 237
+  noise_ratio: 0.01269008352966374
+
+Internal Metrics:
+  silhouette_score: 0.5646
+  davies_bouldin_index: 0.4170
+
+External Metrics:
+  homogeneity: 0.0650
+  completeness: 0.0447
+  v_measure: 0.0530
+
+Cluster Prediction Metrics (high-risk cluster membership):
+  precision: 0.5306
+  recall: 0.0998
+  f1_score: 0.1680
+  inspection_rate: 1.33%
+  high_risk_clusters: 23/69
+  defects_captured: 130/1303
+
+Cluster Statistics:
+  !! noise: 237 samples, 96 defective (40.51%) - HIGH RISK
+     cluster_0: 17600 samples, 1173 defective (6.66%) - LOW RISK
+  !! cluster_1: 15 samples, 2 defective (13.33%) - HIGH RISK
+     cluster_2: 13 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_3: 15 samples, 2 defective (13.33%) - HIGH RISK
+  !! cluster_4: 15 samples, 12 defective (80.0%) - HIGH RISK
+     cluster_5: 15 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_6: 11 samples, 7 defective (63.64%) - HIGH RISK
+  !! cluster_7: 15 samples, 12 defective (80.0%) - HIGH RISK
+  !! cluster_8: 15 samples, 15 defective (100.0%) - HIGH RISK
+     cluster_9: 11 samples, 0 defective (0.0%) - LOW RISK
+     cluster_10: 30 samples, 0 defective (0.0%) - LOW RISK
+     cluster_11: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_12: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_13: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_14: 14 samples, 0 defective (0.0%) - LOW RISK
+     cluster_15: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_16: 10 samples, 0 defective (0.0%) - LOW RISK
+     cluster_17: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_18: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_19: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_20: 30 samples, 0 defective (0.0%) - LOW RISK
+     cluster_21: 30 samples, 0 defective (0.0%) - LOW RISK
+     cluster_22: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_23: 6 samples, 0 defective (0.0%) - LOW RISK
+     cluster_24: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_25: 15 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_26: 15 samples, 2 defective (13.33%) - HIGH RISK
+  !! cluster_27: 15 samples, 2 defective (13.33%) - HIGH RISK
+     cluster_28: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_29: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_30: 12 samples, 0 defective (0.0%) - LOW RISK
+     cluster_31: 30 samples, 0 defective (0.0%) - LOW RISK
+     cluster_32: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_33: 15 samples, 0 defective (0.0%) - LOW RISK
+     cluster_34: 15 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_35: 7 samples, 3 defective (42.86%) - HIGH RISK
+  !! cluster_36: 11 samples, 4 defective (36.36%) - HIGH RISK
+  !! cluster_37: 9 samples, 9 defective (100.0%) - HIGH RISK
+     cluster_38: 11 samples, 0 defective (0.0%) - LOW RISK
+     cluster_39: 26 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_40: 15 samples, 2 defective (13.33%) - HIGH RISK
+     cluster_41: 15 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_42: 5 samples, 5 defective (100.0%) - HIGH RISK
+  !! cluster_43: 6 samples, 3 defective (50.0%) - HIGH RISK
+  !! cluster_44: 6 samples, 6 defective (100.0%) - HIGH RISK
+  !! cluster_45: 11 samples, 11 defective (100.0%) - HIGH RISK
+     cluster_46: 8 samples, 0 defective (0.0%) - LOW RISK
+     cluster_47: 5 samples, 0 defective (0.0%) - LOW RISK
+     cluster_48: 8 samples, 0 defective (0.0%) - LOW RISK
+     cluster_49: 10 samples, 0 defective (0.0%) - LOW RISK
+     cluster_50: 5 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_51: 9 samples, 8 defective (88.89%) - HIGH RISK
+     cluster_52: 12 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_53: 5 samples, 3 defective (60.0%) - HIGH RISK
+  !! cluster_54: 9 samples, 6 defective (66.67%) - HIGH RISK
+     cluster_55: 14 samples, 0 defective (0.0%) - LOW RISK
+     cluster_56: 5 samples, 0 defective (0.0%) - LOW RISK
+     cluster_57: 8 samples, 0 defective (0.0%) - LOW RISK
+     cluster_58: 6 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_59: 17 samples, 3 defective (17.65%) - HIGH RISK
+  !! cluster_60: 8 samples, 2 defective (25.0%) - HIGH RISK
+     cluster_61: 7 samples, 0 defective (0.0%) - LOW RISK
+     cluster_62: 7 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_63: 5 samples, 5 defective (100.0%) - HIGH RISK
+     cluster_64: 5 samples, 0 defective (0.0%) - LOW RISK
+     cluster_65: 5 samples, 0 defective (0.0%) - LOW RISK
+     cluster_66: 6 samples, 0 defective (0.0%) - LOW RISK
+     cluster_67: 5 samples, 0 defective (0.0%) - LOW RISK
+  !! cluster_68: 6 samples, 6 defective (100.0%) - HIGH RISK
+
+============================================================
