@@ -1,0 +1,119 @@
+name: Extract Ant-Ivy JaCoCo Coverage
+
+on:
+  workflow_dispatch:
+    inputs:
+      jacoco_version:
+        description: "JaCoCo version to use"
+        default: "0.8.12"
+        type: string
+
+jobs:
+  extract:
+    name: "Coverage: Ant-Ivy ${{ matrix.version }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ["1.4.1", "2.0.0", "2.1.0", "2.2.0", "2.3.0", "2.4.0"]
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Checkout apache/ant-ivy
+        uses: actions/checkout@v4
+        with:
+          repository: apache/ant-ivy
+          ref: ${{ matrix.version }}
+          path: ant-ivy
+
+      - name: Setup Java 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: "8"
+          distribution: temurin
+
+      - name: Install Apache Ant
+        run: sudo apt-get update && sudo apt-get install -y ant
+
+      - name: Download JaCoCo
+        run: |
+          JACOCO_VERSION="${{ inputs.jacoco_version }}"
+          curl -sL "https://github.com/jacoco/jacoco/releases/download/v${JACOCO_VERSION}/jacoco-${JACOCO_VERSION}.zip" -o jacoco.zip
+          unzip -q jacoco.zip -d jacoco
+          ls jacoco/lib/
+
+      - name: Build and test with JaCoCo
+        run: |
+          mkdir -p output
+          chmod +x coverage-extraction/inject_jacoco.sh
+          coverage-extraction/inject_jacoco.sh ant-ivy jacoco/lib output
+        continue-on-error: true
+
+      - name: Parse JaCoCo XML to CSV
+        if: always()
+        run: |
+          if [ -f output/jacoco-report.xml ]; then
+            python3 coverage-extraction/parse_jacoco.py \
+              output/jacoco-report.xml \
+              "${{ matrix.version }}" \
+              --output-dir output
+            echo "=== CSV preview ==="
+            head -20 output/Coverage-AntIvy-*.csv
+            echo "=== Row count ==="
+            wc -l output/Coverage-AntIvy-*.csv
+          else
+            echo "No JaCoCo report generated for version ${{ matrix.version }}"
+            exit 1
+          fi
+
+      - name: Upload coverage CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.version }}
+          path: output/Coverage-AntIvy-*.csv
+          if-no-files-found: error
+
+      - name: Upload JaCoCo report (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report-${{ matrix.version }}
+          path: |
+            output/jacoco-report.xml
+            output/jacoco.exec
+          if-no-files-found: warn
+
+  combine:
+    name: Combine all coverage CSVs
+    needs: extract
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: coverage-*
+          merge-multiple: true
+          path: all-coverage
+
+      - name: List results
+        run: |
+          echo "=== Coverage CSVs ==="
+          ls -la all-coverage/
+          echo ""
+          for f in all-coverage/*.csv; do
+            echo "--- $(basename "$f") ---"
+            wc -l "$f"
+            head -5 "$f"
+            echo ""
+          done
+
+      - name: Upload combined artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-ant-ivy-coverage
+          path: all-coverage/
