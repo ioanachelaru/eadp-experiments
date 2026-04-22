@@ -66,14 +66,18 @@ mkdir -p lib
 
 # Use Ivy CLI to resolve and retrieve dependencies into lib/
 # The retrieve pattern matches what the build.xml expects: lib/[artifact].[ext]
-java -jar "${IVY_JAR}" \
-    -ivy ivy.xml \
-    -retrieve "lib/[artifact].[ext]" \
-    -confs "default,test" \
-    || echo "WARNING: Some dependencies may not have resolved (non-fatal)"
+# Resolve each configuration separately to avoid Ivy CLI parsing issues.
+for conf in default test; do
+    echo "  Resolving conf: ${conf}"
+    java -jar "${IVY_JAR}" \
+        -ivy ivy.xml \
+        -retrieve "lib/[artifact].[ext]" \
+        -confs "${conf}" \
+        2>&1 || echo "  WARNING: conf '${conf}' failed (may not exist in this version)"
+done
 
 echo "  Dependencies in lib/:"
-ls lib/*.jar 2>/dev/null | head -20 || echo "  (none)"
+ls lib/*.jar 2>/dev/null || echo "  (none)"
 
 # Step 2: Inject JaCoCo agent into build.xml
 echo "Patching build.xml to add JaCoCo agent..."
