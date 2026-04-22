@@ -51,30 +51,56 @@ if [ ! -f "${ANT_IVY_DIR}/build.xml" ]; then
     exit 1
 fi
 
-# Step 1: Resolve dependencies using a modern Ivy JAR
-# Old Ivy versions (2.0-2.1) use HTTP for Maven Central, which no longer works.
-# We download Ivy 2.5.2 and use it to resolve dependencies, then skip
-# the project's own resolve step.
-echo "Downloading Ivy 2.5.2 for dependency resolution..."
-if [ ! -f "${IVY_JAR}" ]; then
-    curl -sL "https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.5.2/ivy-2.5.2.jar" -o "${IVY_JAR}"
-fi
-
-echo "Resolving dependencies with Ivy 2.5.2..."
+# Step 1: Resolve dependencies
+# Strategy depends on the Ant-Ivy version:
+# - v1.4.1 uses pre-Apache Maven coordinates (org=apache, org=jcraft) that
+#   don't exist on Maven Central, so we manually download the correct JARs.
+# - v2.0+ uses standard coordinates but old Ivy HTTP resolvers that no longer
+#   work, so we use a modern Ivy 2.5.2 to resolve.
 cd "${ANT_IVY_DIR}"
 mkdir -p lib
 
-# Use Ivy CLI to resolve and retrieve dependencies into lib/
-# The retrieve pattern matches what the build.xml expects: lib/[artifact].[ext]
-# Resolve each configuration separately to avoid Ivy CLI parsing issues.
-for conf in default test; do
-    echo "  Resolving conf: ${conf}"
-    java -jar "${IVY_JAR}" \
-        -ivy ivy.xml \
-        -retrieve "lib/[artifact].[ext]" \
-        -confs "${conf}" \
-        2>&1 || echo "  WARNING: conf '${conf}' failed (may not exist in this version)"
-done
+# Detect v1.4.1 by its namespace (jayasoft instead of apache)
+if grep -q "jayasoft" ivy.xml 2>/dev/null; then
+    echo "Detected pre-Apache version (v1.4.1) — downloading dependencies manually..."
+    MAVEN="https://repo1.maven.org/maven2"
+    curl -sfL "${MAVEN}/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0.jar" -o lib/commons-httpclient.jar
+    curl -sfL "${MAVEN}/commons-cli/commons-cli/1.0/commons-cli-1.0.jar" -o lib/commons-cli.jar
+    curl -sfL "${MAVEN}/oro/oro/2.0.8/oro-2.0.8.jar" -o lib/oro.jar
+    curl -sfL "${MAVEN}/com/jcraft/jsch/0.1.25/jsch-0.1.25.jar" -o lib/jsch.jar
+    curl -sfL "${MAVEN}/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" -o lib/commons-logging.jar
+    curl -sfL "${MAVEN}/commons-vfs/commons-vfs/1.0/commons-vfs-1.0.jar" -o lib/commons-vfs.jar
+    curl -sfL "${MAVEN}/slide/slide-webdavlib/2.1/slide-webdavlib-2.1.jar" -o lib/slide-webdavlib.jar
+    curl -sfL "${MAVEN}/commons-codec/commons-codec/1.3/commons-codec-1.3.jar" -o lib/commons-codec.jar
+    curl -sfL "${MAVEN}/junit/junit/3.8.1/junit-3.8.1.jar" -o lib/junit.jar
+    echo "  Downloaded $(ls lib/*.jar | wc -l) JARs to lib/"
+    # Patch build.xml: remove the init-ivy/download-ivy dependency chain.
+    # The resolve target already has unless="no.resolve", but its dependency
+    # init-ivy still runs and fails because it tries to load the jayasoft
+    # Ivy taskdef from a JAR that no longer exists. Since we skip resolve,
+    # we don't need Ivy tasks at all — just remove the dependency.
+    sed -i 's/name="resolve" depends="init-ivy, prepare"/name="resolve" depends="prepare"/' \
+        "${ANT_IVY_DIR}/build.xml"
+    echo "  Patched build.xml to remove init-ivy dependency"
+else
+    echo "Downloading Ivy 2.5.2 for dependency resolution..."
+    if [ ! -f "${IVY_JAR}" ]; then
+        curl -sL "https://repo1.maven.org/maven2/org/apache/ivy/ivy/2.5.2/ivy-2.5.2.jar" -o "${IVY_JAR}"
+    fi
+
+    echo "Resolving dependencies with Ivy 2.5.2..."
+    # Use Ivy CLI to resolve and retrieve dependencies into lib/
+    # The retrieve pattern matches what the build.xml expects: lib/[artifact].[ext]
+    # Resolve each configuration separately to avoid Ivy CLI parsing issues.
+    for conf in default test; do
+        echo "  Resolving conf: ${conf}"
+        java -jar "${IVY_JAR}" \
+            -ivy ivy.xml \
+            -retrieve "lib/[artifact].[ext]" \
+            -confs "${conf}" \
+            2>&1 || echo "  WARNING: conf '${conf}' failed (may not exist in this version)"
+    done
+fi
 
 echo "  Dependencies in lib/:"
 ls lib/*.jar 2>/dev/null || echo "  (none)"
@@ -92,9 +118,14 @@ ${AGENT_ARG}" "${ANT_IVY_DIR}/build.xml"
 fi
 
 # Step 3: Build and run tests (skip resolve since we already downloaded deps)
-echo "Running ant test -Dno.resolve=true ..."
+ANT_FLAGS="-Dno.resolve=true"
+# v1.4.1 needs -Doffline=true to skip downloading Ivy from the dead jayasoft.org
+if grep -q "jayasoft" ivy.xml 2>/dev/null; then
+    ANT_FLAGS="${ANT_FLAGS} -Doffline=true"
+fi
+echo "Running ant test ${ANT_FLAGS} ..."
 
-ant test -Dno.resolve=true \
+ant test ${ANT_FLAGS} \
     || echo "WARNING: ant test exited with non-zero status (some tests may have failed)"
 
 # Step 4: Generate XML report
