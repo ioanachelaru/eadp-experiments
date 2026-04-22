@@ -85,7 +85,9 @@ if grep -q "jayasoft" ivy.xml 2>/dev/null; then
     # optional integration classes, not core Ivy — removing them allows the
     # rest of the codebase to compile and be tested.
     rm -rf "${ANT_IVY_DIR}/src/java/fr/jayasoft/ivy/repository/vfs"
+    rm -f  "${ANT_IVY_DIR}/src/java/fr/jayasoft/ivy/resolver/VfsResolver.java"
     rm -rf "${ANT_IVY_DIR}/test/java/fr/jayasoft/ivy/repository/vfs"
+    rm -f  "${ANT_IVY_DIR}/test/java/fr/jayasoft/ivy/resolver/VfsResolverTest.java"
     echo "  Removed VFS/WebDAV source files (incompatible commons-vfs snapshot)"
 else
     echo "Downloading Ivy 2.5.2 for dependency resolution..."
