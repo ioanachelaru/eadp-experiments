@@ -69,8 +69,6 @@ if grep -q "jayasoft" ivy.xml 2>/dev/null; then
     curl -sfL "${MAVEN}/oro/oro/2.0.8/oro-2.0.8.jar" -o lib/oro.jar
     curl -sfL "${MAVEN}/com/jcraft/jsch/0.1.25/jsch-0.1.25.jar" -o lib/jsch.jar
     curl -sfL "${MAVEN}/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" -o lib/commons-logging.jar
-    curl -sfL "${MAVEN}/commons-vfs/commons-vfs/1.0/commons-vfs-1.0.jar" -o lib/commons-vfs.jar
-    curl -sfL "${MAVEN}/slide/slide-webdavlib/2.1/slide-webdavlib-2.1.jar" -o lib/slide-webdavlib.jar
     curl -sfL "${MAVEN}/commons-codec/commons-codec/1.3/commons-codec-1.3.jar" -o lib/commons-codec.jar
     curl -sfL "${MAVEN}/junit/junit/3.8.1/junit-3.8.1.jar" -o lib/junit.jar
     echo "  Downloaded $(ls lib/*.jar | wc -l) JARs to lib/"
@@ -82,6 +80,13 @@ if grep -q "jayasoft" ivy.xml 2>/dev/null; then
     sed -i 's/name="resolve" depends="init-ivy, prepare"/name="resolve" depends="prepare"/' \
         "${ANT_IVY_DIR}/build.xml"
     echo "  Patched build.xml to remove init-ivy dependency"
+    # Remove VFS/WebDAV source files: they depend on a specific commons-vfs
+    # snapshot (20060920) that no longer exists on Maven Central. These are
+    # optional integration classes, not core Ivy — removing them allows the
+    # rest of the codebase to compile and be tested.
+    rm -rf "${ANT_IVY_DIR}/src/java/fr/jayasoft/ivy/repository/vfs"
+    rm -rf "${ANT_IVY_DIR}/test/java/fr/jayasoft/ivy/repository/vfs"
+    echo "  Removed VFS/WebDAV source files (incompatible commons-vfs snapshot)"
 else
     echo "Downloading Ivy 2.5.2 for dependency resolution..."
     if [ ! -f "${IVY_JAR}" ]; then
