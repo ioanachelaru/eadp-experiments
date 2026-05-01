@@ -1,0 +1,42 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: ant-ivy-effort26-cov
+Algorithm: DBSCAN
+Samples: 2237, Features: 31
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      PMD_rule_type_unnecessary and unused code rules        3.110769
+2      PMD_arp                                                2.378647
+3      PMD_rule_type_string and stringbuffer rules            2.363596
+4      PMD_severity_minor                                     1.983628
+5      PMD_cis                                                1.922560
+6      PMD_rule_type_design rules                             1.675163
+7      PMD_severity_major                                     1.511691
+8      PMD_rule_type_basic rules                              1.502800
+9      COV_BRANCH                                             0.547337
+10     COV_METHOD                                             0.387466
+11     COV_LINE                                               0.343959
+12     COV_INSTRUCTION                                        0.319654
+13     COV_COMPLEXITY                                         0.286636
+14     MOSER_weighted_age                                     0.272097
+15     PMD_rule_type_controversial rules                      0.262614
+16     PMD_severity_critical                                  0.162859
+17     MOSER_bugfix                                           0.096870
+18     ISSUE_major_improvement                                0.088888
+19     ISSUE_major_bug                                        0.083182
+20     HASSAN_hcm                                             0.043917
+21     HASSAN_whcm                                            0.037713
+22     MOSER_revisions                                        0.036463
+23     HASSAN_ldhcm                                           0.031098
+24     CHANGE_TYPE_other                                      0.031042
+25     CHANGE_TYPE_computation                                0.026649
+26     HASSAN_edhcm                                           0.024873
+27     MOSER_sum_lines_deleted                                0.022723
+28     MOSER_authors                                          0.008580
+29     HASSAN_lgdhcm                                          0.006742
+30     CHANGE_TYPE_data                                       0.004296
+31     PMD_odpl                                               0.000000
+
+======================================================================

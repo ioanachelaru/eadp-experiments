@@ -1,0 +1,274 @@
+{
+  "cv_mode": "chronological",
+  "n_folds": 5,
+  "release_order": [
+    "1.4.1",
+    "2.0.0",
+    "2.1.0",
+    "2.2.0",
+    "2.3.0",
+    "2.4.0"
+  ],
+  "n_features": 61,
+  "feature_names": [
+    "SM_interface_nod_stdev",
+    "SM_enum_dloc_stdev",
+    "SM_enum_cloc_stdev",
+    "SM_enum_tcloc_stdev",
+    "SM_enum_npa_stdev",
+    "SM_enum_nlpa_stdev",
+    "SM_enum_nla_stdev",
+    "SM_enum_na_stdev",
+    "SM_enum_tnlpa_stdev",
+    "SM_enum_tnpa_stdev",
+    "SM_enum_tna_stdev",
+    "SM_enum_tnla_stdev",
+    "SM_interface_cboi_stdev",
+    "SM_enum_ad_generalized_entropy",
+    "SM_enum_ad_atkinson",
+    "SM_enum_ad_theil",
+    "SM_method_cco_min",
+    "SM_method_ci_min",
+    "SM_method_cco_median",
+    "SM_method_ccl_min",
+    "SM_enum_cco_min",
+    "SM_method_ci_median",
+    "SM_method_cco_avg",
+    "SM_enum_cboi_stdev",
+    "SM_enum_ci_min",
+    "SM_interface_noc_stdev",
+    "SM_enum_pua_stdev",
+    "SM_enum_nlg_stdev",
+    "SM_enum_ng_stdev",
+    "SM_enum_cco_median",
+    "CHANGE_TYPE_computation",
+    "CHANGE_TYPE_data",
+    "CHANGE_TYPE_other",
+    "HASSAN_edhcm",
+    "HASSAN_hcm",
+    "HASSAN_ldhcm",
+    "HASSAN_lgdhcm",
+    "HASSAN_whcm",
+    "ISSUE_major_bug",
+    "ISSUE_major_improvement",
+    "MOSER_authors",
+    "MOSER_bugfix",
+    "MOSER_revisions",
+    "MOSER_sum_lines_deleted",
+    "MOSER_weighted_age",
+    "PMD_arp",
+    "PMD_cis",
+    "PMD_odpl",
+    "PMD_rule_type_basic rules",
+    "PMD_rule_type_controversial rules",
+    "PMD_rule_type_design rules",
+    "PMD_rule_type_string and stringbuffer rules",
+    "PMD_rule_type_unnecessary and unused code rules",
+    "PMD_severity_critical",
+    "PMD_severity_major",
+    "PMD_severity_minor",
+    "COV_INSTRUCTION",
+    "COV_BRANCH",
+    "COV_LINE",
+    "COV_COMPLEXITY",
+    "COV_METHOD"
+  ],
+  "metrics": {
+    "precision": {
+      "mean": 0.1995251160225469,
+      "std": 0.11501107142705523,
+      "values": [
+        0.13432835820895522,
+        0.38636363636363635,
+        0.27884615384615385,
+        0.08333333333333333,
+        0.11475409836065574
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "recall": {
+      "mean": 0.6654689185445488,
+      "std": 0.24824008185251506,
+      "values": [
+        0.18,
+        0.6938775510204082,
+        0.7837837837837838,
+        0.8461538461538461,
+        0.8235294117647058
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "f1": {
+      "mean": 0.28294140467841034,
+      "std": 0.1432185292999596,
+      "values": [
+        0.15384615384615385,
+        0.49635036496350365,
+        0.41134751773049644,
+        0.15172413793103448,
+        0.2014388489208633
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "roc_auc": {
+      "mean": 0.7543778549359897,
+      "std": 0.18967887961870686,
+      "values": [
+        0.37711920529801324,
+        0.8676782401272196,
+        0.8723263140441055,
+        0.8184931506849316,
+        0.8362723645256791
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    },
+    "avg_precision": {
+      "mean": 0.3352141559452265,
+      "std": 0.14276752843439358,
+      "values": [
+        0.16832316700567967,
+        0.4812791888309558,
+        0.49144057490193316,
+        0.16965713321692935,
+        0.36537071577063485
+      ],
+      "fold_versions": [
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0",
+        "2.4.0"
+      ]
+    }
+  },
+  "fold_details": [
+    {
+      "test_version": "2.0.0",
+      "train_versions": [
+        "1.4.1"
+      ],
+      "n_train": 240,
+      "n_test": 352,
+      "n_defective_train": 11,
+      "n_defective_test": 50,
+      "defect_rate_train": 4.583333333333333,
+      "defect_rate_test": 14.204545454545455,
+      "precision": 0.13432835820895522,
+      "recall": 0.18,
+      "f1": 0.15384615384615385,
+      "roc_auc": 0.37711920529801324,
+      "avg_precision": 0.16832316700567967
+    },
+    {
+      "test_version": "2.1.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0"
+      ],
+      "n_train": 592,
+      "n_test": 357,
+      "n_defective_train": 61,
+      "n_defective_test": 49,
+      "defect_rate_train": 10.304054054054054,
+      "defect_rate_test": 13.725490196078432,
+      "precision": 0.38636363636363635,
+      "recall": 0.6938775510204082,
+      "f1": 0.49635036496350365,
+      "roc_auc": 0.8676782401272196,
+      "avg_precision": 0.4812791888309558
+    },
+    {
+      "test_version": "2.2.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0"
+      ],
+      "n_train": 949,
+      "n_test": 363,
+      "n_defective_train": 110,
+      "n_defective_test": 37,
+      "defect_rate_train": 11.591148577449948,
+      "defect_rate_test": 10.192837465564738,
+      "precision": 0.27884615384615385,
+      "recall": 0.7837837837837838,
+      "f1": 0.41134751773049644,
+      "roc_auc": 0.8723263140441055,
+      "avg_precision": 0.49144057490193316
+    },
+    {
+      "test_version": "2.3.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0"
+      ],
+      "n_train": 1312,
+      "n_test": 451,
+      "n_defective_train": 147,
+      "n_defective_test": 13,
+      "defect_rate_train": 11.204268292682928,
+      "defect_rate_test": 2.882483370288248,
+      "precision": 0.08333333333333333,
+      "recall": 0.8461538461538461,
+      "f1": 0.15172413793103448,
+      "roc_auc": 0.8184931506849316,
+      "avg_precision": 0.16965713321692935
+    },
+    {
+      "test_version": "2.4.0",
+      "train_versions": [
+        "1.4.1",
+        "2.0.0",
+        "2.1.0",
+        "2.2.0",
+        "2.3.0"
+      ],
+      "n_train": 1763,
+      "n_test": 474,
+      "n_defective_train": 160,
+      "n_defective_test": 17,
+      "defect_rate_train": 9.075439591605218,
+      "defect_rate_test": 3.5864978902953584,
+      "precision": 0.11475409836065574,
+      "recall": 0.8235294117647058,
+      "f1": 0.2014388489208633,
+      "roc_auc": 0.8362723645256791,
+      "avg_precision": 0.36537071577063485
+    }
+  ],
+  "feature_importances": [],
+  "dataset": "ant-ivy-top30-sm-effort26-cov",
+  "description": "Ant-Ivy: 30 SM + 26 effort + 5 coverage (61 total)",
+  "classifier": "lr",
+  "n_estimators": 100,
+  "random_state": 42,
+  "n_samples": 2237,
+  "n_defective": 177,
+  "defect_rate": 7.91
+}

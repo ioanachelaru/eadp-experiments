@@ -18,9 +18,9 @@
   "n_defective_test": 80,
   "defect_rate_train": 9.06210921217174,
   "defect_rate_test": 6.010518407212622,
-  "precision": 0.75,
-  "recall": 0.75,
-  "f1": 0.75,
-  "roc_auc": 0.914558353317346,
-  "avg_precision": 0.729680604637954
+  "precision": 0.4326241134751773,
+  "recall": 0.7625,
+  "f1": 0.5520361990950227,
+  "roc_auc": 0.8878697042366107,
+  "avg_precision": 0.6304129950603516
 }

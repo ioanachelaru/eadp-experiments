@@ -1,0 +1,726 @@
+{
+  "dataset": "ant-ivy-effort-cov",
+  "algorithm": "dbscan",
+  "algorithm_params": {
+    "eps": 19.773636299667622,
+    "auto_eps": true,
+    "min_samples": 5,
+    "n_clusters": 10,
+    "n_noise": 75,
+    "noise_ratio": 0.03352704514975414
+  },
+  "preprocessing": {
+    "remove_outliers": false,
+    "z_threshold": null
+  },
+  "n_samples": 2237,
+  "n_features": 154,
+  "n_defective": 177,
+  "defect_rate": 7.91,
+  "internal_metrics": {
+    "silhouette_score": 0.569440034242418,
+    "davies_bouldin_index": 0.48493290288936136
+  },
+  "external_metrics": {
+    "homogeneity": 0.015598957615111694,
+    "completeness": 0.02459406512148266,
+    "v_measure": 0.019089969019125914
+  },
+  "prediction_metrics": {
+    "precision": 0.2564,
+    "recall": 0.0662,
+    "f1_score": 0.1053,
+    "inspection_rate": 0.018,
+    "high_risk_clusters": 7,
+    "total_clusters": 10,
+    "files_in_high_risk": 39,
+    "defects_captured": 10,
+    "total_defects": 151
+  },
+  "cluster_stats": {
+    "noise": {
+      "total": 75,
+      "defective": 26,
+      "defect_rate": 34.67,
+      "risk": "HIGH"
+    },
+    "cluster_0": {
+      "total": 2112,
+      "defective": 141,
+      "defect_rate": 6.68,
+      "risk": "LOW"
+    },
+    "cluster_1": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_2": {
+      "total": 6,
+      "defective": 1,
+      "defect_rate": 16.67,
+      "risk": "HIGH"
+    },
+    "cluster_3": {
+      "total": 6,
+      "defective": 2,
+      "defect_rate": 33.33,
+      "risk": "HIGH"
+    },
+    "cluster_4": {
+      "total": 5,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_5": {
+      "total": 7,
+      "defective": 1,
+      "defect_rate": 14.29,
+      "risk": "HIGH"
+    },
+    "cluster_6": {
+      "total": 5,
+      "defective": 1,
+      "defect_rate": 20.0,
+      "risk": "HIGH"
+    },
+    "cluster_7": {
+      "total": 5,
+      "defective": 1,
+      "defect_rate": 20.0,
+      "risk": "HIGH"
+    },
+    "cluster_8": {
+      "total": 5,
+      "defective": 2,
+      "defect_rate": 40.0,
+      "risk": "HIGH"
+    },
+    "cluster_9": {
+      "total": 5,
+      "defective": 2,
+      "defect_rate": 40.0,
+      "risk": "HIGH"
+    }
+  },
+  "feature_relevance": [
+    {
+      "feature": "PMD_smn",
+      "relevance": 6.3526531160534185
+    },
+    {
+      "feature": "PMD_dncgce",
+      "relevance": 6.3526531160534185
+    },
+    {
+      "feature": "PMD_aes",
+      "relevance": 6.289804747821279
+    },
+    {
+      "feature": "PMD_acwam",
+      "relevance": 5.800451882735215
+    },
+    {
+      "feature": "PMD_unaion",
+      "relevance": 5.800451882735215
+    },
+    {
+      "feature": "PMD_rule_type_finalizer rules",
+      "relevance": 5.800451882735214
+    },
+    {
+      "feature": "PMD_fdncsf",
+      "relevance": 5.800451882735214
+    },
+    {
+      "feature": "PMD_rule_type_j2ee rules",
+      "relevance": 5.800451882735214
+    },
+    {
+      "feature": "PMD_dncse",
+      "relevance": 5.711657430147246
+    },
+    {
+      "feature": "PMD_pci",
+      "relevance": 5.371378880942892
+    },
+    {
+      "feature": "PMD_reartn",
+      "relevance": 5.192992493014219
+    },
+    {
+      "feature": "PMD_sts",
+      "relevance": 5.021650828529698
+    },
+    {
+      "feature": "PMD_sidte",
+      "relevance": 4.476840241265536
+    },
+    {
+      "feature": "PMD_rule_type_clone implementation rules",
+      "relevance": 4.3449841722455
+    },
+    {
+      "feature": "PMD_isb",
+      "relevance": 4.287389486925701
+    },
+    {
+      "feature": "PMD_ntss",
+      "relevance": 3.9425291017467554
+    },
+    {
+      "feature": "PMD_apst",
+      "relevance": 3.577512017659076
+    },
+    {
+      "feature": "PMD_usdf",
+      "relevance": 3.4525558668787792
+    },
+    {
+      "feature": "PMD_mbis",
+      "relevance": 3.4486683234462627
+    },
+    {
+      "feature": "PMD_scn",
+      "relevance": 3.267262974833218
+    },
+    {
+      "feature": "PMD_sf",
+      "relevance": 3.2605058099394224
+    },
+    {
+      "feature": "PMD_ecb",
+      "relevance": 3.183371043570253
+    },
+    {
+      "feature": "PMD_cwopcsbf",
+      "relevance": 3.1084173245603046
+    },
+    {
+      "feature": "PMD_ctcnse",
+      "relevance": 3.037784858364129
+    },
+    {
+      "feature": "PMD_sp",
+      "relevance": 2.9969039090012086
+    },
+    {
+      "feature": "PMD_upf",
+      "relevance": 2.9635911510503776
+    },
+    {
+      "feature": "PMD_atret",
+      "relevance": 2.8730256442672677
+    },
+    {
+      "feature": "PMD_clmmic",
+      "relevance": 2.8516265733377875
+    },
+    {
+      "feature": "PMD_sdfnl",
+      "relevance": 2.8470349934587746
+    },
+    {
+      "feature": "PMD_gls",
+      "relevance": 2.712009272949758
+    },
+    {
+      "feature": "PMD_acge",
+      "relevance": 2.568061858659435
+    },
+    {
+      "feature": "PMD_asbf",
+      "relevance": 2.5644432085205433
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "relevance": 2.503204849114595
+    },
+    {
+      "feature": "PMD_gdl",
+      "relevance": 2.4935704220992636
+    },
+    {
+      "feature": "PMD_rule_type_type resolution rules",
+      "relevance": 2.2378693875224647
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "relevance": 2.1320579542798384
+    },
+    {
+      "feature": "PMD_rule_type_java logging rules",
+      "relevance": 2.089375331011677
+    },
+    {
+      "feature": "PMD_arp",
+      "relevance": 2.0126168348091826
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "relevance": 1.898339352255322
+    },
+    {
+      "feature": "PMD_aio",
+      "relevance": 1.7923418669917661
+    },
+    {
+      "feature": "PMD_ulbr",
+      "relevance": 1.6325233959479164
+    },
+    {
+      "feature": "PMD_cis",
+      "relevance": 1.6016709812828986
+    },
+    {
+      "feature": "PMD_uv",
+      "relevance": 1.4667659232382568
+    },
+    {
+      "feature": "PMD_uc",
+      "relevance": 1.4192233717754097
+    },
+    {
+      "feature": "PMD_severity_major",
+      "relevance": 1.4127047294324497
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "relevance": 1.4018461283202177
+    },
+    {
+      "feature": "PMD_adl",
+      "relevance": 1.3447511542902806
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "relevance": 1.3072278721536588
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "relevance": 1.3040283491723816
+    },
+    {
+      "feature": "PMD_rule_type_jakarta commons logging rules",
+      "relevance": 1.233238090984453
+    },
+    {
+      "feature": "PMD_uec",
+      "relevance": 1.216451498454913
+    },
+    {
+      "feature": "PMD_rule_type_optimization rules",
+      "relevance": 1.1836967213744727
+    },
+    {
+      "feature": "PMD_rule_type_strict exception rules",
+      "relevance": 1.1182892963815163
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "relevance": 1.115213949107499
+    },
+    {
+      "feature": "PMD_rule_type_naming rules",
+      "relevance": 1.0754688131765398
+    },
+    {
+      "feature": "PMD_dp",
+      "relevance": 1.0258155252845444
+    },
+    {
+      "feature": "PMD_ucie",
+      "relevance": 1.020414461265096
+    },
+    {
+      "feature": "PMD_fdsbasoc",
+      "relevance": 1.0128005879736741
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "relevance": 0.8186991795030649
+    },
+    {
+      "feature": "COV_BRANCH",
+      "relevance": 0.7978571718108987
+    },
+    {
+      "feature": "COV_METHOD",
+      "relevance": 0.789099578834855
+    },
+    {
+      "feature": "COV_LINE",
+      "relevance": 0.7720939992609096
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "relevance": 0.7665132251731211
+    },
+    {
+      "feature": "PMD_afnmmn",
+      "relevance": 0.749185311771493
+    },
+    {
+      "feature": "PMD_loc",
+      "relevance": 0.7423774984685115
+    },
+    {
+      "feature": "ISSUE_critical_bug",
+      "relevance": 0.732960363295505
+    },
+    {
+      "feature": "PMD_pst",
+      "relevance": 0.6749765280763773
+    },
+    {
+      "feature": "PMD_uni",
+      "relevance": 0.5723125554592365
+    },
+    {
+      "feature": "PMD_asaml",
+      "relevance": 0.5535617076302292
+    },
+    {
+      "feature": "PMD_usbfsa",
+      "relevance": 0.551145144902196
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "relevance": 0.5160888193463324
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "relevance": 0.5072871538741782
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "relevance": 0.4852652755776299
+    },
+    {
+      "feature": "PMD_glsju",
+      "relevance": 0.48242067765063196
+    },
+    {
+      "feature": "MOSER_revisions",
+      "relevance": 0.45580291046571914
+    },
+    {
+      "feature": "MOSER_avg_changeset",
+      "relevance": 0.4515235067104235
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "relevance": 0.42682137015568655
+    },
+    {
+      "feature": "ISSUE_minor_improvement",
+      "relevance": 0.42332913229627306
+    },
+    {
+      "feature": "MOSER_authors",
+      "relevance": 0.41911932540117397
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "relevance": 0.41552210073200224
+    },
+    {
+      "feature": "PMD_if",
+      "relevance": 0.4151572200260384
+    },
+    {
+      "feature": "MOSER_max_changeset",
+      "relevance": 0.40408910227243855
+    },
+    {
+      "feature": "PMD_rfi",
+      "relevance": 0.4026154074876177
+    },
+    {
+      "feature": "PMD_apmp",
+      "relevance": 0.3899405472845206
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "relevance": 0.38641595872761614
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "relevance": 0.36987584047148486
+    },
+    {
+      "feature": "CHANGE_TYPE_logic/control",
+      "relevance": 0.3659073466629703
+    },
+    {
+      "feature": "MOSER_age",
+      "relevance": 0.3501574342673566
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "relevance": 0.3381142101899233
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "relevance": 0.29926227512093967
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "relevance": 0.282915751376343
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "relevance": 0.2775127739647745
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "relevance": 0.2635513457211061
+    },
+    {
+      "feature": "MOSER_max_lines_deleted",
+      "relevance": 0.25325616472177753
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "relevance": 0.23329033727671827
+    },
+    {
+      "feature": "MOSER_avg_lines_deleted",
+      "relevance": 0.2248391379437375
+    },
+    {
+      "feature": "CHANGE_TYPE_interface",
+      "relevance": 0.2139476541823656
+    },
+    {
+      "feature": "MOSER_sum_lines_added",
+      "relevance": 0.1774698297384979
+    },
+    {
+      "feature": "MOSER_sum_code_churn",
+      "relevance": 0.15387872343292136
+    },
+    {
+      "feature": "MOSER_max_lines_added",
+      "relevance": 0.10299475152811542
+    },
+    {
+      "feature": "MOSER_avg_lines_added",
+      "relevance": 0.09116568389398753
+    },
+    {
+      "feature": "MOSER_max_code_churn",
+      "relevance": 0.07829263013092588
+    },
+    {
+      "feature": "PMD_atnpe",
+      "relevance": 0.060308203459825904
+    },
+    {
+      "feature": "PMD_mria",
+      "relevance": 0.05412440077448786
+    },
+    {
+      "feature": "PMD_rule_type_security code guideline rules",
+      "relevance": 0.05394427959510411
+    },
+    {
+      "feature": "MOSER_avg_code_churn",
+      "relevance": 0.04804998278855498
+    },
+    {
+      "feature": "PMD_aisd",
+      "relevance": 0.04774579630881382
+    },
+    {
+      "feature": "PMD_vnc",
+      "relevance": 0.045402704735541664
+    },
+    {
+      "feature": "PMD_upm",
+      "relevance": 0.03133310701363604
+    },
+    {
+      "feature": "PMD_are",
+      "relevance": 0.029459732240584423
+    },
+    {
+      "feature": "PMD_bgmn",
+      "relevance": 0.027028835969293778
+    },
+    {
+      "feature": "PMD_emiacsba",
+      "relevance": 0.02589711244025353
+    },
+    {
+      "feature": "PMD_casr",
+      "relevance": 0.02578141948267677
+    },
+    {
+      "feature": "PMD_ccom",
+      "relevance": 0.02255765830193175
+    },
+    {
+      "feature": "ISSUE_minor_bug",
+      "relevance": 0.020556394444082093
+    },
+    {
+      "feature": "PMD_plfic",
+      "relevance": 0.020413488952056892
+    },
+    {
+      "feature": "ISSUE_minor_task",
+      "relevance": 0.020306468528143874
+    },
+    {
+      "feature": "PMD_uem",
+      "relevance": 0.01822940272218184
+    },
+    {
+      "feature": "PMD_dnteif",
+      "relevance": 0.016478556485043167
+    },
+    {
+      "feature": "PMD_absalil",
+      "relevance": 0.01647855648504315
+    },
+    {
+      "feature": "PMD_uwoc",
+      "relevance": 0.016182444301681073
+    },
+    {
+      "feature": "PMD_afnmtn",
+      "relevance": 0.015259599093587739
+    },
+    {
+      "feature": "PMD_eis",
+      "relevance": 0.01441396504904007
+    },
+    {
+      "feature": "ISSUE_blocker_bug",
+      "relevance": 0.014214527969701327
+    },
+    {
+      "feature": "PMD_scfn",
+      "relevance": 0.0131992045432941
+    },
+    {
+      "feature": "PMD_cla",
+      "relevance": 0.009256546891803245
+    },
+    {
+      "feature": "PMD_aicicc",
+      "relevance": 0.008122587411257364
+    },
+    {
+      "feature": "PMD_rule_type_brace rules",
+      "relevance": 0.006480223209864663
+    },
+    {
+      "feature": "PMD_tfbfass",
+      "relevance": 0.0030066728743677815
+    },
+    {
+      "feature": "PMD_sc",
+      "relevance": 0.0027464260808402713
+    },
+    {
+      "feature": "PMD_ismub",
+      "relevance": 0.0019880574054376063
+    },
+    {
+      "feature": "PMD_ulv",
+      "relevance": 0.0004450726381511836
+    },
+    {
+      "feature": "ISSUE_trivial_bug",
+      "relevance": 4.548443630804683e-16
+    },
+    {
+      "feature": "PMD_obeah",
+      "relevance": 4.548443630804683e-16
+    },
+    {
+      "feature": "MOSER_refactorings",
+      "relevance": 4.548443630804683e-16
+    },
+    {
+      "feature": "PMD_ulwcc",
+      "relevance": 4.0274884821828354e-16
+    },
+    {
+      "feature": "PMD_nsi",
+      "relevance": 3.2060393187225073e-16
+    },
+    {
+      "feature": "ISSUE_trivial_improvement",
+      "relevance": 3.2060393187225073e-16
+    },
+    {
+      "feature": "ISSUE_critical_improvement",
+      "relevance": 2.8579694303417227e-16
+    },
+    {
+      "feature": "PMD_bi",
+      "relevance": 2.8579694303417227e-16
+    },
+    {
+      "feature": "PMD_aci",
+      "relevance": 2.706391013831465e-16
+    },
+    {
+      "feature": "PMD_sbe",
+      "relevance": 2.706391013831465e-16
+    },
+    {
+      "feature": "PMD_wlmub",
+      "relevance": 2.706391013831465e-16
+    },
+    {
+      "feature": "PMD_esnil",
+      "relevance": 2.706391013831465e-16
+    },
+    {
+      "feature": "PMD_flmub",
+      "relevance": 2.706391013831465e-16
+    },
+    {
+      "feature": "PMD_ssshd",
+      "relevance": 2.69576251425838e-16
+    },
+    {
+      "feature": "PMD_iesmub",
+      "relevance": 1.5464940604685083e-16
+    },
+    {
+      "feature": "PMD_apmifcne",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_ews",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_ifsp",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_rule_type_import statement rules",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_menc",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_odpl",
+      "relevance": 2.927522545177611e-17
+    },
+    {
+      "feature": "PMD_act",
+      "relevance": 0.0
+    }
+  ]
+}

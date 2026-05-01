@@ -1,0 +1,40 @@
+============================================================
+CLUSTERING METRICS SUMMARY
+============================================================
+Dataset: ant-ivy-top30-sm-only
+Algorithm: DBSCAN
+Samples: 2237
+Features: 30
+Defective: 177 (7.91%)
+
+Algorithm Parameters:
+  eps: 0.2988412381546681
+  auto_eps: True
+  min_samples: 5
+  n_clusters: 2
+  n_noise: 20
+  noise_ratio: 0.008940545373267769
+
+Internal Metrics:
+  silhouette_score: 0.9869
+  davies_bouldin_index: 0.0122
+
+External Metrics:
+  homogeneity: 0.0007
+  completeness: 0.0115
+  v_measure: 0.0013
+
+Cluster Prediction Metrics (high-risk cluster membership):
+  precision: 0.0000
+  recall: 0.0000
+  f1_score: 0.0000
+  inspection_rate: 0.00%
+  high_risk_clusters: 0/2
+  defects_captured: 0/173
+
+Cluster Statistics:
+  !! noise: 20 samples, 4 defective (20.0%) - HIGH RISK
+     cluster_0: 2212 samples, 173 defective (7.82%) - LOW RISK
+     cluster_1: 5 samples, 0 defective (0.0%) - LOW RISK
+
+============================================================

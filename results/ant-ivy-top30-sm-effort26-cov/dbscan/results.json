@@ -1,0 +1,312 @@
+{
+  "dataset": "ant-ivy-top30-sm-effort26-cov",
+  "algorithm": "dbscan",
+  "algorithm_params": {
+    "eps": 7.753259121331116,
+    "auto_eps": true,
+    "min_samples": 5,
+    "n_clusters": 3,
+    "n_noise": 42,
+    "noise_ratio": 0.018775145283862316
+  },
+  "preprocessing": {
+    "remove_outliers": false,
+    "z_threshold": null
+  },
+  "n_samples": 2237,
+  "n_features": 61,
+  "n_defective": 177,
+  "defect_rate": 7.91,
+  "internal_metrics": {
+    "silhouette_score": 0.561740119441486,
+    "davies_bouldin_index": 0.5329909712246865
+  },
+  "external_metrics": {
+    "homogeneity": 0.0015725811756465643,
+    "completeness": 0.011470119074687734,
+    "v_measure": 0.002765944626967287
+  },
+  "prediction_metrics": {
+    "precision": 0.2,
+    "recall": 0.0065,
+    "f1_score": 0.0125,
+    "inspection_rate": 0.0023,
+    "high_risk_clusters": 1,
+    "total_clusters": 3,
+    "files_in_high_risk": 5,
+    "defects_captured": 1,
+    "total_defects": 155
+  },
+  "cluster_stats": {
+    "noise": {
+      "total": 42,
+      "defective": 22,
+      "defect_rate": 52.38,
+      "risk": "HIGH"
+    },
+    "cluster_0": {
+      "total": 2184,
+      "defective": 154,
+      "defect_rate": 7.05,
+      "risk": "LOW"
+    },
+    "cluster_1": {
+      "total": 6,
+      "defective": 0,
+      "defect_rate": 0.0,
+      "risk": "LOW"
+    },
+    "cluster_2": {
+      "total": 5,
+      "defective": 1,
+      "defect_rate": 20.0,
+      "risk": "HIGH"
+    }
+  },
+  "feature_relevance": [
+    {
+      "feature": "SM_method_cco_median",
+      "relevance": 4.184889591831514
+    },
+    {
+      "feature": "SM_method_ci_median",
+      "relevance": 3.7727839213517242
+    },
+    {
+      "feature": "PMD_rule_type_unnecessary and unused code rules",
+      "relevance": 2.9618510847564585
+    },
+    {
+      "feature": "PMD_rule_type_string and stringbuffer rules",
+      "relevance": 2.298802788471099
+    },
+    {
+      "feature": "PMD_arp",
+      "relevance": 2.018931274002346
+    },
+    {
+      "feature": "PMD_cis",
+      "relevance": 1.8555636677232512
+    },
+    {
+      "feature": "PMD_severity_minor",
+      "relevance": 1.7417438154210063
+    },
+    {
+      "feature": "SM_method_cco_avg",
+      "relevance": 1.4726325429003724
+    },
+    {
+      "feature": "PMD_rule_type_design rules",
+      "relevance": 1.4502146068788577
+    },
+    {
+      "feature": "PMD_severity_major",
+      "relevance": 1.3898275855247821
+    },
+    {
+      "feature": "PMD_rule_type_basic rules",
+      "relevance": 1.2492651117391251
+    },
+    {
+      "feature": "COV_LINE",
+      "relevance": 0.8612733678567033
+    },
+    {
+      "feature": "COV_INSTRUCTION",
+      "relevance": 0.8427713032922456
+    },
+    {
+      "feature": "COV_BRANCH",
+      "relevance": 0.8323568865597623
+    },
+    {
+      "feature": "PMD_severity_critical",
+      "relevance": 0.806529903616913
+    },
+    {
+      "feature": "COV_METHOD",
+      "relevance": 0.7914339220135937
+    },
+    {
+      "feature": "COV_COMPLEXITY",
+      "relevance": 0.7685128664957593
+    },
+    {
+      "feature": "PMD_rule_type_controversial rules",
+      "relevance": 0.3606635169422065
+    },
+    {
+      "feature": "MOSER_weighted_age",
+      "relevance": 0.3466860421512636
+    },
+    {
+      "feature": "MOSER_authors",
+      "relevance": 0.1856780167065917
+    },
+    {
+      "feature": "HASSAN_lgdhcm",
+      "relevance": 0.1684744814801781
+    },
+    {
+      "feature": "HASSAN_edhcm",
+      "relevance": 0.1581291872997781
+    },
+    {
+      "feature": "HASSAN_ldhcm",
+      "relevance": 0.15006057314521654
+    },
+    {
+      "feature": "MOSER_revisions",
+      "relevance": 0.12657274949800937
+    },
+    {
+      "feature": "HASSAN_hcm",
+      "relevance": 0.12176725461392886
+    },
+    {
+      "feature": "MOSER_bugfix",
+      "relevance": 0.09347815413206036
+    },
+    {
+      "feature": "HASSAN_whcm",
+      "relevance": 0.08705257228598423
+    },
+    {
+      "feature": "ISSUE_major_improvement",
+      "relevance": 0.085591519800429
+    },
+    {
+      "feature": "ISSUE_major_bug",
+      "relevance": 0.07966613915200652
+    },
+    {
+      "feature": "CHANGE_TYPE_other",
+      "relevance": 0.033109503416038286
+    },
+    {
+      "feature": "MOSER_sum_lines_deleted",
+      "relevance": 0.03251578565956307
+    },
+    {
+      "feature": "CHANGE_TYPE_data",
+      "relevance": 0.027229357870503314
+    },
+    {
+      "feature": "CHANGE_TYPE_computation",
+      "relevance": 0.026568532737903418
+    },
+    {
+      "feature": "SM_interface_cboi_stdev",
+      "relevance": 4.644914445067638e-16
+    },
+    {
+      "feature": "SM_interface_nod_stdev",
+      "relevance": 4.628559518778765e-16
+    },
+    {
+      "feature": "SM_interface_noc_stdev",
+      "relevance": 4.628559518778765e-16
+    },
+    {
+      "feature": "PMD_odpl",
+      "relevance": 2.62702283343476e-17
+    },
+    {
+      "feature": "SM_enum_ng_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_nlg_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_pua_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_ci_min",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_cboi_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_method_ci_min",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_method_ccl_min",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnla_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_cloc_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_tcloc_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_dloc_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_npa_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_nla_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_na_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_nlpa_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_cco_min",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_atkinson",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_theil",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_ad_generalized_entropy",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_method_cco_min",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnlpa_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_tnpa_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_tna_stdev",
+      "relevance": 0.0
+    },
+    {
+      "feature": "SM_enum_cco_median",
+      "relevance": 0.0
+    }
+  ]
+}

@@ -24,6 +24,7 @@ All experiments use **chronological expanding-window cross-validation**:
 | Effort170 + cov (Embed2-full) | 175 | 0.847 | 0.493 | 0.610 | 0.932 |
 | Top30-SM + effort170 + cov (Embed3-full) | 205 | 0.859 | 0.497 | 0.614 | 0.933 |
 | Full SM baseline | 2,859 | 0.843 | 0.826 | 0.832 | 0.967 |
+| Full SM + cov | 2,864 | 0.835 | 0.823 | 0.826 | 0.967 |
 
 ### Wilcoxon Signed-Rank Tests (Calcite, 14 paired folds)
 
@@ -61,6 +62,7 @@ Results are stable across tree counts.
 | Effort149 + cov (Embed2-full) | 154 | 0.376 | 0.277 | 0.300 | 0.883 |
 | Top30-SM + effort149 + cov (Embed3-full) | 184 | 0.434 | 0.250 | 0.274 | 0.882 |
 | Full SM baseline | 3,624 | 0.465 | 0.520 | 0.469 | 0.909 |
+| Full SM + cov | 3,629 | 0.441 | 0.525 | 0.461 | 0.905 |
 
 ### Wilcoxon Signed-Rank Tests (Ant-Ivy, 5 paired folds)
 
@@ -102,9 +104,11 @@ At 30–31 features, effort+cov (AUC=0.919) massively outperforms SM (AUC=0.632)
 
 When using ALL available SM features (2,859), SM achieves F1=0.832 and AUC=0.967, significantly outperforming effort170+cov (F1=0.610, AUC=0.932) at p<0.01. However, this comparison uses 16x more features.
 
-### 3. Adding SM to effort adds nothing
+### 3. Adding SM to effort adds nothing, and vice versa
 
-Embed3 (top30-SM + effort170 + cov, 205 features) performs almost identically to Embed2 (effort170 + cov, 175 features): F1=0.614 vs 0.610, AUC=0.933 vs 0.932. The SM features are redundant when effort features are present — effort already captures whatever defect-relevant signal SM encodes.
+Embed3 (top30-SM + effort170 + cov, 205 features) performs almost identically to Embed2 (effort170 + cov, 175 features): F1=0.614 vs 0.610, AUC=0.933 vs 0.932. The SM features are redundant when effort features are present.
+
+The reverse is also true: adding 5 coverage features to full SM has no impact. Calcite Full SM+cov (AUC=0.967) is identical to Full SM alone (AUC=0.967). Ant-Ivy Full SM+cov (AUC=0.905) is essentially the same as Full SM (AUC=0.909). The two feature families capture overlapping defect signals — whichever one you start with, adding the other contributes nothing.
 
 ### 4. No data leakage from bug-correlated features
 

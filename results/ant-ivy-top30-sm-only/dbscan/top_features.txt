@@ -1,0 +1,41 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: ant-ivy-top30-sm-only
+Algorithm: DBSCAN
+Samples: 2237, Features: 30
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      SM_method_cco_median                                   4.261196
+2      SM_method_ci_median                                    4.001642
+3      SM_method_cco_avg                                      1.511704
+4      SM_interface_cboi_stdev                                0.000000
+5      SM_interface_noc_stdev                                 0.000000
+6      SM_interface_nod_stdev                                 0.000000
+7      SM_enum_nlpa_stdev                                     0.000000
+8      SM_enum_nla_stdev                                      0.000000
+9      SM_enum_tnlpa_stdev                                    0.000000
+10     SM_enum_na_stdev                                       0.000000
+11     SM_enum_cloc_stdev                                     0.000000
+12     SM_enum_tcloc_stdev                                    0.000000
+13     SM_enum_npa_stdev                                      0.000000
+14     SM_enum_dloc_stdev                                     0.000000
+15     SM_enum_ad_generalized_entropy                         0.000000
+16     SM_enum_tnla_stdev                                     0.000000
+17     SM_enum_tna_stdev                                      0.000000
+18     SM_enum_tnpa_stdev                                     0.000000
+19     SM_method_ci_min                                       0.000000
+20     SM_method_cco_min                                      0.000000
+21     SM_enum_ad_atkinson                                    0.000000
+22     SM_enum_ad_theil                                       0.000000
+23     SM_enum_cco_min                                        0.000000
+24     SM_method_ccl_min                                      0.000000
+25     SM_enum_cboi_stdev                                     0.000000
+26     SM_enum_ci_min                                         0.000000
+27     SM_enum_pua_stdev                                      0.000000
+28     SM_enum_nlg_stdev                                      0.000000
+29     SM_enum_ng_stdev                                       0.000000
+30     SM_enum_cco_median                                     0.000000
+
+======================================================================

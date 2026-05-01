@@ -268,6 +268,16 @@ DATASETS = {
         "release_order": "calcite",
         "description": "Calcite: all 2859 SM features (v1.1.0+ only, for fair baseline comparison)",
     },
+    "calcite-sm-cov-v1.1+": {
+        "file": "data/Calcite-sm-cov-v1.1+.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Bug",
+        "version_column": "Calcite version",
+        "release_order": "calcite",
+        "description": "Calcite: all 2859 SM + 5 coverage features (2864 total, v1.1.0+)",
+    },
     "ant-ivy-effort-only": {
         "file": "data/Ant-Ivy-effort-only.csv",
         "sheet": None,
@@ -327,6 +337,16 @@ DATASETS = {
         "version_column": "Ant version",
         "release_order": "ant-ivy",
         "description": "Ant-Ivy: 30 SM + 149 effort + 5 coverage (184 total)",
+    },
+    "ant-ivy-sm-cov": {
+        "file": "data/Ant-Ivy-sm-cov.csv",
+        "sheet": None,
+        "header_row": 0,
+        "feature_name_row": None,
+        "label_column": "Label",
+        "version_column": "Version",
+        "release_order": "ant-ivy",
+        "description": "Ant-Ivy: all 3624 SM + 5 coverage features (3629 total)",
     },
 }
 

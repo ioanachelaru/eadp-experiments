@@ -1,0 +1,72 @@
+======================================================================
+TOP FEATURES BY CLUSTER RELEVANCE
+Dataset: ant-ivy-top30-sm-effort26-cov
+Algorithm: DBSCAN
+Samples: 2237, Features: 61
+======================================================================
+
+Rank   Feature                                               Relevance
+----------------------------------------------------------------------
+1      SM_method_cco_median                                   4.184890
+2      SM_method_ci_median                                    3.772784
+3      PMD_rule_type_unnecessary and unused code rules        2.961851
+4      PMD_rule_type_string and stringbuffer rules            2.298803
+5      PMD_arp                                                2.018931
+6      PMD_cis                                                1.855564
+7      PMD_severity_minor                                     1.741744
+8      SM_method_cco_avg                                      1.472633
+9      PMD_rule_type_design rules                             1.450215
+10     PMD_severity_major                                     1.389828
+11     PMD_rule_type_basic rules                              1.249265
+12     COV_LINE                                               0.861273
+13     COV_INSTRUCTION                                        0.842771
+14     COV_BRANCH                                             0.832357
+15     PMD_severity_critical                                  0.806530
+16     COV_METHOD                                             0.791434
+17     COV_COMPLEXITY                                         0.768513
+18     PMD_rule_type_controversial rules                      0.360664
+19     MOSER_weighted_age                                     0.346686
+20     MOSER_authors                                          0.185678
+21     HASSAN_lgdhcm                                          0.168474
+22     HASSAN_edhcm                                           0.158129
+23     HASSAN_ldhcm                                           0.150061
+24     MOSER_revisions                                        0.126573
+25     HASSAN_hcm                                             0.121767
+26     MOSER_bugfix                                           0.093478
+27     HASSAN_whcm                                            0.087053
+28     ISSUE_major_improvement                                0.085592
+29     ISSUE_major_bug                                        0.079666
+30     CHANGE_TYPE_other                                      0.033110
+31     MOSER_sum_lines_deleted                                0.032516
+32     CHANGE_TYPE_data                                       0.027229
+33     CHANGE_TYPE_computation                                0.026569
+34     SM_interface_cboi_stdev                                0.000000
+35     SM_interface_nod_stdev                                 0.000000
+36     SM_interface_noc_stdev                                 0.000000
+37     PMD_odpl                                               0.000000
+38     SM_enum_ng_stdev                                       0.000000
+39     SM_enum_nlg_stdev                                      0.000000
+40     SM_enum_pua_stdev                                      0.000000
+41     SM_enum_ci_min                                         0.000000
+42     SM_enum_cboi_stdev                                     0.000000
+43     SM_method_ci_min                                       0.000000
+44     SM_method_ccl_min                                      0.000000
+45     SM_enum_tnla_stdev                                     0.000000
+46     SM_enum_cloc_stdev                                     0.000000
+47     SM_enum_tcloc_stdev                                    0.000000
+48     SM_enum_dloc_stdev                                     0.000000
+49     SM_enum_npa_stdev                                      0.000000
+50     SM_enum_nla_stdev                                      0.000000
+51     SM_enum_na_stdev                                       0.000000
+52     SM_enum_nlpa_stdev                                     0.000000
+53     SM_enum_cco_min                                        0.000000
+54     SM_enum_ad_atkinson                                    0.000000
+55     SM_enum_ad_theil                                       0.000000
+56     SM_enum_ad_generalized_entropy                         0.000000
+57     SM_method_cco_min                                      0.000000
+58     SM_enum_tnlpa_stdev                                    0.000000
+59     SM_enum_tnpa_stdev                                     0.000000
+60     SM_enum_tna_stdev                                      0.000000
+61     SM_enum_cco_median                                     0.000000
+
+======================================================================
