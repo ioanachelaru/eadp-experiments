@@ -69,6 +69,18 @@ jobs:
             exit 1
           fi
 
+      - name: Parse JUnit test statistics
+        if: always()
+        run: |
+          if [ -d output/test-report ]; then
+            python3 coverage-extraction/parse_junit.py \
+              output/test-report \
+              "${{ matrix.version }}" \
+              --output-dir output
+          else
+            echo "No test reports found for ${{ matrix.version }}"
+          fi
+
       - name: Upload coverage CSV
         if: always()
         uses: actions/upload-artifact@v4
@@ -76,6 +88,14 @@ jobs:
           name: coverage-${{ matrix.version }}
           path: output/Coverage-AntIvy-*.csv
           if-no-files-found: error
+
+      - name: Upload test statistics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-stats-${{ matrix.version }}
+          path: output/TestStats-AntIvy-*.csv
+          if-no-files-found: warn
 
       - name: Upload JaCoCo report (debug)
         if: always()
@@ -100,6 +120,13 @@ jobs:
           merge-multiple: true
           path: all-coverage
 
+      - name: Download all test stats artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: test-stats-*
+          merge-multiple: true
+          path: all-test-stats
+
       - name: List results
         run: |
           echo "=== Coverage CSVs ==="
@@ -111,9 +138,26 @@ jobs:
             head -5 "$f"
             echo ""
           done
+          echo ""
+          echo "=== Test Statistics ==="
+          if [ -d all-test-stats ]; then
+            for f in all-test-stats/*.csv; do
+              cat "$f"
+            done
+          else
+            echo "No test statistics collected"
+          fi
 
-      - name: Upload combined artifact
+      - name: Upload combined coverage artifact
         uses: actions/upload-artifact@v4
         with:
           name: all-ant-ivy-coverage
           path: all-coverage/
+
+      - name: Upload combined test stats artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-ant-ivy-test-stats
+          path: all-test-stats/
+          if-no-files-found: warn

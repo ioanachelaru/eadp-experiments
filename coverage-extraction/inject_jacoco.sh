@@ -135,6 +135,21 @@ echo "Running ant test ${ANT_FLAGS} ..."
 ant test ${ANT_FLAGS} \
     || echo "WARNING: ant test exited with non-zero status (some tests may have failed)"
 
+# Step 3.5: Copy JUnit test reports to output directory
+echo "Collecting JUnit test reports..."
+REPORT_FOUND=false
+for dir in "build/test-report" "build/test/report" "build/reports"; do
+    if [ -d "${ANT_IVY_DIR}/${dir}" ]; then
+        cp -r "${ANT_IVY_DIR}/${dir}" "${OUTPUT_DIR}/test-report"
+        REPORT_FOUND=true
+        echo "  Copied from ${dir}: $(ls "${OUTPUT_DIR}"/test-report/TEST-*.xml 2>/dev/null | wc -l) XML files"
+        break
+    fi
+done
+if [ "${REPORT_FOUND}" = false ]; then
+    echo "  WARNING: No JUnit test report directory found"
+fi
+
 # Step 4: Generate XML report
 if [ ! -f "${EXEC_FILE}" ]; then
     echo "Error: ${EXEC_FILE} not found — JaCoCo agent may not have run" >&2
