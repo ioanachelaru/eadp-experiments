@@ -214,3 +214,4 @@ results/**/test.csv
 data/*.xlsx
 data/Calcite-SM-only.csv
 data/Calcite-sm-only-v1.1+.csv
+data/Calcite-sm-cov-v1.1+.csv
